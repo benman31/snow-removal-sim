@@ -8,7 +8,7 @@
 + https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys
 
 ## Install Git Large File Storage
-+ We will likely be working with some large files and since git is limited to 100 Mb per file we will need to use the Git LFS tool to replace those files with pointers and store the files on a remote server
++ We will likely be working with some large files and since git is limited to 100 MB per file we will need to use the Git LFS tool to replace those files with pointers and store the files on a remote server
 + Download Git LFS from https://git-lfs.github.com/ and install the latest version
 + Open a new Git Bash terminal and navigate to the project folder
 + Type `git lfs install`
