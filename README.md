@@ -12,7 +12,7 @@
 + Download Git LFS from https://git-lfs.github.com/ and install the latest version
 + Open a new Git Bash terminal and navigate to the project folder
 + Type `git lfs install`
-+ You should now be good to go, a .gitattributes file has already been created and filled with some of the most common large file formats used in Unity projects. If we need to add a new file format we can simply add it to .gitattributes and contune using git as normal to stage, commit, and push our work to the remote repository
++ You should now be good to go. A `.gitattributes` file has already been created and filled with some of the most common large file formats used in Unity projects. If we need to add a new file format we can simply add it to `.gitattributes` and continue using git as normal to stage, commit, and push our work to the remote repository
 
 ## Opening the project in Unity
 + Open Unity Hub
