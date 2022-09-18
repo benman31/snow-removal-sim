@@ -1,2 +1,1 @@
-# snow-removal-sim
-A game about snow removal
+#Setting up the project
