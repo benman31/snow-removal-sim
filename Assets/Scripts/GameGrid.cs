@@ -1,3 +1,7 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by MetalStorm Games: https://www.youtube.com/watch?v=qkSSdqOAAl4
+ */
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,10 +16,15 @@ public class GameGrid : MonoBehaviour
     
     [SerializeField] private GameObject gridCellPrefab;
     private GameObject[,] gameGrid;
+    private float gridOffsetX;
+    private float gridOffsetZ;
 
     // Start is called before the first frame update
     void Start()
     {
+        gridOffsetX = -(this.width / 2) * gridCellSize;
+        gridOffsetZ = -(this.height / 2) * gridCellSize;
+
         CreateGrid();
     }
 
@@ -44,15 +53,21 @@ public class GameGrid : MonoBehaviour
                 gameGrid[x, z].GetComponent<GridCell>().SetPosition(x, z);
                 gameGrid[x, z].transform.parent = this.transform;
                 gameGrid[x, z].gameObject.name = $"Grid Cell (x: {x}, z: {z})";
+
+                // Scale the grid cell for debug visuals
+                gameGrid[x, z].GetComponent<GridCell>().Scale(gridCellSize);
+
             }
         }
-        this.transform.Translate(new Vector3(-this.width / 2, 0,  -this.height / 2));
+        this.transform.Translate(new Vector3(gridOffsetX, 0,  gridOffsetZ));
     }
 
+    // Currently broken we may want to consider shifting our game world to positive coordinates only
     public Vector2Int GetGridPositionFromWorld(Vector3 worldPos)
     {
-        int x = Mathf.FloorToInt(worldPos.x / gridCellSize);
-        int z = Mathf.FloorToInt(worldPos.z / gridCellSize);
+        // Todo: try adding offset to world pos before dividing
+        int x = Mathf.FloorToInt((worldPos.x + gridOffsetX) / gridCellSize);
+        int z = Mathf.FloorToInt((worldPos.z + gridOffsetZ)/ gridCellSize);
 
         x = Mathf.Clamp(x, 0, width);
         z = Mathf.Clamp(z, 0, height);
