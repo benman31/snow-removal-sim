@@ -1,3 +1,7 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by MetalStorm Games: https://www.youtube.com/watch?v=qkSSdqOAAl4
+ */
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,12 +25,18 @@ public class GridCell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.snowVolume = MAX_SNOW_VOLUME;        
+        this.snowVolume = MAX_SNOW_VOLUME;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // No need to update if completely clear
+        if (this.isClear)
+        {
+            return;
+        }
+
         if (this.isDirty)
         {
             print($"snow volume in cell {this.name} is {this.snowVolume}");
@@ -37,16 +47,28 @@ public class GridCell : MonoBehaviour
             this.isDirty = false;
         }
     }
-
+    // Set position in grid coordinates
     public void SetPosition(int x, int z)
     {
         posX = x;
         posZ = z;
     }
-
+    // Get position in grid
     public Vector2 GetPosition()
     {
         return new Vector2(posX, posZ);
+    }
+
+    // Set the scale of the local transform (for debug visuals)
+    public void SetScale(float x, float y, float z)
+    {
+        this.transform.localScale = new Vector3(x, y, z);
+    }
+
+    // Scale by a single scalar (for debug visuals)
+    public void Scale(float scalar)
+    {
+        this.transform.localScale *= scalar;
     }
 
     public void SetSnowVolume(float volume)
@@ -66,11 +88,21 @@ public class GridCell : MonoBehaviour
         this.snowVolume = System.Math.Max(this.snowVolume - 1f, 0);
         print($"Shoveled snow after: {this.snowVolume}");
         this.isDirty = true;
+
+        if (this.snowVolume <= 0)
+        {
+            this.isClear = true;
+        }
     }
 
     public void AddSnow()
     {
         this.snowVolume = System.Math.Min(this.snowVolume + 1, MAX_SNOW_VOLUME);
         this.isDirty = true;
+    }
+
+    private Vector2[] getCellsAroundTarget()
+    {
+        return null;
     }
 }
