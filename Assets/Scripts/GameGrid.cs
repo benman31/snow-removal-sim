@@ -22,8 +22,8 @@ public class GameGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridOffsetX = -(this.width / 2) * gridCellSize;
-        gridOffsetZ = -(this.height / 2) * gridCellSize;
+        gridOffsetX = this.width / 2 * gridCellSize;
+        gridOffsetZ = this.height / 2 * gridCellSize;
 
         CreateGrid();
     }
@@ -59,7 +59,7 @@ public class GameGrid : MonoBehaviour
 
             }
         }
-        this.transform.Translate(new Vector3(gridOffsetX, 0,  gridOffsetZ));
+        this.transform.Translate(new Vector3(-gridOffsetX, 0,  -gridOffsetZ));
     }
 
     // Currently broken we may want to consider shifting our game world to positive coordinates only
@@ -67,7 +67,7 @@ public class GameGrid : MonoBehaviour
     {
         // Todo: try adding offset to world pos before dividing
         int x = Mathf.FloorToInt((worldPos.x + gridOffsetX) / gridCellSize);
-        int z = Mathf.FloorToInt((worldPos.z + gridOffsetZ)/ gridCellSize);
+        int z = Mathf.FloorToInt((worldPos.z + gridOffsetZ) / gridCellSize);
 
         x = Mathf.Clamp(x, 0, width);
         z = Mathf.Clamp(z, 0, height);
