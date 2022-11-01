@@ -1,3 +1,7 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by PeerPlay: https://youtu.be/Sr2KoaKN3mU
+ */
 Shader "Tessellation Sample" {
     Properties {
         _Tess ("Tessellation", Range(1,32)) = 4

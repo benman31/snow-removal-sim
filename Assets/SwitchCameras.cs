@@ -1,3 +1,6 @@
+/*
+ * Author: Benjamin Enman, 97377
+ */
 using UnityEngine;
 
 public class SwitchCameras : MonoBehaviour

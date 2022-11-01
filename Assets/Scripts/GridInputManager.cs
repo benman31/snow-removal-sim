@@ -14,8 +14,6 @@ public class GridInputManager : MonoBehaviour
     GameGrid gameGrid;
     [SerializeField] private LayerMask whatIsAGridLayer;
 
-    public GameObject gridTargetting;
-
     private GridCell highlightedGridCell;
     private HashSet<GridCell> highlightedCells;
 
@@ -47,28 +45,31 @@ public class GridInputManager : MonoBehaviour
             //highlightedGridCell.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
         // Highlight the currently targeted grid cell
-        if (cellMouseIsOver)
+        if (highlightedCells.Count > 0)
         {
-            highlightedGridCell = cellMouseIsOver;
+            //highlightedGridCell = cellMouseIsOver;
 
-            float distanceToCell = Vector3.Distance(highlightedGridCell.transform.position, player.transform.position);
-            if (distanceToCell > MAX_SHOVEL_RANGE)
-            {
+            //float distanceToCell = Vector3.Distance(highlightedGridCell.transform.position, player.transform.position);
+           // if (distanceToCell > MAX_SHOVEL_RANGE)
+           // {
                 //cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
 
-            }
-            else
-            {
+           // }
+           // else
+            //{
                 //cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
 
                 // Allow Shoveling if within range
                 if (Input.GetMouseButtonDown(0))
                 {
-                    cellMouseIsOver.ShovelSnow();
+                    foreach (var cell in highlightedCells)
+                    {
+                        cell.ShovelSnow();
+                    }
                 }
-            }
+            //}
         }
-        
+        Debug.Log($"highlighted cells: {this.highlightedCells.Count}");
     }
 
     // Return grid cell if mouse is over it, null otherwise
@@ -78,9 +79,9 @@ public class GridInputManager : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, whatIsAGridLayer))
         {
 
-            Vector3 cellPos = hitInfo.transform.GetComponent<GridCell>().transform.position;
-            Vector3 newPos = new Vector3(cellPos.x, cellPos.y, cellPos.z);
-            gridTargetting.transform.position = newPos;
+            //Vector3 cellPos = hitInfo.transform.GetComponent<GridCell>().transform.position;
+            //Vector3 newPos = new Vector3(cellPos.x, cellPos.y, cellPos.z);
+            //gridTargetting.transform.position = newPos;
 
             return hitInfo.transform.GetComponent<GridCell>();
         }
@@ -89,22 +90,6 @@ public class GridInputManager : MonoBehaviour
             return null;
         }
 
-    }
-
-    private List<Vector2> GetGridCellPositionsAroundTarget(GridCell targetCell, int numCellsLeft, int numCellsRight, int numCellsTop, int numCellsBottom)
-    {
-        BoxCollider collider = this.GetComponent<BoxCollider>();
-        Vector3 scale = collider.transform.localScale;
-        scale *= 3;
-        collider.transform.localScale = scale;
-
-
-        
-        Vector2 targetPos = targetCell.GetPosition();
-
-        List<Vector2> neighboringCells = new List<Vector2>();
-
-        return neighboringCells;
     }
 
     public void AddHighlightedCell(GridCell gridCell)

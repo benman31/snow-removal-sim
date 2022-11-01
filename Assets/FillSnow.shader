@@ -1,13 +1,16 @@
 /*
  * Author: Benjamin Enman, 97377
- * Based on the guide by PeerPlay: https://youtu.be/LMSDFhGP73g
+ * Based on the guide by PeerPlay: https://youtu.be/_NfxMMzYwgo
  */
-
-Shader "Hidden/SnowFall"
+Shader "Unlit/FillSnow"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Coordinate ("Coordinate", Vector) = (0, 0, 0, 0)
+        _Color ("DrawColor", Color) = (1, 0, 0 , 0)
+        _Size ("Size", Range(1, 500)) = 1
+        _Strength("Strength", Range(0, 1)) = 1
     }
     SubShader
     {
@@ -34,15 +37,10 @@ Shader "Hidden/SnowFall"
                 float4 vertex : SV_POSITION;
             };
 
-            //  Linear Congruential PRNG
-            float rand(float3 co)
-            {
-                return frac(sin( dot(co.xyz ,float3(12.9898,78.233,45.5432) )) * 43758.5453);
-            }
-
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            half _FlakeAmount, _FlakeOpacity;
+            fixed4 _Coordinate, _Color;
+            half _Size, _Strength;
 
             v2f vert (appdata v)
             {
@@ -56,10 +54,11 @@ Shader "Hidden/SnowFall"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                // Produces random 0's and 1's
-                float rValue = ceil(rand(float3(i.uv.x, i.uv.y, 0) * _Time.x) - (1 - _FlakeAmount));
-
-                return saturate(col - (rValue * _FlakeOpacity));
+                // Brush size
+                float draw = pow(saturate(1 - distance(i.uv, _Coordinate.xy)), 500 / _Size);
+                // Brush Strength
+                fixed4 drawCol = _Color * (draw * _Strength);
+                return saturate(col - drawCol);
             }
             ENDCG
         }

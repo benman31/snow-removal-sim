@@ -1,3 +1,8 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by PeerPlay: https://youtu.be/h_OjBBWoJ-Q
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;

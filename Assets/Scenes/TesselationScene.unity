@@ -1022,6 +1022,7 @@ GameObject:
   - component: {fileID: 486658342}
   - component: {fileID: 486658341}
   - component: {fileID: 486658346}
+  - component: {fileID: 486658347}
   m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
@@ -1120,9 +1121,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e64751ec0ea5a045b2f28f060a3e65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _snowFallShader: {fileID: 4800000, guid: 6280875032244c4419f13dc6168e30ce, type: 3}
-  _flakeAmount: 0.0128
-  _flakeOpacity: 0.003
+  snowFallShader: {fileID: 4800000, guid: 6280875032244c4419f13dc6168e30ce, type: 3}
+  flakeAmount: 0.0029
+  flakeOpacity: 0.01
+--- !u!114 &486658347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486658340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71ceca3e414f8244a99d9efe6652566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1045797650}
+  drawShader: {fileID: 4800000, guid: cd1a72c6e4dc10743ab990464e110ea7, type: 3}
+  fillShader: {fileID: 4800000, guid: ee1f68eaf66ac554a8174e80d86f90d0, type: 3}
+  brushSize: 10
+  brushStrength: 0.115
 --- !u!4 &502345563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 705561775665358165, guid: 930b7a19d446f4b4c9c810e37e84e625, type: 3}

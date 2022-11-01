@@ -1,31 +1,37 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by PeerPlay: https://youtu.be/_NfxMMzYwgo
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawWithMouse : MonoBehaviour
 {
-    public Camera _camera;
-    public Shader _drawShader;
+    public Camera mainCamera;
+    public Shader drawShader;
+    public Shader fillShader;
 
-    private RenderTexture _splatmap;
-    private Material _snowMaterial, _drawMaterial;
+    private RenderTexture splatmap;
+    private Material fillMaterial, drawMaterial;
+
+    private MeshRenderer meshRenderer;
     
-    private RaycastHit _hit;
+    private RaycastHit hit;
 
     [Range(1, 500)]
-    public float _brushSize;
+    public float brushSize;
     [Range(0, 1)]
-    public float _brushStrength;
+    public float brushStrength;
 
     // Start is called before the first frame update
     void Start()
     {
-        _drawMaterial = new Material(_drawShader);
-        _drawMaterial.SetVector("_Color", Color.red);
+        drawMaterial = new Material(drawShader);
+        fillMaterial = new Material(fillShader);
+        meshRenderer = GetComponent<MeshRenderer>();
 
-        _snowMaterial = GetComponent<MeshRenderer>().material;
-        _splatmap = new RenderTexture(1024, 1024, 0, RenderTextureFormat.ARGBFloat);
-        _snowMaterial.SetTexture("_Splat", _splatmap);
     }
 
     // Update is called once per frame
@@ -33,21 +39,41 @@ public class DrawWithMouse : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out _hit))
+            if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit))
             {
-                _drawMaterial.SetVector("_Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y, 0, 0));
-                _drawMaterial.SetFloat("_Strength", _brushStrength);
-                _drawMaterial.SetFloat("_Size", _brushSize);
-                RenderTexture temp = RenderTexture.GetTemporary(_splatmap.width, _splatmap.height, 0, RenderTextureFormat.ARGBFloat);
-                Graphics.Blit(_splatmap, temp);
-                Graphics.Blit(temp, _splatmap, _drawMaterial);
+                drawMaterial.SetVector("_Coordinate", new Vector4(hit.textureCoord.x, hit.textureCoord.y, 0, 0));
+                drawMaterial.SetFloat("_Strength", brushStrength);
+                drawMaterial.SetFloat("_Size", brushSize);
+
+                RenderTexture snow = (RenderTexture)meshRenderer.material.GetTexture("_Splat");
+                RenderTexture temp = RenderTexture.GetTemporary(snow.width, snow.height, 0, RenderTextureFormat.ARGBFloat);
+                Graphics.Blit(snow, temp, drawMaterial);
+                Graphics.Blit(temp, snow);
+                meshRenderer.material.SetTexture("_Splat", snow);
                 RenderTexture.ReleaseTemporary(temp);
             }
         }
+        else if (Input.GetKey(KeyCode.Mouse1))
+        {
+            if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit))
+            {
+                fillMaterial.SetVector("_Coordinate", new Vector4(hit.textureCoord.x, hit.textureCoord.y, 0, 0));
+                fillMaterial.SetFloat("_Strength", brushStrength);
+                fillMaterial.SetFloat("_Size", brushSize);
+
+                RenderTexture snow = (RenderTexture)meshRenderer.material.GetTexture("_Splat");
+                RenderTexture temp = RenderTexture.GetTemporary(snow.width, snow.height, 0, RenderTextureFormat.ARGBFloat);
+                Graphics.Blit(snow, temp, fillMaterial);
+                Graphics.Blit(temp, snow);
+                meshRenderer.material.SetTexture("_Splat", snow);
+                RenderTexture.ReleaseTemporary(temp);
+            }
+        }
+
     }
 
     private void OnGUI()
     {
-        GUI.DrawTexture(new Rect(0, 0, 256, 256), _splatmap, ScaleMode.ScaleToFit, false, 1);
+        GUI.DrawTexture(new Rect(0, 0, 256, 256), splatmap, ScaleMode.ScaleToFit, false, 1);
     }
 }

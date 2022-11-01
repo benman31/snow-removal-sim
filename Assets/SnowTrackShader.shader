@@ -1,3 +1,8 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by PeerPlay: https://youtu.be/h_OjBBWoJ-Q
+ */
+
 Shader "Custom/SnowTrackShader"
 {
     Properties

@@ -1,3 +1,7 @@
+/*
+ * Author: Benjamin Enman, 97377
+ * Based on the guide by PeerPlay: https://youtu.be/_NfxMMzYwgo
+ */
 Shader "Unlit/DrawTracks"
 {
     Properties
