@@ -15,12 +15,14 @@ public class GridInputManager : MonoBehaviour
     [SerializeField] private LayerMask whatIsAGridLayer;
 
     private GridCell highlightedGridCell;
+    private HashSet<GridCell> highlightedCells;
 
     // Start is called before the first frame update
     void Start()
     {
         // Slow. Maybe make game grid a singleton instead?
         gameGrid = FindObjectOfType<GameGrid>();
+        highlightedCells = new HashSet<GridCell> ();
     }
 
     // Update is called once per frame
@@ -33,40 +35,41 @@ public class GridInputManager : MonoBehaviour
             return;
         }
 
-        Vector2 playerPos = this.gameGrid.GetGridPositionFromWorld(player.transform.position);
-        Debug.Log($"Player transform x: {player.transform.position.x}, y: {player.transform.position.z}");
-        Debug.Log($"Player x: {playerPos.x}, y: {playerPos.y}");
+        Vector2Int playerPos = this.gameGrid.GetGridPositionFromWorld(player.transform.position);
 
         GridCell cellMouseIsOver = IsMouseOverAGridCell();
 
         // Return the last highlighted gridcell to white
         if (highlightedGridCell != null && highlightedGridCell != cellMouseIsOver)
         {
-            highlightedGridCell.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            //highlightedGridCell.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
         }
         // Highlight the currently targeted grid cell
-        if (cellMouseIsOver)
+        if (highlightedCells.Count > 0)
         {
-            highlightedGridCell = cellMouseIsOver;
+            //highlightedGridCell = cellMouseIsOver;
 
-            float distanceToCell = Vector3.Distance(highlightedGridCell.transform.position, player.transform.position);
-            if (distanceToCell > MAX_SHOVEL_RANGE)
-            {
-                cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+            //float distanceToCell = Vector3.Distance(highlightedGridCell.transform.position, player.transform.position);
+           // if (distanceToCell > MAX_SHOVEL_RANGE)
+           // {
+                //cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
 
-            }
-            else
-            {
-                cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
-                
+           // }
+           // else
+            //{
+                //cellMouseIsOver.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+
                 // Allow Shoveling if within range
                 if (Input.GetMouseButtonDown(0))
                 {
-                    cellMouseIsOver.ShovelSnow();
+                    foreach (var cell in highlightedCells)
+                    {
+                        cell.ShovelSnow();
+                    }
                 }
-            }
+            //}
         }
-        
+        Debug.Log($"highlighted cells: {this.highlightedCells.Count}");
     }
 
     // Return grid cell if mouse is over it, null otherwise
@@ -75,6 +78,11 @@ public class GridInputManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, whatIsAGridLayer))
         {
+
+            //Vector3 cellPos = hitInfo.transform.GetComponent<GridCell>().transform.position;
+            //Vector3 newPos = new Vector3(cellPos.x, cellPos.y, cellPos.z);
+            //gridTargetting.transform.position = newPos;
+
             return hitInfo.transform.GetComponent<GridCell>();
         }
         else
@@ -84,12 +92,13 @@ public class GridInputManager : MonoBehaviour
 
     }
 
-    private List<Vector2> GetGridCellPositionsAroundTarget(GridCell targetCell, int numCellsLeft, int numCellsRight, int numCellsTop, int numCellsBottom)
+    public void AddHighlightedCell(GridCell gridCell)
     {
-        Vector2 targetPos = targetCell.GetPosition();
+        this.highlightedCells.Add(gridCell);
+    }
 
-        List<Vector2> neighboringCells = new List<Vector2>();
-
-        return neighboringCells;
+    public void RemoveHighlightedCell(GridCell gridCell)
+    {
+        this.highlightedCells.Remove(gridCell);
     }
 }

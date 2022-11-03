@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc70de1911feca49a9d3dddb70d7584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 10
-  width: 10
-  gridCellSize: 1
+  height: 40
+  width: 40
+  gridCellSize: 0.5
   gridCellPrefab: {fileID: 3717832694931075642, guid: 4291149a593394743aef0e28ff80a1bd, type: 3}
 --- !u!4 &393167681
 Transform:
@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 393167679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

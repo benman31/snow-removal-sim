@@ -54,9 +54,9 @@ public class GridCell : MonoBehaviour
         posZ = z;
     }
     // Get position in grid
-    public Vector2 GetPosition()
+    public Vector2Int GetPosition()
     {
-        return new Vector2(posX, posZ);
+        return new Vector2Int(posX, posZ);
     }
 
     // Set the scale of the local transform (for debug visuals)
@@ -104,5 +104,23 @@ public class GridCell : MonoBehaviour
     private Vector2[] getCellsAroundTarget()
     {
         return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Targetting"))
+        {
+            this.GetComponentInChildren<MeshRenderer>().material.color = Color.green;
+            this.GetComponentInParent<GridInputManager>().AddHighlightedCell(this);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Targetting"))
+        {
+            this.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            this.GetComponentInParent<GridInputManager>().RemoveHighlightedCell(this);
+        }
     }
 }
