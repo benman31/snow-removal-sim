@@ -1,11 +1,14 @@
+/*
+Written by: Abdelrahman Awad
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    [SerializeField]
-    private float windStrength;
+    [SerializeField] private float windStrength = 2, windDirectionTimeSlotMin, windDirectionTimeSlotMax;
     private Vector2 oldWindDir, currentWindDir, newWindDir;
     private float windDirectionTimeSlot, windDirectionCountDown = 0;
     private ParticleSystem particleSys;
@@ -27,7 +30,7 @@ public class Wind : MonoBehaviour
     {
         if (windDirectionCountDown <= 0)
         {
-            windDirectionTimeSlot = Random.Range(5, 20);
+            windDirectionTimeSlot = Random.Range(windDirectionTimeSlotMin, windDirectionTimeSlotMax);
             windDirectionCountDown = windDirectionTimeSlot;
 
             newWindDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
