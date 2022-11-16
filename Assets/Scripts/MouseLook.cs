@@ -1,3 +1,7 @@
+/*
+Written by: Abdelrahman Awad
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,7 +33,7 @@ public class MouseLook : MonoBehaviour
         //rotate camera vertically
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         //rotate Hands vertically together with camera
-        playerHands.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        //playerHands.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         //rotate player horizontally
         playerBody.Rotate(Vector3.up * mouseX);
     }
