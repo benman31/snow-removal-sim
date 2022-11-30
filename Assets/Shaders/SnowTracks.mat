@@ -38,10 +38,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Displacement: 0
+    - _Displacement: 0.494
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Tess: 32
+    - _Tess: 16.1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _GroundColor: {r: 0.22016731, g: 0.32602352, b: 0.5377358, a: 1}
