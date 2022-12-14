@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 5974838a26950f44986b42a96a82576d
+guid: 49e7abd29839c644b8593fa8e1de5632
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _MainTex: {instanceID: 0}
+  - _SnowTex: {fileID: 2800000, guid: 227f67149d33dce45a412884cca6fa8c, type: 3}
   nonModifiableTextures: []
   preprocessorOverride: 0
   userData: 
