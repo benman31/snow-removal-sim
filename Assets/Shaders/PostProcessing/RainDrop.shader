@@ -53,7 +53,7 @@ Shader "Unlit/RainDrop"
                 return o;
             }
 
-            float N21(float2 p)
+            float Rand(float2 p)
             {
                 p = frac(p * float2(123.34, 345.45));
                 p += dot(p, p + 34.345);
@@ -69,7 +69,7 @@ Shader "Unlit/RainDrop"
                 float2 gv = frac(uv) - .5;
 
                 float2 id = floor(uv);
-                float n = N21(id); //0 1
+                float n = Rand(id); //between 0 & 1
                 
                 //multiply by 2 pi to match the period of the sin wave for more randomness
                 t+= n * 6.2831; 
@@ -84,11 +84,12 @@ Shader "Unlit/RainDrop"
                 y -= (gv.x - x) * (gv.x - x);
 
                 float2 dropPos = (gv - float2(x, y)) / aspect;
-                float drop = smoothstep(.05, .03, length(dropPos));
+                float drop = smoothstep(.03, .01, length(dropPos));
 
                 float2 trailPos = (gv - float2(x, t * .25)) / aspect;
                 trailPos.y = (frac(trailPos.y * 8) - .5) / 8;
-                float trail = smoothstep(.03, .01, length(trailPos));
+
+                float trail = smoothstep(.02, .01, length(trailPos));
                 float fogTrail = smoothstep(-.05, .05, dropPos.y);
                 fogTrail *= smoothstep(.5, y, gv.y);   //can improve
 
