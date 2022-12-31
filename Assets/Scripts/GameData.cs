@@ -5,10 +5,10 @@ using UnityEngine;
 public static class GameData
 {
     public static float isoValue = 0.5f;
-    public static int ChunkWidth = 16;
-    public static int ChunkHeight = 250;
+    public static int ChunkWidth = 8;
+    public static int ChunkHeight = 70;
 
-    public static float BaseTerrainHeight = 60.0f;
+    public static float BaseTerrainHeight = 10.0f;
     public static float TerrainHeightRange = 10f;
 
     public static float GetTerrainHeight (int x, int z)

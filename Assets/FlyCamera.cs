@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // Just a placeholder fly camera for demostrating terrain building and destruction
@@ -7,6 +8,9 @@ public class FlyCamera : MonoBehaviour
 {
     public Camera cam;
     public WorldGenerator worldGen;
+    [Range(1f, 5f)] public float brushSize = 3f;
+    [Range(1f, 10f)] public float brushStrength = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +33,11 @@ public class FlyCamera : MonoBehaviour
             {
                 if (hit.transform.tag == "Terrain")
                 {
-                    worldGen.GetChunkFromVector3(hit.transform.position).AddTerrain(hit.point);
+                    Chunk chunk = worldGen.GetChunkFromVector3(hit.transform.position);
+                    if (chunk != null)
+                    {
+                        chunk.AddTerrain(hit.point, brushSize, brushStrength);
+                    }
                 }
                 
             }
@@ -48,7 +56,11 @@ public class FlyCamera : MonoBehaviour
             {
                 if (hit.transform.tag == "Terrain")
                 {
-                    worldGen.GetChunkFromVector3(hit.transform.position).RemoveTerrain(hit.point);
+                    Chunk chunk = worldGen.GetChunkFromVector3(hit.transform.position);
+                    if (chunk != null)
+                    {
+                        chunk.RemoveTerrain(hit.point, brushSize, brushStrength);
+                    }
                 }
 
             }
