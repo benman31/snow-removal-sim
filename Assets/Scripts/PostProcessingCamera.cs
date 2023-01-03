@@ -1,3 +1,7 @@
+/*
+Written by: Abdelrahman Awad
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +22,14 @@ public class PostProcessingCamera : MonoBehaviour
     [Range(-5, 5)] public float distortion = 1;
 
     //mat2
-    [Range(0, 2)] public float radius = 1;
-    [Range(0, 1)] public float feather  = 0;
-    [Range(0, 2)] public float Intensity = 1;
-    private float currentFeather = 0;
-    private float currentRadius = 1;
-    private float currentIntensity = 1;
+    [Range(0, 2)] public float radius = 1.5f;
+    [Range(0, 1)] public float feather = 0.5f;
+    [Range(0, 2)] public float Intensity = 0;
+    public int waterShaderPass = 0;
+
+    private float currentFeather = 0.5f;
+    private float currentRadius = 1.5f;
+    private float currentIntensity = 0;
 
     private void OnPreRender()
     {
@@ -68,10 +74,13 @@ public class PostProcessingCamera : MonoBehaviour
     private void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
         RenderTexture renderTexture = RenderTexture.GetTemporary(src.width, src.height, 0, src.format);
-        
+        RenderTexture renderTexture2 = RenderTexture.GetTemporary(src.width, src.height, 0, src.format);
+
         Graphics.Blit(src, renderTexture, postProcessMat2, 0);
-        Graphics.Blit(renderTexture, dest);
+        Graphics.Blit(renderTexture, renderTexture2, postProcessMat, waterShaderPass);
+        Graphics.Blit(renderTexture2, dest);
 
         RenderTexture.ReleaseTemporary(renderTexture);
+        RenderTexture.ReleaseTemporary(renderTexture2);
     }
 }
