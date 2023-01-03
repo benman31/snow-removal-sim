@@ -2151,7 +2151,6 @@ GameObject:
   - component: {fileID: 843073780}
   - component: {fileID: 843073783}
   - component: {fileID: 843073782}
-  - component: {fileID: 843073781}
   m_Layer: 0
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -2174,29 +2173,6 @@ Transform:
   m_Father: {fileID: 1550482354}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &843073781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843073779}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa6102f670439458e6eebdbff4eb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windIntesity: 2
-  windDirectionTimeSlotMin: 5
-  windDirectionTimeSlotMax: 20
-  oldWindDir: {x: 0, y: 0}
-  currentWindDir: {x: 0, y: 0}
-  newWindDir: {x: 0, y: 0}
-  particleSys1: {fileID: 0}
-  particleSys2: {fileID: 0}
-  particleSys3: {fileID: 0}
-  particleSys4: {fileID: 0}
-  particleSys5: {fileID: 0}
 --- !u!199 &843073782
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -6987,7 +6963,6 @@ GameObject:
   - component: {fileID: 856383481}
   - component: {fileID: 856383478}
   - component: {fileID: 856383480}
-  - component: {fileID: 856383479}
   m_Layer: 0
   m_Name: Particle System (3)
   m_TagString: Untagged
@@ -11702,29 +11677,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &856383479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856383477}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa6102f670439458e6eebdbff4eb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windIntesity: 2
-  windDirectionTimeSlotMin: 5
-  windDirectionTimeSlotMax: 20
-  oldWindDir: {x: 0, y: 0}
-  currentWindDir: {x: 0, y: 0}
-  newWindDir: {x: 0, y: 0}
-  particleSys1: {fileID: 0}
-  particleSys2: {fileID: 0}
-  particleSys3: {fileID: 0}
-  particleSys4: {fileID: 0}
-  particleSys5: {fileID: 0}
 --- !u!199 &856383480
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -12653,7 +12605,6 @@ GameObject:
   - component: {fileID: 1445120450}
   - component: {fileID: 1445120447}
   - component: {fileID: 1445120449}
-  - component: {fileID: 1445120448}
   m_Layer: 0
   m_Name: Particle System (2)
   m_TagString: Untagged
@@ -17368,29 +17319,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1445120448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445120446}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa6102f670439458e6eebdbff4eb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windIntesity: 2
-  windDirectionTimeSlotMin: 5
-  windDirectionTimeSlotMax: 20
-  oldWindDir: {x: 0, y: 0}
-  currentWindDir: {x: 0, y: 0}
-  newWindDir: {x: 0, y: 0}
-  particleSys1: {fileID: 0}
-  particleSys2: {fileID: 0}
-  particleSys3: {fileID: 0}
-  particleSys4: {fileID: 0}
-  particleSys5: {fileID: 0}
 --- !u!199 &1445120449
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -17634,6 +17562,7 @@ GameObject:
   - component: {fileID: 1550482354}
   - component: {fileID: 1550482353}
   - component: {fileID: 1550482355}
+  - component: {fileID: 1550482356}
   m_Layer: 0
   m_Name: Weather System
   m_TagString: Untagged
@@ -17648,13 +17577,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550482352}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1aa04541e62064687dd31f4a4753b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: 5
   playerCam: {fileID: 1701778776}
-  timeScale: 10
 --- !u!4 &1550482354
 Transform:
   m_ObjectHideFlags: 0
@@ -17698,6 +17627,18 @@ MonoBehaviour:
   particleSys3: {fileID: 1445120447}
   particleSys4: {fileID: 856383478}
   particleSys5: {fileID: 1676857136}
+--- !u!114 &1550482356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550482352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40c58587a9a75040852f20b0b265bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574662095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
@@ -17968,7 +17909,6 @@ GameObject:
   - component: {fileID: 1676857139}
   - component: {fileID: 1676857136}
   - component: {fileID: 1676857138}
-  - component: {fileID: 1676857137}
   m_Layer: 0
   m_Name: Particle System (4)
   m_TagString: Untagged
@@ -22683,29 +22623,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &1676857137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676857135}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa6102f670439458e6eebdbff4eb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windIntesity: 2
-  windDirectionTimeSlotMin: 5
-  windDirectionTimeSlotMax: 20
-  oldWindDir: {x: 0, y: 0}
-  currentWindDir: {x: 0, y: 0}
-  newWindDir: {x: 0, y: 0}
-  particleSys1: {fileID: 0}
-  particleSys2: {fileID: 0}
-  particleSys3: {fileID: 0}
-  particleSys4: {fileID: 0}
-  particleSys5: {fileID: 0}
 --- !u!199 &1676857138
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -22948,7 +22865,7 @@ MonoBehaviour:
   postProcessMat2: {fileID: 2100000, guid: d66f5e8c79243244586b7c7b652cc34a, type: 2}
   size: 4
   timeScale: 4
-  distortion: 1.61
+  distortion: 0
   radius: 1.5
   feather: 0
   Intensity: 0
@@ -23045,7 +22962,6 @@ GameObject:
   - component: {fileID: 1714954329}
   - component: {fileID: 1714954328}
   - component: {fileID: 1714954327}
-  - component: {fileID: 1714954330}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -27847,29 +27763,6 @@ Transform:
   m_Father: {fileID: 1550482354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1714954330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714954326}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaa6102f670439458e6eebdbff4eb88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windIntesity: 2
-  windDirectionTimeSlotMin: 5
-  windDirectionTimeSlotMax: 20
-  oldWindDir: {x: 0, y: 0}
-  currentWindDir: {x: 0, y: 0}
-  newWindDir: {x: 0, y: 0}
-  particleSys1: {fileID: 0}
-  particleSys2: {fileID: 0}
-  particleSys3: {fileID: 0}
-  particleSys4: {fileID: 0}
-  particleSys5: {fileID: 0}
 --- !u!1 &1802316253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 86f105d9ae9ae1f4e9e6e171226cac7c, type: 3}

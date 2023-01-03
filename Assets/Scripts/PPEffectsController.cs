@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PPEffectsController : MonoBehaviour
 {
+    public float accumulationRate = 5.0f;
+    public float meltingRate = 10.0f;
+
     [SerializeField] private Camera playerCam;
 
     private Wind wind;
 
-    public float timeScale = 5.0f;
-
     private float timer = 0;
     private bool firstMelt = true;
     private bool melting;
+    private Vector2 windDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,6 @@ public class PPEffectsController : MonoBehaviour
     IEnumerator PPEffects()
     {
         float distort = 0;
-
 
         Vector2 windDir = wind.currentWindDir;
         Vector2 cameraFront = new Vector2(playerCam.transform.forward.x, playerCam.transform.forward.z);
@@ -52,10 +53,10 @@ public class PPEffectsController : MonoBehaviour
 
             if (timer < 1)
             {
-                timer += (Time.deltaTime * dotP) / timeScale;
+                timer += (Time.deltaTime * dotP) / accumulationRate;
             }
 
-            distort -= (Time.deltaTime * dotP) / timeScale;
+            distort -= (Time.deltaTime * dotP) / accumulationRate;
 
             if (timer <= 0.4f) // stop screen from melting until a minimum amount of frost has accumulated
             {
@@ -69,15 +70,30 @@ public class PPEffectsController : MonoBehaviour
         }
         else
         {
-            if(firstMelt)
+            if(firstMelt) // adjust shader pass according to the amount of frost on the screen when melting starts after accumulating 
             {
                 firstMelt = false;
-                playerCam.GetComponent<PostProcessingCamera>().waterShaderPass = 2;
+                
+                if(timer > 0.5f && timer < 0.6f)
+                {
+                    playerCam.GetComponent<PostProcessingCamera>().waterShaderPass = 0; // the higher the shader pass the more water droplets on the screen
+                    playerCam.GetComponent<PostProcessingCamera>().timeScale = 2.0f;
+                }
+
+                else if(timer > 0.6f && timer < 0.8f)
+                {
+                    playerCam.GetComponent<PostProcessingCamera>().waterShaderPass = 1;
+                    playerCam.GetComponent<PostProcessingCamera>().timeScale = 3.0f;
+                }
+
+                else if(timer > 0.8f)
+                {
+                    playerCam.GetComponent<PostProcessingCamera>().waterShaderPass = 2;
+                    playerCam.GetComponent<PostProcessingCamera>().timeScale = 4.0f;
+                }    
             }
 
             yield return new WaitForSeconds(2); //wait 2 seconds before snow accumulation melts
-
-            distort = timer;
 
             playerCam.GetComponent<PostProcessingCamera>().radius = Mathf.Lerp(1.0f, 0.0f, timer);
 
@@ -87,8 +103,10 @@ public class PPEffectsController : MonoBehaviour
 
             if (timer >= 0)
             {
-                timer -= Time.deltaTime / timeScale;
+                timer -= Time.deltaTime / meltingRate;
             }
+
+            distort = timer;
         }
 
         if (!melting)
@@ -96,54 +114,6 @@ public class PPEffectsController : MonoBehaviour
             distort = 0;
         }
 
-        playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(0, 5.0f, distort / 2);
-    }
-
-    IEnumerator SpawnWaterDroplets()
-    {
-        playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(0, 5.0f, timer);
-
-        yield return null;
-    }
-
-    IEnumerator FadeWaterDroplets()
-    {
-        playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(5.0f, 0, timer);
-
-        yield return null;
-    }
-
-    IEnumerator AccumulateSnow()
-    {
-        yield return new WaitForSeconds(0); //wait 2 seconds before snow accumulation starts
-
-        playerCam.GetComponent<PostProcessingCamera>().radius = Mathf.Lerp(1.5f, 0.0f, timer);
-
-        playerCam.GetComponent<PostProcessingCamera>().feather = Mathf.Lerp(1.5f, 0.3f, timer);
-
-        playerCam.GetComponent<PostProcessingCamera>().Intensity = Mathf.Lerp(0.5f, 1.5f, timer);
-
-        if (timer < 1)
-        {
-            timer += Time.deltaTime / timeScale;
-        }
-    }
-
-    IEnumerator MeltSnow()
-    {
-        yield return new WaitForSeconds(0); //wait 2 seconds before snow accumulation melts
-
-        Debug.Log("i made it");
-
-        playerCam.GetComponent<PostProcessingCamera>().radius = Mathf.Lerp(1.5f, 0.0f, timer);
-
-        playerCam.GetComponent<PostProcessingCamera>().feather = Mathf.Lerp(1.5f, 0.3f, timer);
-
-        playerCam.GetComponent<PostProcessingCamera>().Intensity = Mathf.Lerp(0.5f, 1.5f, timer);
-
-        if (timer >= 0)
-        {
-            timer -= Time.deltaTime / timeScale;
-        }
+        playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(0, 5.0f, distort);
     }
 }
