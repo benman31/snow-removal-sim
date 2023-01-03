@@ -9,9 +9,10 @@ public class PPEffectsController : MonoBehaviour
     private Wind wind;
 
     public float timeScale = 5.0f;
-    private float timer = 0;
 
-    public bool melting;
+    private float timer = 0;
+    private bool firstMelt = true;
+    private bool melting;
 
     // Start is called before the first frame update
     void Start()
@@ -51,18 +52,29 @@ public class PPEffectsController : MonoBehaviour
 
             if (timer < 1)
             {
-                timer += Time.deltaTime / timeScale;
+                timer += (Time.deltaTime * dotP) / timeScale;
             }
 
-            distort -= Time.deltaTime / timeScale;
+            distort -= (Time.deltaTime * dotP) / timeScale;
 
-            if (timer <= 0.4f)
+            if (timer <= 0.4f) // stop screen from melting until a minimum amount of frost has accumulated
             {
                 melting = false;
+            }
+
+            if(!firstMelt)
+            {
+                firstMelt = true;
             }
         }
         else
         {
+            if(firstMelt)
+            {
+                firstMelt = false;
+                playerCam.GetComponent<PostProcessingCamera>().waterShaderPass = 2;
+            }
+
             yield return new WaitForSeconds(2); //wait 2 seconds before snow accumulation melts
 
             distort = timer;
