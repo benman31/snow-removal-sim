@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Chunk
 {
+    WorldGenerator world;
+
     int width
     {
         get
         {
-            return GameData.ChunkWidth;
+            return world.ChunkWidth;
         }
     }
 
@@ -17,7 +21,7 @@ public class Chunk
     {
         get
         {
-            return GameData.ChunkHeight;
+            return world.ChunkHeight;
         }
     }
 
@@ -46,8 +50,13 @@ public class Chunk
     public Dictionary<Vector3Int, Chunk> neighboringChunks = new Dictionary<Vector3Int, Chunk>();
     public Boolean isDirty = false;
 
-    public bool enableAccumulationOverTIme = false;
-    public float updateTime = 0.05f;
+    public bool enableAccumulationOverTime = false;
+    
+    public float updateTime
+    {
+        get { return world.updateTime; }
+    }
+
     private float timeAcc = 0.0f;
 
 
@@ -57,17 +66,19 @@ public class Chunk
         chunkObject.name = $"Chunk {pos.x}, {pos.z}";
         chunkPosition = pos;
         chunkObject.transform.position = chunkPosition;
+        chunkObject.layer = LayerMask.NameToLayer("Ground");
 
         meshFilter = chunkObject.AddComponent<MeshFilter>();
         meshCollider = chunkObject.AddComponent<MeshCollider>();
         meshRenderer = chunkObject.AddComponent<MeshRenderer>();
         meshRenderer.material = Resources.Load<Material>("Materials/Terrain");
+        //meshRenderer.material = Resources.Load<Material>("Materials/TerrainSplat");
 
         chunkObject.transform.tag = "Terrain";
 
         chunkObject.transform.SetParent(parent.transform);
-        enableAccumulationOverTIme = parent.enableAccumulationOverTIme;
-        updateTime = parent.updateTime;
+
+        world = parent;
 
         terrainMap = new float[width + 1, height + 1, width + 1];
         surfaceHeightMap = new int[width + 1, width +1];
@@ -81,9 +92,9 @@ public class Chunk
     // Update is called once per frame
     public void Update()
     {
-        if (enableAccumulationOverTIme)
+        if (enableAccumulationOverTime)
         {
-            this.growOverTime();
+            this.GrowOverTime();
         }
 
         if (this.isDirty)
@@ -106,6 +117,32 @@ public class Chunk
         Vector3Int localPos = new Vector3Int(Mathf.CeilToInt(pos.x), Mathf.CeilToInt(pos.y), Mathf.CeilToInt(pos.z));
         localPos -= chunkPosition;
         return localPos;
+    }
+
+    public float GetCubeVolume(Vector3Int pos)
+    {
+        if (pos.x > width - 1 || pos.y > height - 1 || pos.z > width - 1)
+        {
+            Debug.Log("Cell position out of bounds");
+            return -1f;
+        }
+        
+        float volume = 0f;
+
+        for (int i = 0; i < 8; i++)
+        {
+            Vector3Int cornerCoord = new Vector3Int(pos.x, pos.y, pos.z) + GameData.CornerTable[i];
+            float surfaceVal = terrainMap[cornerCoord.x, cornerCoord.y, cornerCoord.z];
+            if (surfaceVal <= isoValue)
+            {
+                //volume += (1f / 8f);
+                // For now I'll treat each cube as a binary 'all snow' or 'no snow' to avoid any tricky errors
+                volume = 1f;
+                break;
+            }
+        }
+
+        return volume;
     }
 
     void ClearMeshData()
@@ -139,6 +176,11 @@ public class Chunk
         }
     }
 
+    private float GetTerrainHeight(int x, int z)
+    {
+        return world.TerrainHeightRange * Mathf.PerlinNoise((float)x / 16f + 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f) + world.BaseTerrainHeight;
+    }
+
     void populateTerrainMap()
     {
         for (int x = 0; x < width + 1; x++)
@@ -148,8 +190,8 @@ public class Chunk
                 int count = 0;
                 for (int y = 0; y < height + 1; y++)
                 {
-                    float surfaceHeight = GameData.GetTerrainHeight(x + chunkPosition.x, z + chunkPosition.z);
-
+                    float surfaceHeight = this.GetTerrainHeight(x + chunkPosition.x, z + chunkPosition.z);
+                    
                     float surfaceValue = (float)y - surfaceHeight;
                     terrainMap[x, y, z] = surfaceValue;
                     
@@ -178,7 +220,7 @@ public class Chunk
         }
     }
 
-    public void updateTerrainAtPosition(Vector3Int pos, float value)
+    public void UpdateTerrainAtPosition(Vector3Int pos, float value)
     {
         if (pos.x > width || pos.x < 0 || pos.y > height || pos.y < 0 || pos.z > width || pos.z < 0)
         {
@@ -199,29 +241,36 @@ public class Chunk
             // Removing terrain from heighest surface point, update heightmap
             else if (value > this.terrainMap[pos.x, pos.y, pos.z])
             {
+                // TODO: fix this so that it loops until finding the next highest surface
                 if (pos.y >= 0 && value > isoValue && terrainMap[pos.x, pos.y - 1, pos.z] <= isoValue)
                 {
                     surfaceHeightMap[pos.x, pos.z]--;
                 }
             }
         }
+
         this.terrainMap[pos.x, pos.y, pos.z] += value;
-        this.isDirty = true;
+        
+        if (!this.isDirty)
+        {
+            this.isDirty = true;
+            world.gameGrid.AddChunkToDirtyList(this);
+        }
     }
 
     public void AddTerrain(Vector3 pos, float radius, float strength)
     {
         Vector3Int localPos = worldPointPositiontoGridPosition(pos);
-        updatePointsWithinRadius(localPos, radius, -strength);
+        UpdatePointsWithinRadius(localPos, radius, -strength);
     }
 
     public void RemoveTerrain(Vector3 pos, float radius, float strength)
     {
         Vector3Int localPos = worldPointPositiontoGridPosition(pos);
-        updatePointsWithinRadius(localPos, radius, strength);
+        UpdatePointsWithinRadius(localPos, radius, strength);
     }
 
-    private void updatePointsWithinRadius(Vector3 pos, float radius, float value)
+    private void UpdatePointsWithinRadius(Vector3 pos, float radius, float value)
     {
 
         float xStart = pos.x - radius;
@@ -247,14 +296,14 @@ public class Chunk
                     Chunk chunk;
                     if (x < 0 && z < 0)
                     {
-                        if (!getUpperLeftNeighbor(out chunk))
+                        if (!GetUpperLeftNeighbor(out chunk))
                         {
                             continue;
                         };
                     }
                     else if (x >= 0 && x <= width && z < 0)
                     {
-                        if (!getUpperNeighbor(out chunk))
+                        if (!GetUpperNeighbor(out chunk))
                         {
                             continue;
                         }
@@ -262,40 +311,40 @@ public class Chunk
                     }
                     else if (x > width && z < 0)
                     {
-                        if (!getUpperRightNeighbor(out chunk))
+                        if (!GetUpperRightNeighbor(out chunk))
                         {
                             continue;
                         }
                     }
                     else if (x > width && z >= 0 && z <= width)
                     {
-                        if (!getRightNeighbor(out chunk))
+                        if (!GetRightNeighbor(out chunk))
                         {
                             continue;
                         }
                     }
                     else if (x > width && z > width)
                     {
-                        if (!getLowerRightNeighbor(out chunk)){
+                        if (!GetLowerRightNeighbor(out chunk)){
                             continue;
                         }
                     }
                     else if (x >= 0 && x <= width && z > width)
                     {
-                        if (!getLowerNeighbor(out chunk)){
+                        if (!GetLowerNeighbor(out chunk)){
                             continue;
                         }
                     }
                     else if (x < 0 && z > width)
                     {
-                        if (!getLowerLeftNeighbor(out chunk))
+                        if (!GetLowerLeftNeighbor(out chunk))
                         {
                             continue;
                         }
                     }
                     else if (x < 0 && z >= 0 && z <= width)
                     {
-                        if(!getLeftNeighbor(out chunk))
+                        if(!GetLeftNeighbor(out chunk))
                         {
                             continue;
                         }
@@ -314,8 +363,8 @@ public class Chunk
 
                     float sqrDist = Mathf.Min(Vector3.SqrMagnitude(new Vector3(x, y, z) - pos), sqrRad);
                     float weight = (1f - sqrDist / sqrRad) * Time.deltaTime;
-                    chunk.updateTerrainAtPosition(new Vector3Int((int)chunkOffset.x, (int)y, (int)chunkOffset.z), weight * value);
-                    chunk.updateSharedPoints(new Vector3Int((int)chunkOffset.x, (int)y, (int)chunkOffset.z), weight * value);
+                    chunk.UpdateTerrainAtPosition(new Vector3Int((int)chunkOffset.x, (int)y, (int)chunkOffset.z), weight * value);
+                    chunk.UpdateSharedPoints(new Vector3Int((int)chunkOffset.x, (int)y, (int)chunkOffset.z), weight * value);
                 }
             }
         }
@@ -420,7 +469,7 @@ public class Chunk
 
     }
 
-    private void growOverTime()
+    private void GrowOverTime()
     {
         timeAcc += Time.deltaTime;
         if (timeAcc >= updateTime)
@@ -435,8 +484,8 @@ public class Chunk
                     float newValue = terrainMap[x, surfaceHeightIdx, z] - rand;
 
                     Vector3Int pos = new Vector3Int(x, surfaceHeightIdx, z);
-                    updateTerrainAtPosition(pos, newValue);
-                    updateSharedPoints(pos, newValue);
+                    UpdateTerrainAtPosition(pos, newValue);
+                    UpdateSharedPoints(pos, newValue);
                     /*
                     terrainMap[x, surfaceHeightIdx, z] -= rand;
 
@@ -453,7 +502,7 @@ public class Chunk
         }
     }
 
-    private void updateSharedPoints(Vector3Int pos, float value)
+    private void UpdateSharedPoints(Vector3Int pos, float value)
     {
         // Corner Cases, we have 3 neighboring chunks sharing this point
         if (pos.x == 0 && pos.z == 0)
@@ -462,19 +511,19 @@ public class Chunk
             // Get left chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
             }
 
             // Get upper left chunk and update at bottom right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
             }
 
             // Get upper chunk and update at bottom left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
             }
         }
         else if (pos.x == 0 && pos.z == width)
@@ -483,19 +532,19 @@ public class Chunk
             // Get left chunk and update at lower right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
             }
 
             // Get lower left chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
             }
 
             // Get lower chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
             }
         }
         else if (pos.x == width && pos.z == 0)
@@ -504,18 +553,18 @@ public class Chunk
             // Get upper chunk and update at lower right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
             }
             // Get upper right chunk and update at lower left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
             }
 
             // Get right chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
             }
         }
         else if (pos.x == width && pos.z == width)
@@ -524,17 +573,17 @@ public class Chunk
             // Get right chunk and update at lower left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
             }
             // Get lower right chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
             }
             // Get lower chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
             }
         }
         // Left edge, we share this point with 1 neighboring chunk
@@ -544,7 +593,7 @@ public class Chunk
             // Get left neighbor and update poiint at right edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(width, pos.y, pos.z), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, pos.z), value);
             }
         }
         // Right edge, we share this point with 1 neighboring chunk
@@ -554,7 +603,7 @@ public class Chunk
             // Get right neighbor and update point at left edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(0, pos.y, pos.z), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, pos.z), value);
             }
         }
         // Upper edge, we share this point with one neighbor
@@ -564,7 +613,7 @@ public class Chunk
             // Get upper neighbor and update poiint at bottom edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(pos.x, pos.y, width), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(pos.x, pos.y, width), value);
             }
 
         }
@@ -575,48 +624,48 @@ public class Chunk
             // Get lower neighbor and update poiint at upper edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.updateTerrainAtPosition(new Vector3Int(pos.x, pos.y, 0), value);
+                neighbor.UpdateTerrainAtPosition(new Vector3Int(pos.x, pos.y, 0), value);
             }
 
         }
     }
 
-    public bool getLeftNeighbor(out Chunk chunk)
+    public bool GetLeftNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out chunk);
     }
 
-    public bool getUpperLeftNeighbor(out Chunk chunk)
+    public bool GetUpperLeftNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z - width), out chunk);
     }
 
-    public bool getUpperNeighbor(out Chunk chunk)
+    public bool GetUpperNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out chunk);
     }
 
-    public bool getUpperRightNeighbor(out Chunk chunk)
+    public bool GetUpperRightNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z - width), out chunk);
     }
 
-    public bool getRightNeighbor(out Chunk chunk)
+    public bool GetRightNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out chunk);
     }
 
-    public bool getLowerRightNeighbor(out Chunk chunk)
+    public bool GetLowerRightNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z + width), out chunk);
     }
 
-    public bool getLowerNeighbor(out Chunk chunk)
+    public bool GetLowerNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out chunk);
     }
 
-    public bool getLowerLeftNeighbor(out Chunk chunk)
+    public bool GetLowerLeftNeighbor(out Chunk chunk)
     {
         return this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z + width), out chunk);
     }

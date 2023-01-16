@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 563035644582994311}
   - component: {fileID: -8320841188567031794}
   m_Layer: 6
-  m_Name: GridCell
+  m_Name: OldGridCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3717832694931075642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a404da72990dcf4c95990193ab023b6, type: 3}
+  m_Script: {fileID: 11500000, guid: ec20cd2cd3b598b4795b9a85cee1b2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snowVolume: 0

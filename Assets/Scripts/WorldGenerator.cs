@@ -1,18 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WorldGenerator : MonoBehaviour
 {
-
     public int WorldSizeInChunks = 10;
-    public bool enableAccumulationOverTIme = false;
+    public int ChunkWidth = 10;
+    public int ChunkHeight = 70;
+    public float scale = 1f;
+
+    public float BaseTerrainHeight = 0.0f;
+    public float TerrainHeightRange = 5f;
+
+    public bool enableAccumulationOverTime = false;
     public float updateTime = 1f;
+    
+    [SerializeField] private GameGrid _gameGrid;
+    public GameGrid gameGrid
+    {
+        get { return _gameGrid; }
+    }
 
     Dictionary<Vector3Int, Chunk> chunks = new Dictionary<Vector3Int, Chunk>();
     
     // Start is called before the first frame update
     void Start()
+    {
+        this.transform.localScale *= scale;
+    }
+
+    private void Awake()
     {
         Generate();
     }
@@ -20,21 +38,21 @@ public class WorldGenerator : MonoBehaviour
     private void Update()
     {
         Vector3Int randomChunk = new Vector3Int(0, 0, 0);
-        int randX = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * GameData.ChunkWidth;
-        int randZ = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * GameData.ChunkWidth;
+        int randX = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * ChunkWidth;
+        int randZ = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * ChunkWidth;
         randomChunk.x = randX;
         randomChunk.z = randZ;
 
         foreach (var chunk in chunks.Values)
         {
-            if (this.enableAccumulationOverTIme) { 
+            if (this.enableAccumulationOverTime) { 
                 if (chunk.getChunkPosition().Equals(randomChunk))
                 {
-                    chunk.enableAccumulationOverTIme = true;
+                    chunk.enableAccumulationOverTime = true;
                 }
                 else
                 {
-                    chunk.enableAccumulationOverTIme = false;
+                    chunk.enableAccumulationOverTime = false;
                 }
             }
             chunk.Update();
@@ -47,12 +65,9 @@ public class WorldGenerator : MonoBehaviour
         {
             for (int z = 0 ; z < WorldSizeInChunks; z++)
             {
-                Vector3Int chunkPos = new Vector3Int(x * GameData.ChunkWidth, 0, z * GameData.ChunkWidth);
+                Vector3Int chunkPos = new Vector3Int(x * ChunkWidth, 0, z * ChunkWidth);
                 chunks.Add(chunkPos, new Chunk(chunkPos, this));
-
-                //Todo: Delete these probably
-
-                //chunks[chunkPos].chunkObject.transform.SetParent(transform);
+                chunks[chunkPos].chunkObject.transform.SetParent(transform);
                 //chunks[chunkPos].enableAccumulationOverTIme = this.enableAccumulationOverTIme;
                 //chunks[chunkPos].updateTime = this.updateTime;
             }
@@ -68,12 +83,24 @@ public class WorldGenerator : MonoBehaviour
 
     public Chunk GetChunkFromVector3(Vector3 pos)
     {
-        int x = (int)pos.x;
-        int y = (int)pos.y;
-        int z = (int)pos.z;
-
+        int x = Mathf.FloorToInt(pos.x / ChunkWidth) * ChunkWidth;
+        int y = 0;
+        int z = Mathf.FloorToInt(pos.z / ChunkWidth) * ChunkWidth;
         Chunk chunk;
         if (chunks.TryGetValue(new Vector3Int(x, y, z), out chunk))
+        {
+            return chunk;
+        }
+        return null;
+    }
+    public Chunk GetChunkFromVectorXYZ(float x, float y, float z)
+    {
+        int posX = (int)x;
+        int posY = (int)y;
+        int posZ = (int)z;
+
+        Chunk chunk;
+        if (chunks.TryGetValue(new Vector3Int(posX, posY, posZ), out chunk))
         {
             return chunk;
         }
@@ -102,7 +129,7 @@ public class WorldGenerator : MonoBehaviour
             return;
         }
 
-        int chunkWidth = GameData.ChunkWidth;
+        int chunkWidth = this.ChunkWidth;
         int finalChunkPos = chunkWidth * (WorldSizeInChunks - 1);
 
         // All possible neighbors
