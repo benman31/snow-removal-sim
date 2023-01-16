@@ -15,7 +15,7 @@ public class Wind : MonoBehaviour
     //Wind
     [HideInInspector] public Vector2 oldWindDir, currentWindDir, newWindDir;
  
-    public float windIntesity = 200, windDirectionTimeSlotMin, windDirectionTimeSlotMax;
+    [HideInInspector] public float windIntesity, windDirectionTimeSlotMin, windDirectionTimeSlotMax;
     private float windDirectionTimeSlot, windDirectionCountDown = 0;
 
     //Particle System
@@ -42,8 +42,11 @@ public class Wind : MonoBehaviour
             windDirectionTimeSlot = Random.Range(windDirectionTimeSlotMin, windDirectionTimeSlotMax);
             windDirectionCountDown = windDirectionTimeSlot;
 
-            newWindDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
-            oldWindDir = currentWindDir;
+            // newWindDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+            // oldWindDir = currentWindDir;
+
+            newWindDir = new Vector2(1,0);
+            oldWindDir = newWindDir;
         }
 
         currentWindDir = Vector2.Lerp(oldWindDir, newWindDir, windDirectionCountDown/windDirectionTimeSlot);

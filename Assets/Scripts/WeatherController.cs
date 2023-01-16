@@ -8,38 +8,42 @@ using UnityEngine;
 
 public class WeatherController : MonoBehaviour
 {
-    public float snowFallRate = 1;
-    public float windIntesity = 200;
-
     [HideInInspector] public ParticleSystem[] particleSystems;
+    private ParticleSystem.EmissionModule[] emissionRates;
 
     //Post processing effects
     [SerializeField] private Camera playerCam;
 
-    public float accumulationRate = 5.0f;
-    public float meltingRate = 10.0f;
+    [Range(0.0f, 10.0f)] public float snowFallRate = 10.0f;
+    [Range(0.0f, 10.0f)] public float meltingRate = 5.0f;
     public float meltDelay = 2;
     private float frostIntensity = 0;
     private float distort = 0;
     private bool firstMelt = false;
 
     //Wind
+    [Range(1.0f, 200.0f)] public float windIntesity = 100;
+    public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
+
     private Wind wind;
     private Vector2 windDirection;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //init
         particleSystems = new ParticleSystem[5];
+        emissionRates = new ParticleSystem.EmissionModule[5];
 
         wind = GetComponentInChildren<Wind>();
 
         int i = 0;
 
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
             particleSystems[i] = child.gameObject.GetComponent<ParticleSystem>();
+            emissionRates[i] = particleSystems[i].emission;
             i++;
         }
     }
@@ -47,6 +51,13 @@ public class WeatherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        wind.windIntesity = windIntesity;
+
+        for (int i = 0; i < 5; i++)
+        {
+            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
+        }
+
         StartCoroutine(PPEffects());
     }
 
@@ -66,7 +77,7 @@ public class WeatherController : MonoBehaviour
 
             if (frostIntensity < 1)
             {
-                frostIntensity += (Time.deltaTime * (-1 * dotP)) / accumulationRate;
+                frostIntensity += (Time.deltaTime * (-1 * dotP)) / Mathf.SmoothStep(60, 5, windIntesity / 200);
             }
 
             if (!firstMelt && frostIntensity > 0.4f) // make sure droptlets dont render unless a minimum amount of frost accumulated on the screen
@@ -111,13 +122,13 @@ public class WeatherController : MonoBehaviour
 
             if (frostIntensity >= 0)
             {
-                frostIntensity -= Time.deltaTime / meltingRate;
+                frostIntensity -= Time.deltaTime / Mathf.SmoothStep(10, 1, meltingRate / 10);
             }
         }
 
         if (distort > 0)
         {
-            distort -= Time.deltaTime / meltingRate;
+            distort -= Time.deltaTime / Mathf.SmoothStep(10, 1, meltingRate / 10);
         }
 
         playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(0, 5.0f, distort);
