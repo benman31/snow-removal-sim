@@ -13,27 +13,23 @@ public class Wind : MonoBehaviour
     public Weather currentWeather = Weather.Clear;
 
     //Wind
-    public Vector2 oldWindDir, currentWindDir, newWindDir;
-
-    [SerializeField] private float windIntesity = 200, windDirectionTimeSlotMin, windDirectionTimeSlotMax;
+    [HideInInspector] public Vector2 oldWindDir, currentWindDir, newWindDir;
+ 
+    public float windIntesity = 200, windDirectionTimeSlotMin, windDirectionTimeSlotMax;
     private float windDirectionTimeSlot, windDirectionCountDown = 0;
 
     //Particle System
-    public ParticleSystem particleSys1, particleSys2, particleSys3, particleSys4, particleSys5;
-
     private ParticleSystem.VelocityOverLifetimeModule particleVelOverLifeTime1, particleVelOverLifeTime2, particleVelOverLifeTime3, particleVelOverLifeTime4, particleVelOverLifeTime5;
     private ParticleSystem.MinMaxCurve minMaxX, minMaxY, minMaxZ;
 
     // Start is called before the first frame update
     void Start()
     {
-        particleVelOverLifeTime1 = particleSys1.velocityOverLifetime;
-        particleVelOverLifeTime2 = particleSys2.velocityOverLifetime;
-        particleVelOverLifeTime3 = particleSys3.velocityOverLifetime;
-        particleVelOverLifeTime4 = particleSys4.velocityOverLifetime;
-        particleVelOverLifeTime5 = particleSys5.velocityOverLifetime;
-
-        //particleVelOverLifeTime.y = new ParticleSystem.MinMaxCurve(-1, -3);
+        particleVelOverLifeTime1 = gameObject.GetComponentInParent<WeatherController>().particleSystems[0].velocityOverLifetime;
+        particleVelOverLifeTime2 = gameObject.GetComponentInParent<WeatherController>().particleSystems[1].velocityOverLifetime;
+        particleVelOverLifeTime3 = gameObject.GetComponentInParent<WeatherController>().particleSystems[2].velocityOverLifetime;
+        particleVelOverLifeTime4 = gameObject.GetComponentInParent<WeatherController>().particleSystems[3].velocityOverLifetime;
+        particleVelOverLifeTime5 = gameObject.GetComponentInParent<WeatherController>().particleSystems[4].velocityOverLifetime;
 
         currentWindDir = new Vector2(0, 0);
     }

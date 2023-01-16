@@ -8,12 +8,17 @@ using UnityEngine;
 
 public class WeatherController : MonoBehaviour
 {
+    public float snowFallRate = 1;
+    public float windIntesity = 200;
+
+    [HideInInspector] public ParticleSystem[] particleSystems;
+
     //Post processing effects
     [SerializeField] private Camera playerCam;
 
     public float accumulationRate = 5.0f;
     public float meltingRate = 10.0f;
-    public float timeBeforeMelt = 2;
+    public float meltDelay = 2;
     private float frostIntensity = 0;
     private float distort = 0;
     private bool firstMelt = false;
@@ -25,7 +30,18 @@ public class WeatherController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //init
+        particleSystems = new ParticleSystem[5];
+
         wind = GetComponentInChildren<Wind>();
+
+        int i = 0;
+
+        foreach(Transform child in transform)
+        {
+            particleSystems[i] = child.gameObject.GetComponent<ParticleSystem>();
+            i++;
+        }
     }
 
     // Update is called once per frame
@@ -85,7 +101,7 @@ public class WeatherController : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(timeBeforeMelt); //wait 2 seconds before snow accumulation melts
+            yield return new WaitForSeconds(meltDelay); //wait 2 seconds before snow accumulation melts
 
             playerCam.GetComponent<PostProcessingCamera>().radius = Mathf.Lerp(1.0f, 0.3f, frostIntensity);
 
