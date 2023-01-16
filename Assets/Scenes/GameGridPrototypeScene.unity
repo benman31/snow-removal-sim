@@ -150,12 +150,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 393167679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc70de1911feca49a9d3dddb70d7584, type: 3}
+  m_Script: {fileID: 11500000, guid: a13c7a0657d03964687c83a7bc268ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 40
-  width: 40
-  gridCellSize: 0.5
+  height: 10
+  width: 10
+  gridCellSize: 1
   gridCellPrefab: {fileID: 3717832694931075642, guid: 4291149a593394743aef0e28ff80a1bd, type: 3}
 --- !u!4 &393167681
 Transform:

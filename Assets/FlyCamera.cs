@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerShovel : MonoBehaviour
+// Just a placeholder fly camera for demostrating terrain building and destruction
+public class FlyCamera : MonoBehaviour
 {
-
     public Camera cam;
     public WorldGenerator worldGen;
     [Range(1f, 5f)] public float brushSize = 3f;
@@ -19,6 +20,10 @@ public class PlayerShovel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + cam.transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal"), Time.deltaTime * 10f);
+        cam.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0));
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+
         if (Input.GetMouseButton(0))
         {
             Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
@@ -28,14 +33,13 @@ public class PlayerShovel : MonoBehaviour
             {
                 if (hit.transform.tag == "Terrain")
                 {
-                    Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
-                    Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
+                    Chunk chunk = worldGen.GetChunkFromVector3(hit.transform.position);
                     if (chunk != null)
                     {
-                        chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize, brushStrength);
+                        chunk.AddTerrain(hit.point, brushSize, brushStrength);
                     }
                 }
-
+                
             }
             else
             {
@@ -52,11 +56,10 @@ public class PlayerShovel : MonoBehaviour
             {
                 if (hit.transform.tag == "Terrain")
                 {
-                    Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
-                    Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
+                    Chunk chunk = worldGen.GetChunkFromVector3(hit.transform.position);
                     if (chunk != null)
                     {
-                        chunk.RemoveTerrain(Vector3.Scale(hit.point, scale), brushSize, brushStrength);
+                        chunk.RemoveTerrain(hit.point, brushSize, brushStrength);
                     }
                 }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Targetting
+  - Terrain
   layers:
   - Default
   - TransparentFX

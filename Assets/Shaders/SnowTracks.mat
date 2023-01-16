@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SnowTracks
-  m_Shader: {fileID: 4800000, guid: afa3e004f3ee88646bdb4aa05ed95379, type: 3}
+  m_Shader: {fileID: 4800000, guid: ee477b59b0da735479910ac2b4bccc6a, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -38,10 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Displacement: 0.49
+    - _Displacement: 1
     - _Glossiness: 0.5
     - _Metallic: 0
-    - _Tess: 32
+    - _Tess: 10
+    - _TexScale: -4
+    - _TriplanarBlendSharpness: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _GroundColor: {r: 0.22016731, g: 0.32602352, b: 0.5377358, a: 1}
