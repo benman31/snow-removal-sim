@@ -51,7 +51,7 @@ Shader "Hidden/snow"
 
             float _Radius;
             float _Feather;
-            float _Intensity;;
+            float _Intensity;
 
             fixed4 frag (v2f i) : SV_Target
             {
