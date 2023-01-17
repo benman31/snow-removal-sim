@@ -10,6 +10,8 @@ public class Objective : MonoBehaviour
     [SerializeField, Range(0, 200)] private int zStart;
     [SerializeField, Range(0, 200)] private int zEnd;
 
+    [SerializeField] float percentageToComplete = 1f;
+
     private int objectiveGoal;
     private int cellsComplete;
 
@@ -23,7 +25,7 @@ public class Objective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((float)cellsComplete / (float)objectiveGoal >= 0.9f)
+        if (this.IsComplete())
         {
             Debug.Log("OBJECTIVE COMPLETE!!!!");
         }
@@ -69,6 +71,11 @@ public class Objective : MonoBehaviour
     {
         return gridCell.GetPosition().x >= this.xStart && gridCell.GetPosition().x <= this.xEnd
             && gridCell.GetPosition().z >= this.zStart && gridCell.GetPosition().z <= this.zEnd;
+    }
+
+    public bool IsComplete()
+    {
+        return (float)cellsComplete / (float)objectiveGoal >= percentageToComplete;
     }
 
 
