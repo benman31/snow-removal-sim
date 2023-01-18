@@ -86,8 +86,9 @@ public class TimeController : MonoBehaviour
 
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
         moonLight.intensity = Mathf.Lerp(maxMoonLightIntesity, 0, dotProduct);
+        // moonLight.intensity = 0;
 
-        Debug.Log("the dot product is " + dotProduct + " the sun intesity is " + sunLight.intensity + " the moon light intesity is " + moonLight.intensity);
+        //Debug.Log("the dot product is " + dotProduct + " the sun intesity is " + sunLight.intensity + " the moon light intesity is " + moonLight.intensity);
 
         RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, dotProduct);
 

@@ -1930,7 +1930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &635901760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   sunLight: {fileID: 2076287976}
   maxSunLightIntesity: 1
   moonLight: {fileID: 1982680527}
-  maxMoonLightIntesity: 0.3
+  maxMoonLightIntesity: 0.5
   dayTimeAmbient: {r: 1, g: 0.95686275, b: 0.8392157, a: 0}
   nightTimeAmbient: {r: 0.047058824, g: 0.94509804, b: 0.94509804, a: 0}
   lightChangeCurve:
@@ -2813,7 +2813,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -7538,7 +7538,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -13180,7 +13180,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -17581,10 +17581,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1aa04541e62064687dd31f4a4753b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleSystems: []
   playerCam: {fileID: 1701778776}
-  accumulationRate: 5
-  meltingRate: 10
-  timeBeforeMelt: 2
+  snowFallRate: 10
+  meltingRate: 0.1
+  meltDelay: 2
+  minimumVisibilityRadius: 0.3
+  maxFrostIntesity: 1.3
+  maxFrostAccumuationRate: 100
+  minFrostAccumuationRate: 30
+  windIntesity: 150
+  windDirectionTimeSlotMin: 20
+  windDirectionTimeSlotMax: 40
 --- !u!4 &1550482354
 Transform:
   m_ObjectHideFlags: 0
@@ -17621,14 +17629,9 @@ MonoBehaviour:
   oldWindDir: {x: 0, y: 0}
   currentWindDir: {x: 0, y: 0}
   newWindDir: {x: 0, y: 0}
-  windIntesity: 20
+  windIntesity: 200
   windDirectionTimeSlotMin: 20
   windDirectionTimeSlotMax: 40
-  particleSys1: {fileID: 1714954328}
-  particleSys2: {fileID: 843073783}
-  particleSys3: {fileID: 1445120447}
-  particleSys4: {fileID: 856383478}
-  particleSys5: {fileID: 1676857136}
 --- !u!1 &1574662095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
@@ -18474,7 +18477,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -18740,7 +18743,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 150
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -22854,9 +22857,9 @@ MonoBehaviour:
   postProcessMat: {fileID: 2100000, guid: 5ce5e59396538cc4aadf357fcb3f9932, type: 2}
   postProcessMat2: {fileID: 2100000, guid: d66f5e8c79243244586b7c7b652cc34a, type: 2}
   size: 4
-  timeScale: 4
+  dropletsSpeed: 1
   distortion: 0
-  radius: 1.5
+  radius: 2
   feather: 0
   Intensity: 0
   waterShaderPass: 0
@@ -23599,7 +23602,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 2000
+    maxNumParticles: 3000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -28729,7 +28732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1982680527
 Light:
   m_ObjectHideFlags: 0
