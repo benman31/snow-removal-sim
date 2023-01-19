@@ -43,7 +43,7 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);  
+        currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
 
         RotateSun();
         UpdateLighting();
@@ -85,12 +85,14 @@ public class TimeController : MonoBehaviour
         dotProduct /= 2;
 
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
-        moonLight.intensity = Mathf.Lerp(maxMoonLightIntesity, 0, dotProduct);
+        moonLight.intensity = .1f;//Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct); //Mathf.Lerp(maxMoonLightIntesity - .09f, 0, dotProduct);
         // moonLight.intensity = 0;
 
         //Debug.Log("the dot product is " + dotProduct + " the sun intesity is " + sunLight.intensity + " the moon light intesity is " + moonLight.intensity);
 
         RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, dotProduct);
+        RenderSettings.ambientIntensity = Mathf.Lerp(2.0f, 1.0f, dotProduct);
+
 
         // sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, lightChangeCurve.Evaluate(dotProduct));
         // moonLight.intensity = Mathf.Lerp(maxMoonLightIntesity, 0, lightChangeCurve.Evaluate(dotProduct));

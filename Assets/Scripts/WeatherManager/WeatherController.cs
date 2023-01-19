@@ -27,15 +27,15 @@ public class WeatherController : MonoBehaviour
     private bool firstMelt = false;
 
     //Wind
+    [HideInInspector] public Wind wind;
     [Range(1.0f, 200.0f)] public float windIntesity = 100;
     public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
-
-    private Wind wind;
+    
     private Vector2 windDirection;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //init
         particleSystems = new ParticleSystem[5];
