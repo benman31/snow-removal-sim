@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         MOVEMENT
         */
 
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
 
         if(isGrounded && velocity.y < 0.001f)
         {

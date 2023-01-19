@@ -11,18 +11,18 @@ public class GridInputManager : MonoBehaviour
 {
     const float MAX_SHOVEL_RANGE = 4f;
 
-    GameGrid gameGrid;
+    OldGameGrid gameGrid;
     [SerializeField] private LayerMask whatIsAGridLayer;
 
-    private GridCell highlightedGridCell;
-    private HashSet<GridCell> highlightedCells;
+    private OldGridCell highlightedGridCell;
+    private HashSet<OldGridCell> highlightedCells;
 
     // Start is called before the first frame update
     void Start()
     {
         // Slow. Maybe make game grid a singleton instead?
-        gameGrid = FindObjectOfType<GameGrid>();
-        highlightedCells = new HashSet<GridCell> ();
+        gameGrid = FindObjectOfType<OldGameGrid>();
+        highlightedCells = new HashSet<OldGridCell> ();
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class GridInputManager : MonoBehaviour
 
         Vector2Int playerPos = this.gameGrid.GetGridPositionFromWorld(player.transform.position);
 
-        GridCell cellMouseIsOver = IsMouseOverAGridCell();
+        OldGridCell cellMouseIsOver = IsMouseOverAGridCell();
 
         // Return the last highlighted gridcell to white
         if (highlightedGridCell != null && highlightedGridCell != cellMouseIsOver)
@@ -73,17 +73,17 @@ public class GridInputManager : MonoBehaviour
     }
 
     // Return grid cell if mouse is over it, null otherwise
-    private GridCell IsMouseOverAGridCell()
+    private OldGridCell IsMouseOverAGridCell()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, whatIsAGridLayer))
         {
 
-            //Vector3 cellPos = hitInfo.transform.GetComponent<GridCell>().transform.position;
+            //Vector3 cellPos = hitInfo.transform.GetComponent<OldGridCell>().transform.position;
             //Vector3 newPos = new Vector3(cellPos.x, cellPos.y, cellPos.z);
             //gridTargetting.transform.position = newPos;
 
-            return hitInfo.transform.GetComponent<GridCell>();
+            return hitInfo.transform.GetComponent<OldGridCell>();
         }
         else
         {
@@ -92,12 +92,12 @@ public class GridInputManager : MonoBehaviour
 
     }
 
-    public void AddHighlightedCell(GridCell gridCell)
+    public void AddHighlightedCell(OldGridCell gridCell)
     {
         this.highlightedCells.Add(gridCell);
     }
 
-    public void RemoveHighlightedCell(GridCell gridCell)
+    public void RemoveHighlightedCell(OldGridCell gridCell)
     {
         this.highlightedCells.Remove(gridCell);
     }
