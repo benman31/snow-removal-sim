@@ -8,7 +8,11 @@ using UnityEngine;
 
 public class AnimationStateController : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
+
+    public Camera cam;
+
+    private float cameraTransitionTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +31,33 @@ public class AnimationStateController : MonoBehaviour
             }
             else
             {
+                cam.GetComponent<MouseLook>().enabled = false;
+
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
+
+                cameraTransitionTime = 1.0f;
+                //make player look down
+                PlayerLookDown(cam.transform.rotation.eulerAngles);
+                cam.transform.Rotate(Vector3.forward, 45);
+
+                cam.GetComponent<MouseLook>().enabled = true;
             }
+        }
+    }
+
+    void PlayerLookDown(Vector3 oldRot)
+    {
+        Vector3 newRot = new Vector3(28.5f, 0,0);
+
+        float timer = 0;
+
+        Debug.Log("cam angles are " + cam.transform.rotation.eulerAngles);
+        while(cam.transform.rotation.eulerAngles != newRot)
+        {
+            cam.transform.rotation = Quaternion.Euler(Vector3.Lerp(oldRot, newRot, timer/cameraTransitionTime));
+            
+            timer += Time.deltaTime;
         }
     }
 }
