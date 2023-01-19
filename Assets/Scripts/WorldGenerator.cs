@@ -15,6 +15,8 @@ public class WorldGenerator : MonoBehaviour
 
     public bool enableAccumulationOverTime = false;
     public float updateTime = 1f;
+
+    private float timeAcc = 0f;
     
     [SerializeField] private GameGrid _gameGrid;
     public GameGrid gameGrid
@@ -43,20 +45,20 @@ public class WorldGenerator : MonoBehaviour
         randomChunk.x = randX;
         randomChunk.z = randZ;
 
+        timeAcc += Time.deltaTime;
+
         foreach (var chunk in chunks.Values)
         {
-            if (this.enableAccumulationOverTime) { 
+            if (this.enableAccumulationOverTime && timeAcc >= updateTime)
+            { 
                 if (chunk.getChunkPosition().Equals(randomChunk))
                 {
-                    chunk.enableAccumulationOverTime = true;
-                }
-                else
-                {
-                    chunk.enableAccumulationOverTime = false;
+                    chunk.GrowOverTime();
                 }
             }
             chunk.Update();
         }
+        timeAcc = 0f;
     }
 
     void Generate ()
@@ -68,8 +70,6 @@ public class WorldGenerator : MonoBehaviour
                 Vector3Int chunkPos = new Vector3Int(x * ChunkWidth, 0, z * ChunkWidth);
                 chunks.Add(chunkPos, new Chunk(chunkPos, this));
                 chunks[chunkPos].chunkObject.transform.SetParent(transform);
-                //chunks[chunkPos].enableAccumulationOverTIme = this.enableAccumulationOverTIme;
-                //chunks[chunkPos].updateTime = this.updateTime;
             }
         }
 

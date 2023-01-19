@@ -1,9 +1,11 @@
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.Animations;
+using static UnityEditor.PlayerSettings;
 
 public class Chunk
 {
@@ -50,16 +52,6 @@ public class Chunk
     public Dictionary<Vector3Int, Chunk> neighboringChunks = new Dictionary<Vector3Int, Chunk>();
     public Boolean isDirty = false;
 
-    public bool enableAccumulationOverTime = false;
-    
-    public float updateTime
-    {
-        get { return world.updateTime; }
-    }
-
-    private float timeAcc = 0.0f;
-
-
     public Chunk (Vector3Int pos, WorldGenerator parent)
     {
         chunkObject = new GameObject();
@@ -92,11 +84,6 @@ public class Chunk
     // Update is called once per frame
     public void Update()
     {
-        if (enableAccumulationOverTime)
-        {
-            this.GrowOverTime();
-        }
-
         if (this.isDirty)
         {
             ClearMeshData();
@@ -231,24 +218,30 @@ public class Chunk
         if (surfaceHeightMap[pos.x, pos.z] == pos.y)
         {
             // Adding terrain to highest surface point, update heightmap
-            if (value < this.terrainMap[pos.x, pos.y, pos.z])
+
+            float oldSurfaceValue = this.terrainMap[pos.x, pos.y, pos.z];
+            float newSurfaceValue = oldSurfaceValue + value;
+
+            if (newSurfaceValue < oldSurfaceValue)
             {
-                if (pos.y <= this.height && value <= isoValue && terrainMap[pos.x, pos.y + 1, pos.z] > isoValue)
+                if (pos.y < this.height && newSurfaceValue <= isoValue && terrainMap[pos.x, pos.y + 1, pos.z] > isoValue)
                 {
                     surfaceHeightMap[pos.x, pos.z]++;
                 }
             }
             // Removing terrain from heighest surface point, update heightmap
-            else if (value > this.terrainMap[pos.x, pos.y, pos.z])
+            else if (newSurfaceValue > oldSurfaceValue)
             {
                 // TODO: fix this so that it loops until finding the next highest surface
-                if (pos.y >= 0 && value > isoValue && terrainMap[pos.x, pos.y - 1, pos.z] <= isoValue)
+                if (pos.y > 0 && newSurfaceValue > isoValue)
                 {
-                    surfaceHeightMap[pos.x, pos.z]--;
+                    while (terrainMap[pos.x, surfaceHeightMap[pos.x, pos.z], pos.z] > isoValue)
+                    {
+                        surfaceHeightMap[pos.x, pos.z]--;
+                    } 
                 }
             }
         }
-
         this.terrainMap[pos.x, pos.y, pos.z] += value;
         
         if (!this.isDirty)
@@ -469,41 +462,66 @@ public class Chunk
 
     }
 
-    private void GrowOverTime()
+    public void GrowOverTime()
     {
-        timeAcc += Time.deltaTime;
-        if (timeAcc >= updateTime)
+        for (int x = 0; x < this.width + 1; x++)
         {
-            for (int x = 0; x < this.width + 1; x++)
+            for (int z = 0; z < this.width + 1; z++)
             {
-                for (int z = 0; z < this.width + 1; z++)
+                int surfaceHeightIdx = surfaceHeightMap[x, z];
+                if (surfaceHeightIdx >= this.height)
                 {
-                    int surfaceHeightIdx = surfaceHeightMap[x, z];
-                    float rand = UnityEngine.Random.Range(0f, 0.05f);
+                    Debug.Log("Height map error");
+                }
+                float rand = UnityEngine.Random.Range(0f, 1f);
 
-                    float newValue = terrainMap[x, surfaceHeightIdx, z] - rand;
-
-                    Vector3Int pos = new Vector3Int(x, surfaceHeightIdx, z);
-                    UpdateTerrainAtPosition(pos, newValue);
-                    UpdateSharedPoints(pos, newValue);
-                    /*
-                    terrainMap[x, surfaceHeightIdx, z] -= rand;
-
-                    if (terrainMap[x, surfaceHeightIdx, z] <= isoValue && terrainMap[x, surfaceHeightIdx + 1, z] > isoValue)
-                    {
-                        surfaceHeightMap[x, z]++;
-                    }
-                    */
+                Vector3Int pos = new Vector3Int(x, surfaceHeightIdx, z);
+                if (pos.x == 0 && pos.z == 0)
+                {
+                    rand /= 4;
+                }
+                else if (pos.x == 0 && pos.z == width)
+                {
+                    rand /= 4;
+                }
+                else if (pos.x == width && pos.z == 0)
+                {
+                    rand /= 4;
+                }
+                else if (pos.x == width && pos.z == width)
+                {
+                    rand /= 4;
+                }
+                // Left edge, we share this point with 1 neighboring chunk
+                else if (pos.x == 0)
+                {
+                    rand /= 2;
+                }
+                // Right edge, we share this point with 1 neighboring chunk
+                else if (pos.x == width)
+                {
+                    rand /= 2;
+                }
+                // Upper edge, we share this point with one neighbor
+                else if (pos.z == 0)
+                {
+                    rand /= 2;
 
                 }
+                // Lower edge, we share this point with 1 neighboring chunk
+                else if (pos.z == width)
+                {
+                    rand /= 2;
+
+                }
+                UpdateTerrainAtPosition(pos, -rand);
+                UpdateSharedPoints(pos, -rand);
             }
-            //this.isDirty = true;
-            timeAcc = 0.0f;
         }
     }
 
     private void UpdateSharedPoints(Vector3Int pos, float value)
-    {
+    {   
         // Corner Cases, we have 3 neighboring chunks sharing this point
         if (pos.x == 0 && pos.z == 0)
         {
@@ -511,19 +529,25 @@ public class Chunk
             // Get left chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
             // Get upper left chunk and update at bottom right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
             // Get upper chunk and update at bottom left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         else if (pos.x == 0 && pos.z == width)
@@ -532,19 +556,25 @@ public class Chunk
             // Get left chunk and update at lower right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
             // Get lower left chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
             // Get lower chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         else if (pos.x == width && pos.z == 0)
@@ -553,18 +583,24 @@ public class Chunk
             // Get upper chunk and update at lower right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
             // Get upper right chunk and update at lower left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
             // Get right chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         else if (pos.x == width && pos.z == width)
@@ -573,17 +609,23 @@ public class Chunk
             // Get right chunk and update at lower left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
             // Get lower right chunk and update at upper left corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
             // Get lower chunk and update at upper right corner
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         // Left edge, we share this point with 1 neighboring chunk
@@ -593,7 +635,9 @@ public class Chunk
             // Get left neighbor and update poiint at right edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x - width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(width, pos.y, pos.z), value);
+                Vector3Int neighborPoint = new Vector3Int(width, pos.y, pos.z);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         // Right edge, we share this point with 1 neighboring chunk
@@ -603,7 +647,9 @@ public class Chunk
             // Get right neighbor and update point at left edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x + width, this.chunkPosition.y, this.chunkPosition.z), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(0, pos.y, pos.z), value);
+                Vector3Int neighborPoint = new Vector3Int(0, pos.y, pos.z);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
         }
         // Upper edge, we share this point with one neighbor
@@ -613,7 +659,9 @@ public class Chunk
             // Get upper neighbor and update poiint at bottom edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z - width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(pos.x, pos.y, width), value);
+                Vector3Int neighborPoint = new Vector3Int(pos.x, pos.y, width);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
         }
@@ -624,10 +672,21 @@ public class Chunk
             // Get lower neighbor and update poiint at upper edge
             if (this.neighboringChunks.TryGetValue(new Vector3Int(this.chunkPosition.x, this.chunkPosition.y, this.chunkPosition.z + width), out neighbor))
             {
-                neighbor.UpdateTerrainAtPosition(new Vector3Int(pos.x, pos.y, 0), value);
+                Vector3Int neighborPoint = new Vector3Int(pos.x, pos.y, 0);
+                neighbor.UpdateTerrainAtPosition(neighborPoint, value);
+                //UpdateSharedPointHelper(neighbor, neighborPoint, pos, value);
             }
 
         }
+    }
+
+    private void UpdateSharedPointHelper(Chunk neighbor, Vector3Int neighborPoint, Vector3Int localPoint, float value)
+    {
+        // We assume this chunk has already been updated by value
+        float surfaceValue = this.SampleTerrain(localPoint);
+        float neighborValue = neighbor.SampleTerrain(neighborPoint) + value;
+        if (!neighborValue.Equals(surfaceValue))
+            neighbor.UpdateTerrainAtPosition(neighborPoint, value);
     }
 
     public bool GetLeftNeighbor(out Chunk chunk)

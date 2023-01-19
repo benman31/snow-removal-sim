@@ -30,7 +30,7 @@ public class WeatherController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //init
         particleSystems = new ParticleSystem[5];
@@ -65,7 +65,7 @@ public class WeatherController : MonoBehaviour
     {
         Vector2 windDir = wind.currentWindDir;
         float dotP = Vector3.Dot(playerCam.transform.forward, new Vector3(windDir.x, 0, windDir.y));
-        Debug.Log("the dot product is  " + dotP);
+        //Debug.Log("the dot product is  " + dotP);
 
         if (dotP < 0)
         {
