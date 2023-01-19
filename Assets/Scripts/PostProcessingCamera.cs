@@ -15,9 +15,9 @@ public class PostProcessingCamera : MonoBehaviour
 
     //mat1 
     public float size = 4;
-    public float timeScale = 1;
+    public float dropletsSpeed = 1;
     private float currentSize = 1;
-    private float currentTimeScale = 1;
+    private float currentDropletsSpeed = 1;
     private float currentDistortion = 1;
     [Range(-5, 5)] public float distortion = 1;
 
@@ -41,10 +41,10 @@ public class PostProcessingCamera : MonoBehaviour
             currentSize = size;
         }
 
-        if (currentTimeScale != timeScale)
+        if (currentDropletsSpeed != dropletsSpeed)
         {
-            postProcessMat.SetFloat("_TimeScale", timeScale);
-            currentTimeScale = timeScale;
+            postProcessMat.SetFloat("_TimeScale", dropletsSpeed);
+            currentDropletsSpeed = dropletsSpeed;
         }
 
         if (currentDistortion != distortion)
