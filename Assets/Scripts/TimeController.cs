@@ -19,7 +19,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Color dayTimeAmbient;
     [SerializeField] private Color nightTimeAmbient;
 
-    [SerializeField] private AnimationCurve lightChangeCurve;
+    [SerializeField] private AnimationCurve shadowStrengthCurve;
 
     [SerializeField] private float timeMultiplier;
 
@@ -72,7 +72,6 @@ public class TimeController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(180, 360, (float)nightTimeProportion);
         }
 
-        //Debug.Log("the sun rotation is " + sunLight.transform.rotation);
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
     }
 
@@ -85,19 +84,12 @@ public class TimeController : MonoBehaviour
         dotProduct /= 2;
 
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
-        moonLight.intensity = .1f;//Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct); //Mathf.Lerp(maxMoonLightIntesity - .09f, 0, dotProduct);
-        // moonLight.intensity = 0;
+        moonLight.intensity = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
 
-        //Debug.Log("the dot product is " + dotProduct + " the sun intesity is " + sunLight.intensity + " the moon light intesity is " + moonLight.intensity);
+        moonLight.shadowStrength = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
+        sunLight.shadowStrength = Mathf.Lerp(0, maxSunLightIntesity, shadowStrengthCurve.Evaluate(dotProduct));
 
         RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, dotProduct);
-        RenderSettings.ambientIntensity = Mathf.Lerp(2.0f, 1.0f, dotProduct);
-
-
-        // sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, lightChangeCurve.Evaluate(dotProduct));
-        // moonLight.intensity = Mathf.Lerp(maxMoonLightIntesity, 0, lightChangeCurve.Evaluate(dotProduct));
-
-        // RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, lightChangeCurve.Evaluate(dotProduct));
     }
 
     private TimeSpan CalculateTimeDifference(TimeSpan fromtime, TimeSpan toTime)

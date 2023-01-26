@@ -19,8 +19,8 @@ public class WeatherController : MonoBehaviour
     public float meltDelay = 2;
     [Range(0.0f, 1.0f)] public float minimumVisibilityRadius;
     [Range(0.5f, 2.0f)] public float maxFrostIntesity;
-    [Range(1.0f, 200.0f)] public float maxFrostAccumuationRate;
-    [Range(1.0f, 200.0f)] public float minFrostAccumuationRate;
+    [Range(1.0f, 200.0f)] public float maxFrostAccumuationTime;
+    [Range(1.0f, 200.0f)] public float minFrostAccumuationTime;
     private float frostIntensity = 0;
     private float distort = 0;
     private float dropletsSpeed;
@@ -83,7 +83,7 @@ public class WeatherController : MonoBehaviour
 
             if (frostIntensity < 1)
             {
-                frostIntensity += (Time.deltaTime * (-1 * dotP)) / Mathf.SmoothStep(maxFrostAccumuationRate, minFrostAccumuationRate, windIntesity / 200);
+                frostIntensity += (Time.deltaTime * (-1 * dotP)) / Mathf.SmoothStep(maxFrostAccumuationTime, minFrostAccumuationTime, windIntesity / 200);
             }
 
             if (!firstMelt && frostIntensity > 0.4f) // make sure droptlets dont render unless a minimum amount of frost accumulated on the screen

@@ -10,18 +10,19 @@ public class AnimationStateController : MonoBehaviour
 {
     public Animator animator;
 
-    public Camera cam;
+    private CameraAnimation camAnim;
 
-    private float cameraTransitionTime;
     // Start is called before the first frame update
     void Start()
     {
+        camAnim = this.GetComponentInChildren<CameraAnimation>();
         animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             if (animator.GetBool("isDigging"))
@@ -31,33 +32,29 @@ public class AnimationStateController : MonoBehaviour
             }
             else
             {
-                cam.GetComponent<MouseLook>().enabled = false;
-
+                //StartCoroutine(PlayCameraAnimation());
+    
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
-
-                cameraTransitionTime = 1.0f;
-                //make player look down
-                PlayerLookDown(cam.transform.rotation.eulerAngles);
-                cam.transform.Rotate(Vector3.forward, 45);
-
-                cam.GetComponent<MouseLook>().enabled = true;
             }
         }
     }
 
-    void PlayerLookDown(Vector3 oldRot)
+    IEnumerator PlayCameraAnimation()
     {
-        Vector3 newRot = new Vector3(28.5f, 0,0);
+        //disable camera mouse controls and player movement controls
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponentInChildren<MouseLook>().enabled = false; 
 
-        float timer = 0;
+        camAnim.init();
+        camAnim.enabled = true;
 
-        Debug.Log("cam angles are " + cam.transform.rotation.eulerAngles);
-        while(cam.transform.rotation.eulerAngles != newRot)
-        {
-            cam.transform.rotation = Quaternion.Euler(Vector3.Lerp(oldRot, newRot, timer/cameraTransitionTime));
-            
-            timer += Time.deltaTime;
-        }
+        yield return new WaitForSeconds(camAnim.cameraTransitionTime);
+
+        //enable controls again
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponentInChildren<MouseLook>().enabled = true;
+
+        camAnim.enabled = false;
     }
 }
