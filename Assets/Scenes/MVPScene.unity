@@ -326,8 +326,13 @@ MonoBehaviour:
   particleSystems: []
   playerCam: {fileID: 652831473}
   snowFallRate: 10
-  meltingRate: 10
+  meltingRate: 0.1
   meltDelay: 2
+  minimumVisibilityRadius: 0.3
+  maxFrostIntesity: 2
+  maxFrostAccumuationRate: 60
+  minFrostAccumuationRate: 20
+  wind: {fileID: 0}
   windIntesity: 200
   windDirectionTimeSlotMin: 0
   windDirectionTimeSlotMax: 0
@@ -15873,12 +15878,12 @@ MonoBehaviour:
   postProcessMat: {fileID: 2100000, guid: 5ce5e59396538cc4aadf357fcb3f9932, type: 2}
   postProcessMat2: {fileID: 2100000, guid: d66f5e8c79243244586b7c7b652cc34a, type: 2}
   size: 4
-  timeScale: 4
-  distortion: 3.29
-  radius: 0.66
-  feather: 0
-  Intensity: 1
-  waterShaderPass: 0
+  dropletsSpeed: 1
+  distortion: 0
+  radius: 0.3
+  feather: 0.3
+  Intensity: 2
+  waterShaderPass: 2
 --- !u!114 &652831471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27711,13 +27716,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcfdd582ea5b0e458ca934ea3f8f74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WorldSizeInChunks: 8
+  WorldSizeInChunks: 16
   ChunkWidth: 10
   ChunkHeight: 20
-  scale: 0.25
+  scale: 0.125
   BaseTerrainHeight: 0
   TerrainHeightRange: 1
-  enableAccumulationOverTime: 1
+  enableAccumulationOverTime: 0
   updateTime: 0.02
   _gameGrid: {fileID: 1007685188}
 --- !u!4 &1482449744
@@ -29515,6 +29520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5824635da21ccad49a5df5abe76952d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  cam: {fileID: 652831473}
 --- !u!114 &1986958923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29529,8 +29536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 652831473}
   worldGen: {fileID: 1482449743}
-  brushSize: 3
-  brushStrength: 5
+  brushSize: 0.375
+  brushStrength: 50
 --- !u!114 &1986958924
 MonoBehaviour:
   m_ObjectHideFlags: 0

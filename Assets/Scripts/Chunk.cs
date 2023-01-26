@@ -235,10 +235,10 @@ public class Chunk
                 // TODO: fix this so that it loops until finding the next highest surface
                 if (pos.y > 0 && newSurfaceValue > isoValue)
                 {
-                    while (terrainMap[pos.x, surfaceHeightMap[pos.x, pos.z], pos.z] > isoValue)
+                    /*while (terrainMap[pos.x, surfaceHeightMap[pos.x, pos.z], pos.z] > isoValue)
                     {
                         surfaceHeightMap[pos.x, pos.z]--;
-                    } 
+                    }*/ 
                 }
             }
         }
