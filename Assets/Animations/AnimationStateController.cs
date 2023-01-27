@@ -10,7 +10,13 @@ public class AnimationStateController : MonoBehaviour
 {
     public Animator animator;
 
+    [Range(0, 100.0f)] public float poise;
+
     private CameraAnimation camAnim;
+
+    [SerializeField] private GameObject[] snowPrefabs;
+    private int activatedPrefab = -1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +37,7 @@ public class AnimationStateController : MonoBehaviour
                 animator.SetBool("haveSnow", false);
             }
             else
-            {
-                //StartCoroutine(PlayCameraAnimation());
-    
+            {    
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
             }
@@ -56,5 +60,36 @@ public class AnimationStateController : MonoBehaviour
         GetComponentInChildren<MouseLook>().enabled = true;
 
         camAnim.enabled = false;
+    }
+
+    IEnumerator SpawnSnowOnShovel()
+    {
+        if(poise <= 30)
+        {
+            snowPrefabs[0].SetActive(true);
+            activatedPrefab = 0;
+        }
+        else if (poise <= 70)
+        {
+            snowPrefabs[1].SetActive(true);
+            activatedPrefab = 1;
+        }
+        else
+        {
+            snowPrefabs[2].SetActive(true);
+            activatedPrefab = 2;
+        }
+
+        yield return 0;
+    }
+
+    IEnumerator DestroySnowOnShovel()
+    {
+        if(activatedPrefab != -1)
+        {
+            snowPrefabs[activatedPrefab].SetActive(false);
+        }
+    
+        yield return 0;
     }
 }
