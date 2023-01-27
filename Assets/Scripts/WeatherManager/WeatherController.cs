@@ -8,6 +8,13 @@ using UnityEngine;
 
 public class WeatherController : MonoBehaviour
 {
+    //Weather
+    public enum Weather { Blizzard, Snowy, Clear };
+    public Weather currentWeather = Weather.Clear;
+    [SerializeField] private float weatherChangeDelay = 10.0f;
+    private bool weatherUpdated = false;
+
+    //Particles
     [HideInInspector] public ParticleSystem[] particleSystems;
     private ParticleSystem.EmissionModule[] emissionRates;
 
@@ -30,7 +37,7 @@ public class WeatherController : MonoBehaviour
     [HideInInspector] public Wind wind;
     [Range(1.0f, 200.0f)] public float windIntesity = 100;
     public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
-    
+
     private Vector2 windDirection;
 
 
@@ -56,6 +63,12 @@ public class WeatherController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!weatherUpdated)
+        {
+            StartCoroutine(UpdateWeather());
+            weatherUpdated = true;
+        }
+
         wind.windIntesity = windIntesity;
 
         for (int i = 0; i < 5; i++)
@@ -64,6 +77,29 @@ public class WeatherController : MonoBehaviour
         }
 
         StartCoroutine(PPEffects());
+    }
+
+    IEnumerator UpdateWeather()
+    {
+        yield return new WaitForSeconds(weatherChangeDelay);
+
+        if (currentWeather == Weather.Blizzard)
+        {
+            windIntesity = Random.Range(150, 201);
+            snowFallRate = Random.Range(8, 11);
+        }
+        else if (currentWeather == Weather.Snowy)
+        {
+            windIntesity = Random.Range(75, 151);
+            snowFallRate = Random.Range(3, 8);
+        }
+        else
+        {
+            windIntesity = Random.Range(1, 75);
+            snowFallRate = 0;
+        }
+
+        weatherUpdated = false;
     }
 
     IEnumerator PPEffects()
@@ -135,7 +171,7 @@ public class WeatherController : MonoBehaviour
         if (distort > 0)
         {
             distort -= Time.deltaTime / Mathf.SmoothStep(10, 1, meltingRate / 10);
-            dropletsSpeed = Mathf.SmoothStep(1, 4, frostIntensity/1.0f);
+            dropletsSpeed = Mathf.SmoothStep(1, 4, frostIntensity / 1.0f);
         }
 
         playerCam.GetComponent<PostProcessingCamera>().distortion = Mathf.Lerp(0, 5.0f, distort);
