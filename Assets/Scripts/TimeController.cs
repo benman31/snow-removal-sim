@@ -21,18 +21,17 @@ public class TimeController : MonoBehaviour
 
     [SerializeField] private AnimationCurve shadowStrengthCurve;
 
-    [SerializeField] private float timeMultiplier;
-
-    [SerializeField] private float startHour;
-    [SerializeField] private float sunriseHour;
-    [SerializeField] private float sunsetHour;
+    private float timeMultiplier;
+    private float startHour;
+    private float sunriseHour = 6.5f;
+    private float sunsetHour = 18.5f;
 
     private DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
 
@@ -102,5 +101,25 @@ public class TimeController : MonoBehaviour
         }
 
         return difference;
+    }
+
+    public void SetStartHour(float value)
+    {
+        startHour = value;
+    }
+
+    public void SetSunRiseHour(float value)
+    {
+        sunriseHour = value;
+    }
+
+    public void SetSunSetHour(float value)
+    {
+        sunsetHour = value;
+    }
+
+    public void setTimeMultiplier(float value)
+    {
+        timeMultiplier = value;
     }
 }
