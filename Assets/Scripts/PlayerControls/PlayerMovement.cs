@@ -9,19 +9,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    
+
     public Transform groundCheck;
     public LayerMask groundMask;
-    float sphereRad = 0.4f;
-    
+
     public Vector3 velocity;
+    public Vector3 movement;
     public float speed = 10f;
     public float jumpHeight = 1f;
-    float gravity = -9.81f * 2;
+    public float gravity = -9.81f * 2;
 
-    bool isGrounded = true;
-    const float YVELOCITYRESET = -2F;
-    
+
+    private bool isGrounded = true;
+    private const float YVELOCITYRESET = -2F;
+    private float sphereRad = 0.4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,18 +40,18 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(isGrounded);
 
-        if(isGrounded && velocity.y < 0.001f)
+        if (isGrounded && velocity.y < 0.001f)
         {
             velocity.y = YVELOCITYRESET;
-        } 
+        }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 movement = transform.right * x + transform.forward * z;
+        movement = transform.right * x + transform.forward * z;
 
         controller.Move(movement * speed * Time.deltaTime);
-        
+
         /**
         Jumping
         */

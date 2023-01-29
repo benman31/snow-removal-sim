@@ -19,8 +19,6 @@ public class WeatherController : MonoBehaviour
     private ParticleSystem.EmissionModule[] emissionRates;
 
     //Post processing effects
-    [SerializeField] private Camera playerCam;
-
     [Range(0.0f, 10.0f)] public float snowFallRate = 10.0f;
     [Range(0.0f, 10.0f)] public float meltingRate = 5.0f;
     public float meltDelay = 2;
@@ -28,6 +26,8 @@ public class WeatherController : MonoBehaviour
     [Range(0.5f, 2.0f)] public float maxFrostIntesity;
     [Range(1.0f, 200.0f)] public float maxFrostAccumuationTime;
     [Range(1.0f, 200.0f)] public float minFrostAccumuationTime;
+
+    [SerializeField] private Camera playerCam;
     private float frostIntensity = 0;
     private float distort = 0;
     private float dropletsSpeed;
@@ -35,10 +35,12 @@ public class WeatherController : MonoBehaviour
 
     //Wind
     [HideInInspector] public Wind wind;
+    [HideInInspector] public float dotP;
     [Range(1.0f, 200.0f)] public float windIntesity = 100;
     public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
 
     private Vector2 windDirection;
+
 
 
     // Start is called before the first frame update
@@ -105,7 +107,7 @@ public class WeatherController : MonoBehaviour
     IEnumerator PPEffects()
     {
         Vector2 windDir = wind.currentWindDir;
-        float dotP = Vector3.Dot(playerCam.transform.forward, new Vector3(windDir.x, 0, windDir.y));
+        dotP = Vector3.Dot(playerCam.transform.forward, new Vector3(windDir.x, 0, windDir.y));
 
         Debug.Log("the dot product is  " + dotP);
 

@@ -5,17 +5,24 @@ Written by: Abdelrahman Awad
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationStateController : MonoBehaviour
 {
     public Animator animator;
-
+    [SerializeField] private Image poiseBar;
     [Range(0, 100.0f)] public float poise;
+    
+    [SerializeField] private GameObject[] snowPrefabs;
+    private int activatedPrefab = -1;
 
     private CameraAnimation camAnim;
 
-    [SerializeField] private GameObject[] snowPrefabs;
-    private int activatedPrefab = -1;
+    private const float MAXPOISE = 100.0f;
+    private const float POISEACCUMULATIONRATE = 90.0f;
+
+    private bool isDigging;
+    private bool carryingSnow;
 
 
     // Start is called before the first frame update
@@ -28,7 +35,6 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             if (animator.GetBool("isDigging"))
@@ -37,10 +43,21 @@ public class AnimationStateController : MonoBehaviour
                 animator.SetBool("haveSnow", false);
             }
             else
-            {    
+            {   
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
             }
+        }
+
+        if(isDigging)
+        {
+            poise += POISEACCUMULATIONRATE * Time.deltaTime;
+            poiseBar.fillAmount = poise / MAXPOISE;
+        }
+
+        if(isDigging && Input.GetMouseButtonUp(0))
+        {
+            isDigging = false;
         }
     }
 
@@ -62,7 +79,7 @@ public class AnimationStateController : MonoBehaviour
         camAnim.enabled = false;
     }
 
-    IEnumerator SpawnSnowOnShovel()
+    private void SpawnSnowOnShovel()
     {
         if(poise <= 30)
         {
@@ -79,17 +96,49 @@ public class AnimationStateController : MonoBehaviour
             snowPrefabs[2].SetActive(true);
             activatedPrefab = 2;
         }
-
-        yield return 0;
     }
 
-    IEnumerator DestroySnowOnShovel()
+    private void DestroySnowOnShovel()
     {
         if(activatedPrefab != -1)
         {
             snowPrefabs[activatedPrefab].SetActive(false);
         }
-    
-        yield return 0;
+    }
+
+    private void StartDigging()
+    {
+        isDigging = true;
+    }
+
+    private void StopDigging()
+    {
+        isDigging = false;
+    }
+
+    private void CarrySnow()
+    {
+        carryingSnow = true;
+    }
+
+    private void DropSnow()
+    {
+        carryingSnow = false;
+    }
+
+    private void ResetPoise()
+    {
+        poise = 0;
+        poiseBar.fillAmount = poise / MAXPOISE;
+    }
+
+    public bool IsPlayerDigging()
+    {
+        return isDigging;
+    }
+
+    public bool IsCarryingSnow()
+    {
+        return carryingSnow;
     }
 }
