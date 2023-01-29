@@ -29793,7 +29793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   poiseBar: {fileID: 1447995008}
-  poise: 69
+  poise: 0
   snowPrefabs:
   - {fileID: 920724316}
   - {fileID: 1876322013}
@@ -29834,8 +29834,8 @@ MonoBehaviour:
   staminaBar: {fileID: 2038144830}
   playerStamina: 100
   staminaRegenSec: 2
-  staminaConsumptionSec: 2
-  staminaRegenDelay: 2
+  staminaConsumptionSec: 10
+  staminaRegenDelay: 3
   resting: 1
   staminaRegenTimer: 2
 --- !u!1 &2063467154 stripped
