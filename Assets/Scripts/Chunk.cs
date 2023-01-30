@@ -1,11 +1,6 @@
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
-using UnityEngine.Animations;
-using static UnityEditor.PlayerSettings;
 
 public class Chunk
 {
@@ -51,6 +46,8 @@ public class Chunk
 
     public Dictionary<Vector3Int, Chunk> neighboringChunks = new Dictionary<Vector3Int, Chunk>();
     public Boolean isDirty = false;
+
+    const float WIND_INTENSITY_SCALE = 0.01f;
 
     public Chunk (Vector3Int pos, WorldGenerator parent)
     {
@@ -163,9 +160,9 @@ public class Chunk
         }
     }
 
-    private float GetTerrainHeight(int x, int z)
+    private float GetTerrainHeight(int x, int z, float optionalHeight = 0f)
     {
-        return world.TerrainHeightRange * Mathf.PerlinNoise((float)x / 16f + 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f) + world.BaseTerrainHeight;
+        return world.TerrainHeightRange * Mathf.PerlinNoise((float)x / 16f + 1.5f + 0.001f, (float)z / 16f * 1.5f + 0.001f) + world.BaseTerrainHeight + optionalHeight;
     }
 
     void populateTerrainMap()
@@ -232,13 +229,13 @@ public class Chunk
             // Removing terrain from heighest surface point, update heightmap
             else if (newSurfaceValue > oldSurfaceValue)
             {
-                // TODO: fix this so that it loops until finding the next highest surface
                 if (pos.y > 0 && newSurfaceValue > isoValue)
                 {
-                    /*while (terrainMap[pos.x, surfaceHeightMap[pos.x, pos.z], pos.z] > isoValue)
+                    // Using a while loop here because the next cell down could be a tunnel. Continue to check until we find a surgace or we reach 0
+                    while (surfaceHeightMap[pos.x, pos.z] > 0 && terrainMap[pos.x, surfaceHeightMap[pos.x, pos.z] - 1, pos.z] > isoValue)
                     {
                         surfaceHeightMap[pos.x, pos.z]--;
-                    }*/ 
+                    } 
                 }
             }
         }
@@ -462,8 +459,14 @@ public class Chunk
 
     }
 
-    public void GrowOverTime()
+    // Takes wind direction and intensity into account in the accumulation of snow.
+    // This is still a cumbersome solution but it will suite our needs for now until the snow track shader is working with the snow mesh.
+    public void GrowOverTime(Vector2Int windDir, float windIntensity)
     {
+
+        int worldWidth = world.ChunkWidth * world.WorldSizeInChunks;
+        Vector3Int edgePos = Vector3Int.zero;
+
         for (int x = 0; x < this.width + 1; x++)
         {
             for (int z = 0; z < this.width + 1; z++)
@@ -473,49 +476,106 @@ public class Chunk
                 {
                     Debug.Log("Height map error");
                 }
-                float rand = UnityEngine.Random.Range(0f, 1f);
 
                 Vector3Int pos = new Vector3Int(x, surfaceHeightIdx, z);
+                
+                Vector3Int worldPos = new Vector3Int(pos.x, pos.y, pos.z) + this.chunkPosition;
+                edgePos.y = worldPos.y;
+
+                if (windDir.x == 1 && windDir.y == 0)
+                {
+                    // East
+                    edgePos.x = worldWidth;
+                    edgePos.z = worldPos.z;
+                }
+                else if (windDir.x == 1 && windDir.y == 1)
+                {
+                    // Southeast
+                    edgePos.x = worldWidth;
+                    edgePos.z = worldWidth;
+                }
+                else if (windDir.x == 0 && windDir.y == 1)
+                {
+                    // South
+                    edgePos.x = worldPos.x;
+                    edgePos.z = worldWidth;
+                }
+                else if (windDir.x == -1 && windDir.y == 1)
+                {
+                    // SouthWest
+                    edgePos.x = 0;
+                    edgePos.z = worldWidth;
+                }
+                else if (windDir.x == -1 && windDir.y == 0)
+                {
+                    // West
+                    edgePos.x = 0;
+                    edgePos.z = worldPos.z;
+                }
+                else if (windDir.x == -1 && windDir.y == -1)
+                {
+                    // NorthWest
+                    edgePos.x = 0;
+                    edgePos.z = 0;
+                }
+                else if (windDir.x == 0 && windDir.y == -1)
+                {
+                    // North
+                    edgePos.x = worldPos.x;
+                    edgePos.z = 0;
+                }
+                else if (windDir.x == 1 && windDir.y == -1)
+                {
+                    // NorthEast
+                    edgePos.x = worldWidth;
+                    edgePos.z = 0;
+                }
+
+                float dist = Vector3.SqrMagnitude(worldPos - edgePos);
+                // Expensive but only eway I could think of to get the right slope
+                float weight = 1f - (dist / (worldWidth * worldWidth));
+                float val = weight * windIntensity * WIND_INTENSITY_SCALE;
+
                 if (pos.x == 0 && pos.z == 0)
                 {
-                    rand /= 4;
+                    val /= 4;
                 }
                 else if (pos.x == 0 && pos.z == width)
                 {
-                    rand /= 4;
+                    val /= 4;
                 }
                 else if (pos.x == width && pos.z == 0)
                 {
-                    rand /= 4;
+                    val /= 4;
                 }
                 else if (pos.x == width && pos.z == width)
                 {
-                    rand /= 4;
+                    val /= 4;
                 }
                 // Left edge, we share this point with 1 neighboring chunk
                 else if (pos.x == 0)
                 {
-                    rand /= 2;
+                    val /= 2;
                 }
                 // Right edge, we share this point with 1 neighboring chunk
                 else if (pos.x == width)
                 {
-                    rand /= 2;
+                    val /= 2;
                 }
                 // Upper edge, we share this point with one neighbor
                 else if (pos.z == 0)
                 {
-                    rand /= 2;
+                    val /= 2;
 
                 }
                 // Lower edge, we share this point with 1 neighboring chunk
                 else if (pos.z == width)
                 {
-                    rand /= 2;
+                    val /= 2;
 
                 }
-                UpdateTerrainAtPosition(pos, -rand);
-                UpdateSharedPoints(pos, -rand);
+                UpdateTerrainAtPosition(pos, -val);
+                UpdateSharedPoints(pos, -val);
             }
         }
     }
