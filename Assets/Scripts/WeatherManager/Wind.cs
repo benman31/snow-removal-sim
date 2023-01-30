@@ -35,20 +35,20 @@ public class Wind : MonoBehaviour
     {
         if (windDirectionCountDown <= 0)
         {
-            windDirectionTimeSlot = Random.Range(windDirectionTimeSlotMin, windDirectionTimeSlotMax);
+            windDirectionTimeSlot = Random.Range(windDirectionTimeSlotMin, windDirectionTimeSlotMax + 0.1f);
             windDirectionCountDown = windDirectionTimeSlot;
 
-            // newWindDir = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
-            // oldWindDir = currentWindDir;
+            newWindDir = new Vector2(Random.Range(-1.0f, 1.1f), Random.Range(-1.0f, 1.1f));
+            oldWindDir = currentWindDir;
 
-            newWindDir = new Vector2(1,0);
-            oldWindDir = newWindDir;
+            // newWindDir = new Vector2(1,0);
+            // oldWindDir = newWindDir;
         }
 
         currentWindDir = Vector2.Lerp(oldWindDir, newWindDir, windDirectionCountDown/windDirectionTimeSlot);
 
-        minMaxX = new ParticleSystem.MinMaxCurve(currentWindDir.x, currentWindDir.x * windIntesity);
-        minMaxZ = new ParticleSystem.MinMaxCurve(currentWindDir.y, currentWindDir.y * windIntesity); //wind direction is 2d so y is z in this case
+        minMaxX = new ParticleSystem.MinMaxCurve(currentWindDir.x * (windIntesity/1.5f), currentWindDir.x * windIntesity);
+        minMaxZ = new ParticleSystem.MinMaxCurve(currentWindDir.y * (windIntesity/1.5f), currentWindDir.y * windIntesity); //wind direction is 2d so y is z in this case
 
         particleVelOverLifeTime1.x = minMaxX;
         particleVelOverLifeTime1.z = minMaxZ;
@@ -67,6 +67,6 @@ public class Wind : MonoBehaviour
 
         windDirectionCountDown -= Time.deltaTime;
 
-        //Debug.Log("The current wind direction is " + currentWindDir + " The new wind direction is " + newWindDir + " the wind direction countdown is " + windDirectionCountDown);
+        Debug.Log("The current wind direction is " + currentWindDir + " The new wind direction is " + newWindDir + " the wind direction countdown is " + windDirectionCountDown);
     }
 }

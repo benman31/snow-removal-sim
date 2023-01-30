@@ -51,6 +51,8 @@ public class WeatherController : MonoBehaviour
         emissionRates = new ParticleSystem.EmissionModule[5];
 
         wind = GetComponentInChildren<Wind>();
+        wind.windDirectionTimeSlotMin = windDirectionTimeSlotMin;
+        wind.windDirectionTimeSlotMax = windDirectionTimeSlotMax;
 
         int i = 0;
 
