@@ -24,6 +24,7 @@ public class PlayerTools : MonoBehaviour
 
     private AnimationStateController animController;
     private const float POISE_SCALE = 0.5f;
+    private const float SNOW_LOSS_SCALE = 2.5f;
 
     private float playerSnowVolume = 0f;
 
@@ -141,8 +142,8 @@ public class PlayerTools : MonoBehaviour
                         if (chunk != null)
                         {
                             
-                            chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize, playerSnowVolume--);
-                            playerSnowVolume = Mathf.Max(playerSnowVolume, 0f);
+                            chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize, playerSnowVolume);
+                            playerSnowVolume = Mathf.Max(playerSnowVolume - 1 * SNOW_LOSS_SCALE, 0f);
                             
                         }
                     }

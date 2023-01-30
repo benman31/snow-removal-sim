@@ -13,6 +13,8 @@ public class ObjectiveManager : MonoBehaviour
 
     [SerializeField] private Canvas objectiveDisplay;
 
+    private MeshRenderer[] highlights; 
+
     public bool isDirty = false;
     private int objectivesComplete = 0;
 
@@ -47,6 +49,7 @@ public class ObjectiveManager : MonoBehaviour
         Debug.Log($"Objective Count: {_objectives.Count}");
 
         this.objectiveDisplay.enabled = false;
+        this.highlights = this.GetComponentsInChildren<MeshRenderer>();
 
     }
 
@@ -67,9 +70,9 @@ public class ObjectiveManager : MonoBehaviour
             this.isDirty = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !showHighlightedObjectives)
+        if (Input.GetKeyDown(KeyCode.Tab) && !showHighlightedObjectives)
         {
-            foreach (MeshRenderer mesh in this.GetComponentsInChildren<MeshRenderer>())
+            foreach (MeshRenderer mesh in this.highlights)
             {
                 mesh.enabled = true;
             }
@@ -77,9 +80,9 @@ public class ObjectiveManager : MonoBehaviour
             showHighlightedObjectives = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.Q) && showHighlightedObjectives)
+        if (Input.GetKeyUp(KeyCode.Tab) && showHighlightedObjectives)
         {
-            foreach (MeshRenderer mesh in this.GetComponentsInChildren<MeshRenderer>())
+            foreach (MeshRenderer mesh in this.highlights)
             {
                 mesh.enabled = false;
             }
