@@ -26,6 +26,10 @@ public class AnimationStateController : MonoBehaviour
     private bool isDigging;
     private bool carryingSnow;
 
+    // These states are used purely for digging, not animation related
+    private bool makingHole = false;
+    private bool droppingSnow = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +136,27 @@ public class AnimationStateController : MonoBehaviour
     {
         carryingSnow = false;
     }
+    // Ben Code -- used for shovel digging state (no animation)
+    private void MakeHole()
+    {
+        makingHole = true;
+    }
 
+    private void StopMakingHole()
+    {
+        makingHole = false;
+    }
+
+    private void DumpSnow()
+    {
+        droppingSnow = true;
+    }
+
+    private void StopDumpingSnow()
+    {
+        droppingSnow = false;
+    }
+    // End Ben Code
     private void ResetPoise()
     {
         poise = 0;
@@ -148,4 +172,15 @@ public class AnimationStateController : MonoBehaviour
     {
         return carryingSnow;
     }
+    // Ben Code used for shovel digging state (no animation)
+    public bool IsMakingHole()
+    {
+        return makingHole;
+    }
+
+    public bool IsDroppingSnow()
+    {
+        return droppingSnow;
+    }
+    // End Ben Code
 }

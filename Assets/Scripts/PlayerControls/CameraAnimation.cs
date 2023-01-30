@@ -43,7 +43,7 @@ public class CameraAnimation : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        Debug.Log("timer is " + timer);
+        //Debug.Log("timer is " + timer);
     }
 
     public void SetOriginalRot(Quaternion rot)
