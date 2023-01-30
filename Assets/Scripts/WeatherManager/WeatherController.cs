@@ -109,7 +109,7 @@ public class WeatherController : MonoBehaviour
         Vector2 windDir = wind.currentWindDir;
         dotP = Vector3.Dot(playerCam.transform.forward, new Vector3(windDir.x, 0, windDir.y));
 
-        Debug.Log("the dot product is  " + dotP);
+        //Debug.Log("the dot product is  " + dotP);
 
         if (dotP < 0)
         {

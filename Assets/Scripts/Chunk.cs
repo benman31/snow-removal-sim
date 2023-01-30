@@ -239,14 +239,14 @@ public class Chunk
                 }
             }
             // Removing terrain from heighest surface point, update heightmap
-            else if (value > this.terrainMap[pos.x, pos.y, pos.z])
+            /*else if (value > this.terrainMap[pos.x, pos.y, pos.z])
             {
                 // TODO: fix this so that it loops until finding the next highest surface
                 if (pos.y >= 0 && value > isoValue && terrainMap[pos.x, pos.y - 1, pos.z] <= isoValue)
                 {
                     surfaceHeightMap[pos.x, pos.z]--;
                 }
-            }
+            }*/
         }
 
         this.terrainMap[pos.x, pos.y, pos.z] += value;
