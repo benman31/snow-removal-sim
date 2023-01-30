@@ -24,6 +24,7 @@ public class TimeManager : MonoBehaviour
     {
         timeLeft = missionEnd - missionStart;
         timeLeft *= dayLength * 2.5f;
+        
         textBox.text = timeLeft.ToString();
 
         timeController.SetStartHour(missionStart);
