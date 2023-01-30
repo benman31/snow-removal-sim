@@ -67,6 +67,6 @@ public class Wind : MonoBehaviour
 
         windDirectionCountDown -= Time.deltaTime;
 
-        Debug.Log("The current wind direction is " + currentWindDir + " The new wind direction is " + newWindDir + " the wind direction countdown is " + windDirectionCountDown);
+        //Debug.Log("The current wind direction is " + currentWindDir + " The new wind direction is " + newWindDir + " the wind direction countdown is " + windDirectionCountDown);
     }
 }
