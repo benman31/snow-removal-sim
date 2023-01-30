@@ -28815,8 +28815,8 @@ MonoBehaviour:
   scale: 0.125
   BaseTerrainHeight: 0
   TerrainHeightRange: 5
-  enableAccumulationOverTime: 0
-  updateTime: 0.05
+  enableAccumulationOverTime: 1
+  updateTime: 0.1
   _gameGrid: {fileID: 1007685188}
   _weatherController: {fileID: 201093122}
 --- !u!4 &1482449744
