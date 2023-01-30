@@ -8,10 +8,6 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    //Weather
-    public enum Weather { Blizzard, Snowy, Clear };
-    public Weather currentWeather = Weather.Clear;
-
     //Wind
     [HideInInspector] public Vector2 oldWindDir, currentWindDir, newWindDir;
  

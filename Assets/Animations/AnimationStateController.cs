@@ -5,17 +5,32 @@ Written by: Abdelrahman Awad
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationStateController : MonoBehaviour
 {
+    public Transform SnowPoofTransform;
+    public GameObject SnowPoof;
     public Animator animator;
+    [SerializeField] private Image poiseBar;
+    [Range(0, 100.0f)] public float poise;
+    
+    [SerializeField] private GameObject[] snowPrefabs;
+    private int activatedPrefab = -1;
 
-    public Camera cam;
+    private CameraAnimation camAnim;
 
-    private float cameraTransitionTime;
+    private const float MAXPOISE = 100.0f;
+    private const float POISEACCUMULATIONRATE = 90.0f;
+
+    private bool isDigging;
+    private bool carryingSnow;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        camAnim = this.GetComponentInChildren<CameraAnimation>();
         animator = this.GetComponent<Animator>();
     }
 
@@ -30,34 +45,107 @@ public class AnimationStateController : MonoBehaviour
                 animator.SetBool("haveSnow", false);
             }
             else
-            {
-                cam.GetComponent<MouseLook>().enabled = false;
-
+            {   
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
-
-                cameraTransitionTime = 1.0f;
-                //make player look down
-                PlayerLookDown(cam.transform.rotation.eulerAngles);
-                cam.transform.Rotate(Vector3.forward, 45);
-
-                cam.GetComponent<MouseLook>().enabled = true;
             }
+        }
+
+        if(isDigging)
+        {
+            poise += POISEACCUMULATIONRATE * Time.deltaTime;
+            poiseBar.fillAmount = poise / MAXPOISE;
+        }
+
+        if(isDigging && Input.GetMouseButtonUp(0))
+        {
+            isDigging = false;
         }
     }
 
-    void PlayerLookDown(Vector3 oldRot)
+    IEnumerator PlayCameraAnimation()
     {
-        Vector3 newRot = new Vector3(28.5f, 0,0);
+        //disable camera mouse controls and player movement controls
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponentInChildren<MouseLook>().enabled = false; 
 
-        float timer = 0;
+        camAnim.init();
+        camAnim.enabled = true;
 
-        Debug.Log("cam angles are " + cam.transform.rotation.eulerAngles);
-        while(cam.transform.rotation.eulerAngles != newRot)
+        yield return new WaitForSeconds(camAnim.cameraTransitionTime);
+
+        //enable controls again
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponentInChildren<MouseLook>().enabled = true;
+
+        camAnim.enabled = false;
+    }
+
+    private void SpawnSnowOnShovel()
+    {
+        if(poise <= 30)
         {
-            cam.transform.rotation = Quaternion.Euler(Vector3.Lerp(oldRot, newRot, timer/cameraTransitionTime));
-            
-            timer += Time.deltaTime;
+            snowPrefabs[0].SetActive(true);
+            activatedPrefab = 0;
         }
+        else if (poise <= 70)
+        {
+            snowPrefabs[1].SetActive(true);
+            activatedPrefab = 1;
+        }
+        else
+        {
+            snowPrefabs[2].SetActive(true);
+            activatedPrefab = 2;
+        }
+    }
+
+    private void DestroySnowOnShovel()
+    {
+        if(activatedPrefab != -1)
+        {
+            snowPrefabs[activatedPrefab].SetActive(false);
+        }
+    }
+
+    private void StartDigging()
+    {
+        isDigging = true;
+    }
+
+    private void StopDigging()
+    {
+        isDigging = false;
+    }
+
+    private void SpawnSnowParticles()
+    {
+        GameObject trail = Instantiate(SnowPoof, new Vector3(SnowPoofTransform.position.x, 0, SnowPoofTransform.position.z), SnowPoof.transform.rotation);
+    }
+
+    private void CarrySnow()
+    {
+        carryingSnow = true;
+    }
+
+    private void DropSnow()
+    {
+        carryingSnow = false;
+    }
+
+    private void ResetPoise()
+    {
+        poise = 0;
+        poiseBar.fillAmount = poise / MAXPOISE;
+    }
+
+    public bool IsPlayerDigging()
+    {
+        return isDigging;
+    }
+
+    public bool IsCarryingSnow()
+    {
+        return carryingSnow;
     }
 }

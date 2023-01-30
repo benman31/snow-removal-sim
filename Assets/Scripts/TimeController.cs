@@ -19,20 +19,19 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Color dayTimeAmbient;
     [SerializeField] private Color nightTimeAmbient;
 
-    [SerializeField] private AnimationCurve lightChangeCurve;
+    [SerializeField] private AnimationCurve shadowStrengthCurve;
 
-    [SerializeField] private float timeMultiplier;
-
-    [SerializeField] private float startHour;
-    [SerializeField] private float sunriseHour;
-    [SerializeField] private float sunsetHour;
+    private float timeMultiplier;
+    private float startHour;
+    private float sunriseHour = 6.5f;
+    private float sunsetHour = 18.5f;
 
     private DateTime currentTime;
     private TimeSpan sunriseTime;
     private TimeSpan sunsetTime;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour);
 
@@ -72,7 +71,6 @@ public class TimeController : MonoBehaviour
             sunLightRotation = Mathf.Lerp(180, 360, (float)nightTimeProportion);
         }
 
-        //Debug.Log("the sun rotation is " + sunLight.transform.rotation);
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
     }
 
@@ -85,19 +83,12 @@ public class TimeController : MonoBehaviour
         dotProduct /= 2;
 
         sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
-        moonLight.intensity = .1f;//Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct); //Mathf.Lerp(maxMoonLightIntesity - .09f, 0, dotProduct);
-        // moonLight.intensity = 0;
+        moonLight.intensity = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
 
-        //Debug.Log("the dot product is " + dotProduct + " the sun intesity is " + sunLight.intensity + " the moon light intesity is " + moonLight.intensity);
+        moonLight.shadowStrength = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
+        sunLight.shadowStrength = Mathf.Lerp(0, maxSunLightIntesity, shadowStrengthCurve.Evaluate(dotProduct));
 
         RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, dotProduct);
-        RenderSettings.ambientIntensity = Mathf.Lerp(2.0f, 1.0f, dotProduct);
-
-
-        // sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, lightChangeCurve.Evaluate(dotProduct));
-        // moonLight.intensity = Mathf.Lerp(maxMoonLightIntesity, 0, lightChangeCurve.Evaluate(dotProduct));
-
-        // RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, lightChangeCurve.Evaluate(dotProduct));
     }
 
     private TimeSpan CalculateTimeDifference(TimeSpan fromtime, TimeSpan toTime)
@@ -110,5 +101,25 @@ public class TimeController : MonoBehaviour
         }
 
         return difference;
+    }
+
+    public void SetStartHour(float value)
+    {
+        startHour = value;
+    }
+
+    public void SetSunRiseHour(float value)
+    {
+        sunriseHour = value;
+    }
+
+    public void SetSunSetHour(float value)
+    {
+        sunsetHour = value;
+    }
+
+    public void setTimeMultiplier(float value)
+    {
+        timeMultiplier = value;
     }
 }

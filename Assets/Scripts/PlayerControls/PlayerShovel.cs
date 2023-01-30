@@ -7,8 +7,8 @@ public class PlayerShovel : MonoBehaviour
 
     public Camera cam;
     public WorldGenerator worldGen;
-    [Range(1f, 5f)] public float brushSize = 3f;
-    [Range(1f, 10f)] public float brushStrength = 5f;
+    [Range(0f, 20f)] public float brushSize = 3f;
+    [Range(1f, 50f)] public float brushStrength = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class PlayerShovel : MonoBehaviour
                     Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
                     if (chunk != null)
                     {
-                        chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize, brushStrength);
+                        chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize / worldGen.scale, brushStrength);
                     }
                 }
 
@@ -56,7 +56,7 @@ public class PlayerShovel : MonoBehaviour
                     Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
                     if (chunk != null)
                     {
-                        chunk.RemoveTerrain(Vector3.Scale(hit.point, scale), brushSize, brushStrength);
+                        chunk.RemoveTerrain(Vector3.Scale(hit.point, scale), brushSize / worldGen.scale, brushStrength);
                     }
                 }
 
