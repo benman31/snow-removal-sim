@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,14 +16,21 @@ public class WorldGenerator : MonoBehaviour
 
     public bool enableAccumulationOverTime = false;
     public float updateTime = 1f;
+
+    private float timeAcc = 0f;
     
     [SerializeField] private GameGrid _gameGrid;
+    [SerializeField] private WeatherController _weatherController;
     public GameGrid gameGrid
     {
         get { return _gameGrid; }
     }
 
     Dictionary<Vector3Int, Chunk> chunks = new Dictionary<Vector3Int, Chunk>();
+    
+    // Keeping a separate linked list of chunks to make updating easier for snow accumulation over time
+    private LinkedList<Chunk> chunkList = new LinkedList<Chunk>();
+    private LinkedListNode<Chunk> currentUpdateChunk;
     
     // Start is called before the first frame update
     void Start()
@@ -33,30 +41,52 @@ public class WorldGenerator : MonoBehaviour
     private void Awake()
     {
         Generate();
+        currentUpdateChunk = chunkList.First;
     }
 
     private void Update()
     {
-        Vector3Int randomChunk = new Vector3Int(0, 0, 0);
-        int randX = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * ChunkWidth;
-        int randZ = Mathf.FloorToInt(Random.Range(0f, WorldSizeInChunks + 0.9f)) * ChunkWidth;
-        randomChunk.x = randX;
-        randomChunk.z = randZ;
+        timeAcc += Time.deltaTime;
 
+        float clampedWindDirX = 0f;
+        float clampedWindDirZ = 0f;
+
+        if (this.enableAccumulationOverTime && timeAcc >= updateTime)
+        {
+            Vector2 windVector = _weatherController.wind.currentWindDir;
+            float angle = Mathf.Atan2(windVector.y, windVector.x);
+            angle = ((int)(Mathf.Round(4 * angle / Mathf.PI + 8)) % 8) * Mathf.PI / 4;
+            clampedWindDirX = Mathf.Cos(angle);
+            clampedWindDirZ = Mathf.Sin(angle);
+        }
+
+        bool advanceUpdateChunk = false;
         foreach (var chunk in chunks.Values)
         {
-            if (this.enableAccumulationOverTime) { 
-                if (chunk.getChunkPosition().Equals(randomChunk))
+            if (this.enableAccumulationOverTime && timeAcc >= updateTime)
+            {
+                if (chunk.Equals(this.currentUpdateChunk.Value))
                 {
-                    chunk.enableAccumulationOverTime = true;
-                }
-                else
-                {
-                    chunk.enableAccumulationOverTime = false;
+                    chunk.GrowOverTime(new Vector2Int((int)clampedWindDirX, (int)clampedWindDirZ), _weatherController.wind.windIntesity);
+                    advanceUpdateChunk = true;
                 }
             }
             chunk.Update();
         }
+        if (advanceUpdateChunk)
+        {
+            if (currentUpdateChunk.Next != null)
+            {
+                currentUpdateChunk = currentUpdateChunk.Next;
+            }
+            else
+            {
+                currentUpdateChunk = chunkList.First;
+            }
+            advanceUpdateChunk = false;
+        }
+
+        timeAcc = 0f;
     }
 
     void Generate ()
@@ -68,8 +98,7 @@ public class WorldGenerator : MonoBehaviour
                 Vector3Int chunkPos = new Vector3Int(x * ChunkWidth, 0, z * ChunkWidth);
                 chunks.Add(chunkPos, new Chunk(chunkPos, this));
                 chunks[chunkPos].chunkObject.transform.SetParent(transform);
-                //chunks[chunkPos].enableAccumulationOverTIme = this.enableAccumulationOverTIme;
-                //chunks[chunkPos].updateTime = this.updateTime;
+                chunkList.AddLast(chunks[chunkPos]);
             }
         }
 
@@ -215,5 +244,82 @@ public class WorldGenerator : MonoBehaviour
             GetChunkFromVector3Int(pos).neighboringChunks.Add(lowerNeighbor, GetChunkFromVector3Int(lowerNeighbor));
             GetChunkFromVector3Int(pos).neighboringChunks.Add(lowerRightNeighbor, GetChunkFromVector3Int(lowerRightNeighbor));
         }
+    }
+    // Testing / Prototype
+    private Chunk GetRandomChunkFromWindDirection(Vector2Int windDir)
+    {
+        float xMin = 0f;
+        float xMax = 0f;
+        float zMin = 0f;
+        float zMax = 0f;
+        int worldWidth = WorldSizeInChunks * ChunkWidth - 1;
+
+        if (windDir.x == 1 && windDir.y == 0)
+        {
+            // East
+            xMin = worldWidth / 2;
+            xMax = worldWidth;
+            zMin = 0;
+            zMax = worldWidth;
+        }
+        else if (windDir.x == 1 && windDir.y == 1)
+        {
+            // Southeast
+            xMin = worldWidth / 2;
+            xMax = worldWidth;
+            zMin = worldWidth / 2;
+            zMax = worldWidth;
+        }
+        else if (windDir.x == 0 && windDir.y == 1)
+        {
+            // South
+            xMin = 0;
+            xMax = worldWidth;
+            zMin = worldWidth / 2;
+            zMax = worldWidth;
+        }
+        else if (windDir.x == -1 && windDir.y == 1)
+        {
+            // SouthWest
+            xMin = 0;
+            xMax = worldWidth / 2;
+            zMin = worldWidth / 2;
+            zMax = worldWidth;
+        }
+        else if (windDir.x == -1 && windDir.y == 0)
+        {
+            // West
+            xMin = 0;
+            xMax = worldWidth / 2;
+            zMin = 0;
+            zMax = worldWidth;
+        }
+        else if (windDir.x == -1 && windDir.y == -1)
+        {
+            // NorthWest
+            xMin = 0;
+            xMax = worldWidth / 2;
+            zMin = 0;
+            zMax = worldWidth / 2;
+        }
+        else if (windDir.x == 0 && windDir.y == -1)
+        {
+            // North
+            xMin = 0;
+            xMax = worldWidth;
+            zMin = 0;
+            zMax = worldWidth / 2;
+        }
+        else if (windDir.x == 1 && windDir.y == -1)
+        {
+            // NorthEast
+            xMin = worldWidth / 2;
+            xMax = worldWidth;
+            zMin = 0;
+            zMax = worldWidth / 2;
+        }
+        
+        Vector3 ranomVector = new Vector3(Random.Range(xMin, xMax), 0, Random.Range(zMin, zMax));
+        return GetChunkFromVector3(ranomVector);
     }
 }

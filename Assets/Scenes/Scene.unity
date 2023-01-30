@@ -2266,7 +2266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &635901760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635901759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a636df8f103424459e1562efcebf4c6, type: 3}
   m_Name: 
@@ -2318,10 +2318,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  timeMultiplier: 2000
-  startHour: 17
-  sunriseHour: 7
-  sunsetHour: 20
 --- !u!4 &635901761
 Transform:
   m_ObjectHideFlags: 0
@@ -18180,6 +18176,7 @@ GameObject:
   - component: {fileID: 1550482354}
   - component: {fileID: 1550482353}
   - component: {fileID: 1550482355}
+  - component: {fileID: 1550482356}
   m_Layer: 0
   m_Name: Weather System
   m_TagString: Untagged
@@ -18223,7 +18220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550482352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9264705, y: 2.2093647, z: 6.9462347}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18253,6 +18250,21 @@ MonoBehaviour:
   windIntesity: 200
   windDirectionTimeSlotMin: 20
   windDirectionTimeSlotMax: 40
+--- !u!114 &1550482356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550482352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d9cee2fcbcff7428e6cfacb1403af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windTrail: {fileID: 7548564023228491569, guid: 8407ce017cc7e6f47a7b1663c321be62, type: 3}
+  spawnDelay: 1
+  worldEdgesXZ: {x: 10, y: 10}
 --- !u!1 &1574662095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
@@ -29755,7 +29767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061281830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.166, y: 1.377, z: 0}
+  m_LocalPosition: {x: 0, y: 1.377, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29774,11 +29786,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061281830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d52f4e16c465558498bb2a6266f98910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  worldGen: {fileID: 0}
+  brushSize: 3
+  brushStrength: 5
 --- !u!114 &2061281836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29791,6 +29807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5824635da21ccad49a5df5abe76952d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnowPoofTransform: {fileID: 241248690}
+  SnowPoof: {fileID: 4901833045844454855, guid: 58ed35b4ddcfcfc40bba17ee74876260, type: 3}
   animator: {fileID: 0}
   poiseBar: {fileID: 1447995008}
   poise: 0
@@ -30066,7 +30084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2127500920
 Light:
   m_ObjectHideFlags: 0
