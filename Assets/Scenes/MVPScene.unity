@@ -27850,7 +27850,7 @@ MonoBehaviour:
   timeLeft: 120
   textBox: {fileID: 2131775393}
   timeController: {fileID: 1832056866}
-  missionStart: 6
+  missionStart: 12
   missionEnd: 19
   sunRise: 5
   sunSet: 18
@@ -29916,7 +29916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1832056866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29924,7 +29924,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832056865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a636df8f103424459e1562efcebf4c6, type: 3}
   m_Name: 
