@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class AnimationStateController : MonoBehaviour
 {
+    public Transform SnowPoofTransform;
+    public GameObject SnowPoof;
     public Animator animator;
     [SerializeField] private Image poiseBar;
     [Range(0, 100.0f)] public float poise;
@@ -114,6 +116,11 @@ public class AnimationStateController : MonoBehaviour
     private void StopDigging()
     {
         isDigging = false;
+    }
+
+    private void SpawnSnowParticles()
+    {
+        GameObject trail = Instantiate(SnowPoof, new Vector3(SnowPoofTransform.position.x, 0, SnowPoofTransform.position.z), SnowPoof.transform.rotation);
     }
 
     private void CarrySnow()
