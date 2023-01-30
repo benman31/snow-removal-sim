@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TimeManager timeManager;
-    [SerializeField] private Objective objective;
+    [SerializeField] private ObjectiveManager objectiveManager;
 
     [SerializeField] private Text endMissionTextBox;
 
@@ -22,11 +22,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeManager.TimeIsUp() && !objective.IsComplete())
+        if (timeManager.TimeIsUp() && !objectiveManager.AllObjectivesComplete())
         {
             endMissionTextBox.text = gameOverMsg;
         }
-        else if (objective.IsComplete() && !timeManager.TimeIsUp())
+        else if (objectiveManager.AllObjectivesComplete() && !timeManager.TimeIsUp())
         {
             endMissionTextBox.text = winMsg;
         }

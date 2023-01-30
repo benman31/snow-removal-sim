@@ -12,7 +12,7 @@ public class GameGrid : MonoBehaviour
 
     private WorldGenerator world;
 
-    [SerializeField] private Objective objective;
+    [SerializeField] private ObjectiveManager objectiveManager;
 
     private int width = 10;
 
@@ -68,17 +68,11 @@ public class GameGrid : MonoBehaviour
                         if (!wasClear && gridCell.IsClear())
                         {
                             Debug.Log($"Cell{x}, {z} is Clear!!");
-                            if (objective.IsObjective(gridCell))
-                            {
-                                objective.AddCompleteCell(gridCell);
-                            }
+                            objectiveManager.AddToCompletion(gridCell);
                         }
                         else if (wasClear && !gridCell.IsClear())
                         {
-                            if (objective.IsObjective(gameGrid[x, z]))
-                            {
-                                objective.RemoveCompleteCell(gridCell);
-                            }
+                            objectiveManager.RemoveFromCompletion(gridCell);
                         }
                     }
                 }
