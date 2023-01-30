@@ -5,7 +5,6 @@ using UnityEngine;
 public class WindTrailController : MonoBehaviour
 {
     public GameObject windTrail;
-    public float speed;
     public float spawnDelay;
 
     public Vector2 worldEdgesXZ;
