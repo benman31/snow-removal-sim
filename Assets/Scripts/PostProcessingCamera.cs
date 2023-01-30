@@ -14,18 +14,18 @@ public class PostProcessingCamera : MonoBehaviour
     [SerializeField] Material postProcessMat2;
 
     //mat1 
-    public float size = 4;
-    public float dropletsSpeed = 1;
+    [HideInInspector] public float size = 4;
+    [HideInInspector] public float dropletsSpeed = 1;
     private float currentSize = 1;
     private float currentDropletsSpeed = 1;
     private float currentDistortion = 1;
-    [Range(-5, 5)] public float distortion = 1;
+    [HideInInspector] public float distortion = 1;
 
     //mat2
-    [Range(0, 2)] public float radius = 1.5f;
-    [Range(0, 1)] public float feather = 0.5f;
-    [Range(0, 2)] public float Intensity = 0;
-    public int waterShaderPass = 0;
+    [HideInInspector] public float radius = 1.5f;
+    [HideInInspector] public float feather = 0.5f;
+    [HideInInspector] public float Intensity = 0;
+    [HideInInspector] public int waterShaderPass = 0;
 
     private float currentFeather = 0.5f;
     private float currentRadius = 1.5f;

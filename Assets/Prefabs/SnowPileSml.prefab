@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2759695202991523442, guid: ce2d84a5d9fef8246a52074e68ec8ad0, type: 3}
       propertyPath: m_Name
-      value: Sphere
+      value: SnowPileSml
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759695202991523442, guid: ce2d84a5d9fef8246a52074e68ec8ad0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3489430859597449794, guid: ce2d84a5d9fef8246a52074e68ec8ad0, type: 3}
       propertyPath: m_RootOrder
