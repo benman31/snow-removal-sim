@@ -31213,6 +31213,7 @@ GameObject:
   - component: {fileID: 1986958923}
   - component: {fileID: 1986958922}
   - component: {fileID: 1986958921}
+  - component: {fileID: 1986958927}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Untagged
@@ -31341,6 +31342,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986958927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986958920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfc35b9aae9004fb89493abb2f8154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherController: {fileID: 201093122}
+  staminaBar: {fileID: 1744545275}
+  playerStamina: 100
+  staminaRegenSec: 20
+  staminaConsumptionSec: 10
+  staminaRegenDelay: 2
+  resting: 1
+  staminaRegenTimer: 2
 --- !u!1001 &2026444368
 PrefabInstance:
   m_ObjectHideFlags: 0
