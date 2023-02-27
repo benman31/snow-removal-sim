@@ -1,12 +1,15 @@
+// Author: Ben Enman
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
     public float timeLeft = 120f;
-    public Text textBox;
+    [SerializeField] private TextMeshProUGUI textBox;
 
     [SerializeField] private TimeController timeController;
 

@@ -11,10 +11,9 @@ public class ObjectiveManager : MonoBehaviour
     [SerializeField] private GameObject objectiveHighlight;
     [SerializeField] private GameGrid gameGrid;
 
-    [SerializeField] private Canvas objectiveDisplay;
+    [SerializeField] private GameObject objectiveDisplay;
 
-    private MeshRenderer[] highlights; 
-
+    
     public bool isDirty = false;
     private int objectivesComplete = 0;
 
@@ -36,9 +35,8 @@ public class ObjectiveManager : MonoBehaviour
                 for (int z = obj.zStart; z < obj.zEnd; z++)
                 {
                     GameObject highlight = Instantiate(objectiveHighlight, new Vector3(gameGrid.transform.position.x + (float)x + 0.5f, gameGrid.transform.position.y + 0.5f, gameGrid.transform.position.z + (float)z + 0.5f ), Quaternion.identity);
-                    highlight.GetComponentInChildren<MeshRenderer>().enabled = false;
+                    highlight.SetActive(false);
                     highlight.transform.SetParent(this.transform, false);
-                    //highlight.transform.localScale = gameGrid.transform.parent.localScale;
                     obj.objectiveHighlights.Add(highlight);
                 }
             }
@@ -48,8 +46,7 @@ public class ObjectiveManager : MonoBehaviour
         this.transform.localScale = new Vector3(gameGrid.transform.localScale.x, 10, gameGrid.transform.localScale.y);
         Debug.Log($"Objective Count: {_objectives.Count}");
 
-        this.objectiveDisplay.enabled = false;
-        this.highlights = this.GetComponentsInChildren<MeshRenderer>();
+        this.objectiveDisplay.SetActive(false);
 
     }
 
@@ -72,21 +69,28 @@ public class ObjectiveManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab) && !showHighlightedObjectives)
         {
-            foreach (MeshRenderer mesh in this.highlights)
+            // TODO move this to event system
+            foreach (Objective obj in _objectives.Values)
             {
-                mesh.enabled = true;
+                foreach(GameObject highlight in obj.objectiveHighlights)
+                {
+                    highlight.SetActive(true);
+                }
             }
-            objectiveDisplay.enabled = true;
+            objectiveDisplay.SetActive(true);
             showHighlightedObjectives = true;
         }
 
         if (Input.GetKeyUp(KeyCode.Tab) && showHighlightedObjectives)
         {
-            foreach (MeshRenderer mesh in this.highlights)
+            foreach (Objective obj in _objectives.Values)
             {
-                mesh.enabled = false;
+                foreach (GameObject highlight in obj.objectiveHighlights)
+                {
+                    highlight.SetActive(false);
+                }
             }
-            objectiveDisplay.enabled = false;
+            objectiveDisplay.SetActive(false);
             showHighlightedObjectives = false;
         }
     }
