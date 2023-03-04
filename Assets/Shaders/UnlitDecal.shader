@@ -1,5 +1,5 @@
 // Added by Ben Enman
-// Sourced directly from: https://www.ronja-tutorials.com/post/054-unlit-dynamic-decals/
+// Sourced heavily from: https://www.ronja-tutorials.com/post/054-unlit-dynamic-decals/
 
 Shader "Unlit/UnlitDecal"
 {
@@ -11,7 +11,7 @@ Shader "Unlit/UnlitDecal"
 
 	SubShader{
 		//the material is completely transparent and is rendered before other transparent geometry by default (at 2500)
-		Tags{ "RenderType"="Transparent" "Queue"="Transparent-400" "DisableBatching"="True"}
+		Tags{ "RenderType"="Transparent" "Queue"="Geometry+1" "DisableBatching"="True"}
 		Cull Front
 		ZTest GEqual //| LEqual | GEqual | Equal | NotEqual | Always
 
@@ -19,6 +19,13 @@ Shader "Unlit/UnlitDecal"
 		Blend SrcAlpha OneMinusSrcAlpha
 		//dont write to zbuffer because we have semitransparency
 		ZWrite off
+
+		// Adding a stencil test so this highlight only shows on geometry with a stecil reference of 100 (in this case the snow)
+		Stencil{
+			Ref 100
+			Comp Equal
+			Pass Keep
+		}
 
 		Pass{
 			CGPROGRAM

@@ -10,8 +10,14 @@ Shader "Custom/TerrainShader"
 
 	SubShader {
 
-		Tags {"RenderType" = "Opaque"}
+		Tags {"RenderType" = "Opaque" "Queue" = "Geometry"}
 		LOD 200
+
+		Stencil{
+			Ref 100
+			Comp Always
+			Pass Replace
+		}
 
 		CGPROGRAM
 		#pragma surface surf Standard fullforwardshadows
