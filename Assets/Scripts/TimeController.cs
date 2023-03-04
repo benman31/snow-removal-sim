@@ -20,6 +20,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Color nightTimeAmbient;
 
     [SerializeField] private AnimationCurve shadowStrengthCurve;
+    [SerializeField] private AnimationCurve lightChangeCurve;
 
     private float timeMultiplier;
     private float startHour;
@@ -82,7 +83,10 @@ public class TimeController : MonoBehaviour
         dotProduct += 1;
         dotProduct /= 2;
 
-        sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
+        // sunLight.intensity = Mathf.Lerp(0.4f, maxSunLightIntesity, lightChangeCurve.Evaluate(dotProduct));
+        // moonLight.intensity = Mathf.SmoothStep(maxMoonLightIntesity, 0, lightChangeCurve.Evaluate(dotProduct));
+
+        sunLight.intensity = Mathf.Lerp(0f, maxSunLightIntesity, dotProduct);
         moonLight.intensity = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
 
         moonLight.shadowStrength = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);

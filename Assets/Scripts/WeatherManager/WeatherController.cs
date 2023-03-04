@@ -33,15 +33,18 @@ public class WeatherController : MonoBehaviour
     private float dropletsSpeed;
     private bool firstMelt = false;
 
+    //WindZone
+    [SerializeField] private WindZone windZone;
+    [SerializeField] private CTI.CTI_CustomWind ctiWind;
+
     //Wind
     [HideInInspector] public Wind wind;
     [HideInInspector] public float dotP;
-    [Range(1.0f, 200.0f)] public float windIntesity = 100;
+    private const float MAXWINDINTENSITY = 200.0F; 
+    [Range(1.0f, MAXWINDINTENSITY)] public float windIntesity = 100;
     public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
 
     private Vector2 windDirection;
-
-
 
     // Start is called before the first frame update
     void Awake()
@@ -73,7 +76,11 @@ public class WeatherController : MonoBehaviour
             weatherUpdated = true;
         }
 
+        //wind script
         wind.windIntesity = windIntesity;
+        //wind zone
+        ctiWind.WindDirection = new Vector3(wind.currentWindDir.x, 0, wind.currentWindDir.y);
+        windZone.windMain = Mathf.Lerp(0, 3.0f, windIntesity/MAXWINDINTENSITY);
 
         for (int i = 0; i < 5; i++)
         {
