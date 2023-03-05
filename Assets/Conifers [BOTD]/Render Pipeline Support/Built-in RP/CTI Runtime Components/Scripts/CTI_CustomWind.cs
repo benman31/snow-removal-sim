@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace CTI {
@@ -35,6 +35,7 @@ namespace CTI {
 			if(m_WindZone == null) {
 				m_WindZone = GetComponent<WindZone>();
 			}
+			
 			WindStrength = m_WindZone.windMain * WindMultiplier;
 			WindStrength += m_WindZone.windPulseMagnitude * (1.0f + Mathf.Sin(Time.time * m_WindZone.windPulseFrequency) + 1.0f + Mathf.Sin(Time.time * m_WindZone.windPulseFrequency * 3.0f) ) * 0.5f;
 			WindTurbulence = m_WindZone.windTurbulence * m_WindZone.windMain * WindMultiplier;
