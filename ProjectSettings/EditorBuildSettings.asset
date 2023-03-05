@@ -5,7 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/GameGridPrototypeScene.unity
+    guid: 73a90c6fc94248f43a0ea236219f8f08
+  - enabled: 0
+    path: Assets/Scenes/Scene.unity
+    guid: a2120854b00624843b3ef334418ace4c
+  - enabled: 0
+    path: Assets/Scenes/TesselationScene.unity
+    guid: 9060ca21f4bf7d949b280dd2056dedc7
+  - enabled: 0
+    path: Assets/Scenes/MarchingCubes.unity
+    guid: fb202942e7e9df1468eb5469f8cfb2e9
+  - enabled: 1
+    path: Assets/Scenes/MVPScene.unity
+    guid: 73b706c38cbc27c42b0d620497c5c205
+  - enabled: 0
+    path: Assets/Scenes/BackupMVPScene.unity
+    guid: 1c790ae938caaef4b84ebf1026f9d7fe
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 59f94b54a8a9c844fbdb29db795a3605
   m_configObjects: {}
