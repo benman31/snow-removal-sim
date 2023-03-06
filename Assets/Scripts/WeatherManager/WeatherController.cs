@@ -40,18 +40,22 @@ public class WeatherController : MonoBehaviour
     //Wind
     [HideInInspector] public Wind wind;
     [HideInInspector] public float dotP;
-    private const float MAXWINDINTENSITY = 200.0F; 
+    private const float MAXEMISSIONRATE = 1000.0F;
+    private const float MAXWINDINTENSITY = 200.0F;
     [Range(1.0f, MAXWINDINTENSITY)] public float windIntesity = 100;
     public float windDirectionTimeSlotMin, windDirectionTimeSlotMax;
 
     private Vector2 windDirection;
 
+    //Misc
+    [SerializeField] private GameObject player;
+
     // Start is called before the first frame update
     void Awake()
     {
         //init
-        particleSystems = new ParticleSystem[5];
-        emissionRates = new ParticleSystem.EmissionModule[5];
+        particleSystems = new ParticleSystem[6];
+        emissionRates = new ParticleSystem.EmissionModule[6];
 
         wind = GetComponentInChildren<Wind>();
         wind.windDirectionTimeSlotMin = windDirectionTimeSlotMin;
@@ -76,16 +80,122 @@ public class WeatherController : MonoBehaviour
             weatherUpdated = true;
         }
 
-        //wind script
-        wind.windIntesity = windIntesity;
+        //adjust particle system position to follow player & adjust emission rates depending on wind direction
+        {
+            int i = 0;
+            foreach (Transform child in transform)
+            {
+                if (particleSystems[i].gameObject.name.Equals("Particle System up"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 10.0f, 0);
+                    emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE/2, snowFallRate / 10);
+                }
+                else if (particleSystems[i].gameObject.name.Equals("Particle System left"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(-25.0f, 7.5f, 0);
+
+                    //only emit particles when wind direction is towards positive X axis
+                    if (wind.currentWindDir.x > 0)
+                    {
+                        if (wind.currentWindDir.y != 0)
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10) * Mathf.Lerp(0, 1, Mathf.Abs(wind.currentWindDir.x / wind.currentWindDir.y));
+                        }
+                        else
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10);
+                        }
+                    }
+                    else
+                    {
+                        emissionRates[i].rateOverTime = 0;
+                    }
+
+                }
+                else if (particleSystems[i].gameObject.name.Equals("Particle System right"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(25.0f, 7.5f, 0);
+
+                    if (wind.currentWindDir.x < 0)
+                    {
+                        if (wind.currentWindDir.y != 0)
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10) * Mathf.Lerp(0, 1, Mathf.Abs(wind.currentWindDir.x / wind.currentWindDir.y));
+                        }
+                        else
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10);
+                        }
+                    }
+                    else
+                    {
+                        emissionRates[i].rateOverTime = 0;
+                    }
+                }
+                else if (particleSystems[i].gameObject.name.Equals("Particle System forward"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, 25.0f);
+
+                    if (wind.currentWindDir.y < 0)
+                    {
+                        if (wind.currentWindDir.x != 0)
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10) * Mathf.Lerp(0, 1, Mathf.Abs(wind.currentWindDir.y / wind.currentWindDir.x));
+                        }
+                        else
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10);
+                        }
+                    }
+                    else
+                    {
+                        emissionRates[i].rateOverTime = 0;
+                    }
+                }
+                else if (particleSystems[i].gameObject.name.Equals("Particle System backward"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, -25.0f);
+
+                    if (wind.currentWindDir.y > 0)
+                    {
+                        if (wind.currentWindDir.x != 0)
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10) * Mathf.Lerp(0, 1, Mathf.Abs(wind.currentWindDir.y/wind.currentWindDir.x));
+                        }
+                        else
+                        {
+                            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE, snowFallRate / 10);
+                        }
+                    }
+                    else
+                    {
+                        emissionRates[i].rateOverTime = 0;
+                    }
+                }
+                else if (particleSystems[i].gameObject.name.Equals("Particle System global"))
+                {
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 30.0f, 0);
+                    emissionRates[5].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE/2, snowFallRate / 10);
+                }
+
+                i++;
+            }
+        }
+
         //wind zone
         ctiWind.WindDirection = new Vector3(wind.currentWindDir.x, 0, wind.currentWindDir.y);
-        windZone.windMain = Mathf.Lerp(0, 3.0f, windIntesity/MAXWINDINTENSITY);
+        windZone.windMain = Mathf.Lerp(0, 3.0f, windIntesity / MAXWINDINTENSITY);
 
-        for (int i = 0; i < 5; i++)
-        {
-            emissionRates[i].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
-        }
+        //wind script
+        wind.windIntesity = windIntesity;
+
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     emissionRates[i].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
+        // }
+
+        // //global particle system in the sky
+        // emissionRates[5].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
 
         StartCoroutine(PPEffects());
     }

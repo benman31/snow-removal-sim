@@ -15,7 +15,7 @@ public class Wind : MonoBehaviour
     private float windDirectionTimeSlot, windDirectionCountDown = 0;
 
     //Particle System
-    private ParticleSystem.VelocityOverLifetimeModule particleVelOverLifeTime1, particleVelOverLifeTime2, particleVelOverLifeTime3, particleVelOverLifeTime4, particleVelOverLifeTime5;
+    private ParticleSystem.VelocityOverLifetimeModule particleVelOverLifeTime1, particleVelOverLifeTime2, particleVelOverLifeTime3, particleVelOverLifeTime4, particleVelOverLifeTime5, particleVelOverLifeTime6;
     private ParticleSystem.MinMaxCurve minMaxX, minMaxY, minMaxZ;
 
     // Start is called before the first frame update
@@ -26,6 +26,7 @@ public class Wind : MonoBehaviour
         particleVelOverLifeTime3 = gameObject.GetComponentInParent<WeatherController>().particleSystems[2].velocityOverLifetime;
         particleVelOverLifeTime4 = gameObject.GetComponentInParent<WeatherController>().particleSystems[3].velocityOverLifetime;
         particleVelOverLifeTime5 = gameObject.GetComponentInParent<WeatherController>().particleSystems[4].velocityOverLifetime;
+        particleVelOverLifeTime6 = gameObject.GetComponentInParent<WeatherController>().particleSystems[5].velocityOverLifetime;
 
         currentWindDir = new Vector2(0, 0);
     }
@@ -41,14 +42,14 @@ public class Wind : MonoBehaviour
             // newWindDir = new Vector2(Random.Range(-1.0f, 1.1f), Random.Range(-1.0f, 1.1f));
             // oldWindDir = currentWindDir;
 
-            newWindDir = new Vector2(0,1);
+            newWindDir = new Vector2(-0.3f,-.1f);
             oldWindDir = newWindDir;
         }
 
         currentWindDir = Vector2.Lerp(oldWindDir, newWindDir, windDirectionCountDown/windDirectionTimeSlot);
 
-        minMaxX = new ParticleSystem.MinMaxCurve(currentWindDir.x * (windIntesity/1.5f), currentWindDir.x * windIntesity);
-        minMaxZ = new ParticleSystem.MinMaxCurve(currentWindDir.y * (windIntesity/1.5f), currentWindDir.y * windIntesity); //wind direction is 2d so y is z in this case
+        minMaxX = new ParticleSystem.MinMaxCurve(currentWindDir.x * (windIntesity/2.0f), currentWindDir.x * windIntesity);
+        minMaxZ = new ParticleSystem.MinMaxCurve(currentWindDir.y * (windIntesity/2.0f), currentWindDir.y * windIntesity); //wind direction is 2d so y is z in this case
 
         particleVelOverLifeTime1.x = minMaxX;
         particleVelOverLifeTime1.z = minMaxZ;
@@ -64,6 +65,13 @@ public class Wind : MonoBehaviour
 
         particleVelOverLifeTime5.z = minMaxX;
         particleVelOverLifeTime5.y = minMaxZ;
+
+        //recalc to make global particle system out of sync from other particle systems for more snow variety
+        minMaxX = new ParticleSystem.MinMaxCurve(currentWindDir.x * (windIntesity/16.0f), currentWindDir.x * (windIntesity/8.0f));
+        minMaxZ = new ParticleSystem.MinMaxCurve(currentWindDir.y * (windIntesity/16.0f), currentWindDir.y * (windIntesity/8.0f)); //wind direction is 2d so y is z in this case
+
+        particleVelOverLifeTime6.x = minMaxX;
+        particleVelOverLifeTime6.z = minMaxZ;
 
         windDirectionCountDown -= Time.deltaTime;
 
