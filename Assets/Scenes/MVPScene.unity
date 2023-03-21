@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352688587417395903, guid: adbc55c6e46bd654eaa46a03b5549349, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adbc55c6e46bd654eaa46a03b5549349, type: 3}
@@ -4042,11 +4042,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4055,6 +4059,10 @@ PrefabInstance:
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4067,31 +4075,31 @@ PrefabInstance:
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510277469937623, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
@@ -4186,11 +4194,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4199,6 +4211,10 @@ PrefabInstance:
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4211,31 +4227,31 @@ PrefabInstance:
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510278872831671, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
@@ -4266,11 +4282,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4279,6 +4299,10 @@ PrefabInstance:
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4291,31 +4315,31 @@ PrefabInstance:
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279097140106, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
@@ -4342,11 +4366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4355,6 +4383,10 @@ PrefabInstance:
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4367,31 +4399,31 @@ PrefabInstance:
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279213980337, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
@@ -4422,11 +4454,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4435,6 +4471,10 @@ PrefabInstance:
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4447,31 +4487,31 @@ PrefabInstance:
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279234928516, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
@@ -4502,11 +4542,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.size
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.startFrame.minMaxState
@@ -4515,6 +4559,10 @@ PrefabInstance:
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
@@ -4527,31 +4575,31 @@ PrefabInstance:
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 962805851, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[3].sprite
       value: 
-      objectReference: {fileID: -1917450641, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[4].sprite
       value: 
-      objectReference: {fileID: -1024947168, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[5].sprite
       value: 
-      objectReference: {fileID: -607992284, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[6].sprite
       value: 
-      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[7].sprite
       value: 
-      objectReference: {fileID: -1218366049, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[8].sprite
       value: 
-      objectReference: {fileID: -1479776341, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
+      objectReference: {fileID: -769119334, guid: b54c93e67d17a054ab843ae74453c56c, type: 3}
     - target: {fileID: 183510279383707398, guid: 69c4fd452cbd65f48b639b9761f421eb, type: 3}
       propertyPath: UVModule.sprites.Array.data[9].sprite
       value: 
