@@ -14,9 +14,10 @@ public class AnimationStateController : MonoBehaviour
     public Animator animator;
     [SerializeField] private Image poiseBar;
     [Range(0, 100.0f)] public float poise;
-    
+
     [SerializeField] private GameObject[] snowPrefabs;
     private int activatedPrefab = -1;
+    private int currentWeapon = 1; //1 for shovel
 
     private CameraAnimation camAnim;
 
@@ -41,7 +42,7 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && currentWeapon == 1)
         {
             if (animator.GetBool("isDigging"))
             {
@@ -49,19 +50,39 @@ public class AnimationStateController : MonoBehaviour
                 animator.SetBool("haveSnow", false);
             }
             else
-            {   
+            {
                 animator.SetBool("isDigging", true);
                 animator.SetBool("haveSnow", true);
             }
         }
 
-        if(isDigging)
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+
+
+            if (currentWeapon == 1)
+            {
+
+                currentWeapon++;
+            }
+            else
+            {
+                currentWeapon--;
+            }
+
+
+
+            animator.SetInteger("currentWep", currentWeapon);
+        }
+        Debug.Log(currentWeapon);
+
+        if (isDigging)
         {
             poise += POISEACCUMULATIONRATE * Time.deltaTime;
             poiseBar.fillAmount = poise / MAXPOISE;
         }
 
-        if(isDigging && Input.GetMouseButtonUp(0))
+        if (isDigging && Input.GetMouseButtonUp(0))
         {
             isDigging = false;
         }
@@ -71,7 +92,7 @@ public class AnimationStateController : MonoBehaviour
     {
         //disable camera mouse controls and player movement controls
         GetComponent<PlayerMovement>().enabled = false;
-        GetComponentInChildren<MouseLook>().enabled = false; 
+        GetComponentInChildren<MouseLook>().enabled = false;
 
         camAnim.init();
         camAnim.enabled = true;
@@ -87,7 +108,7 @@ public class AnimationStateController : MonoBehaviour
 
     private void SpawnSnowOnShovel()
     {
-        if(poise <= 30)
+        if (poise <= 30)
         {
             snowPrefabs[0].SetActive(true);
             activatedPrefab = 0;
@@ -106,7 +127,7 @@ public class AnimationStateController : MonoBehaviour
 
     private void DestroySnowOnShovel()
     {
-        if(activatedPrefab != -1)
+        if (activatedPrefab != -1)
         {
             snowPrefabs[activatedPrefab].SetActive(false);
         }
