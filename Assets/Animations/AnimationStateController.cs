@@ -58,25 +58,24 @@ public class AnimationStateController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !isDigging && !carryingSnow)
         {
-
-
             if (currentWeapon == 1)
             {
 
-                currentWeapon++;
+                animator.SetInteger("currentWep", 2);
             }
             else
             {
-                currentWeapon--;
+                animator.SetInteger("currentWep", 1);
             }
 
-            mouseLook.equippedWeapon = currentWeapon;
+            // mouseLook.equippedWeapon = currentWeapon;
 
-            animator.SetInteger("currentWep", currentWeapon);
+            // animator.SetInteger("currentWep", currentWeapon);
         }
-        Debug.Log(currentWeapon);
+
+        //Debug.Log(currentWeapon);
 
         if (isDigging)
         {
@@ -90,22 +89,47 @@ public class AnimationStateController : MonoBehaviour
         }
     }
 
-    IEnumerator PlayCameraAnimation()
+    IEnumerator PlayCameraShovelAnimation()
     {
         //disable camera mouse controls and player movement controls
-        GetComponent<PlayerMovement>().enabled = false;
-        GetComponentInChildren<MouseLook>().enabled = false;
+        DisablePlayerControls();
 
-        camAnim.init();
+        camAnim.SetDestRot(Quaternion.Euler(53.0f, 0f, 0f));
+        camAnim.InitShovelling();
         camAnim.enabled = true;
 
         yield return new WaitForSeconds(camAnim.cameraTransitionTime);
 
         //enable controls again
-        GetComponent<PlayerMovement>().enabled = true;
-        GetComponentInChildren<MouseLook>().enabled = true;
+        EnablePlayerControls();
 
         camAnim.enabled = false;
+    }
+
+    IEnumerator PlayCamWepSwitchAnim()
+    {
+        //disable camera mouse controls and player movement controls
+        DisablePlayerControls();
+
+        camAnim.SetDestRot(new Quaternion(0,0,0,1));
+        camAnim.InitWepSwitch();
+        camAnim.enabled = true;
+
+        yield return new WaitForSeconds(camAnim.cameraTransitionTime);
+
+        camAnim.enabled = false;
+    }
+
+    private void DisablePlayerControls()
+    {
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponentInChildren<MouseLook>().enabled = false;
+    }
+
+    private void EnablePlayerControls()
+    {
+        GetComponent<PlayerMovement>().enabled = true;
+        GetComponentInChildren<MouseLook>().enabled = true;
     }
 
     private void SpawnSnowOnShovel()
@@ -143,6 +167,18 @@ public class AnimationStateController : MonoBehaviour
     private void StopDigging()
     {
         isDigging = false;
+    }
+
+    private void EquipFlameThrower()
+    {
+        currentWeapon = 2;
+        mouseLook.equippedWeapon = currentWeapon;
+    }
+
+    private void EquipShovel()
+    {
+        currentWeapon = 1;
+        mouseLook.equippedWeapon = currentWeapon;
     }
 
     private void SpawnSnowParticles()
