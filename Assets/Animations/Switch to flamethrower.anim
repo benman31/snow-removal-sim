@@ -47,7 +47,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -72,7 +72,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -97,7 +97,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -122,7 +122,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -147,7 +147,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -172,7 +172,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -197,7 +197,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -222,7 +222,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -247,7 +247,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -272,7 +272,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -306,7 +306,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -340,7 +340,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -374,7 +374,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -390,7 +390,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -406,7 +406,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -422,7 +422,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -438,7 +438,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -454,7 +454,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -470,7 +470,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -486,7 +486,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -502,7 +502,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -518,7 +518,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -534,7 +534,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -550,7 +550,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -566,7 +566,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -582,7 +582,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -598,7 +598,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -633,7 +633,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -658,7 +658,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -683,7 +683,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -708,7 +708,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -733,7 +733,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -758,7 +758,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -783,7 +783,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -808,7 +808,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -833,7 +833,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -858,7 +858,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -892,7 +892,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -926,7 +926,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -969,7 +969,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1003,7 +1003,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1019,7 +1019,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1035,7 +1035,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1051,7 +1051,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1067,7 +1067,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1083,7 +1083,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1099,7 +1099,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1115,7 +1115,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1131,7 +1131,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1147,7 +1147,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1163,7 +1163,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1179,7 +1179,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1195,7 +1195,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1211,7 +1211,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1227,7 +1227,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
   m_ScaleCurves: []
   m_FloatCurves:
   - curve:
@@ -1264,7 +1264,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FirstPersonHands/PointOfTransform/Clean_shovel_Prefab
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/Clean_shovel_Prefab
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -1723,7 +1723,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1760,7 +1760,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1797,7 +1797,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1834,7 +1834,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1871,7 +1871,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1908,7 +1908,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1936,7 +1936,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1964,7 +1964,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1992,7 +1992,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2020,7 +2020,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2048,7 +2048,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2076,7 +2076,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2104,7 +2104,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2132,7 +2132,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2160,7 +2160,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2188,7 +2188,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2216,7 +2216,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2244,7 +2244,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2272,7 +2272,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2300,7 +2300,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2328,7 +2328,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2356,7 +2356,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2384,7 +2384,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2412,7 +2412,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2440,7 +2440,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2468,7 +2468,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2496,7 +2496,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2524,7 +2524,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2552,7 +2552,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2580,7 +2580,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2608,7 +2608,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2636,7 +2636,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2664,7 +2664,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2692,7 +2692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2720,7 +2720,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2748,7 +2748,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2776,7 +2776,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2804,7 +2804,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2832,7 +2832,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2860,7 +2860,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2888,7 +2888,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2916,7 +2916,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2944,7 +2944,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2972,7 +2972,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3000,7 +3000,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3028,7 +3028,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3056,7 +3056,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3084,7 +3084,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3112,7 +3112,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3140,7 +3140,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3168,7 +3168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3196,7 +3196,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3224,7 +3224,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3252,7 +3252,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3280,7 +3280,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3308,7 +3308,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3336,7 +3336,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3364,7 +3364,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3392,7 +3392,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3420,7 +3420,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3457,7 +3457,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3494,7 +3494,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3531,7 +3531,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3568,7 +3568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3605,7 +3605,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3642,7 +3642,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3679,7 +3679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3716,7 +3716,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3753,7 +3753,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3790,7 +3790,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3827,7 +3827,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3864,7 +3864,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3910,7 +3910,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3956,7 +3956,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4002,7 +4002,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/SM_Wep_Watergun_02
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4039,7 +4039,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FirstPersonHands/PointOfTransform/Clean_shovel_Prefab
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/Clean_shovel_Prefab
     classID: 1
     script: {fileID: 0}
   - curve:
@@ -4076,7 +4076,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4113,7 +4113,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4150,7 +4150,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4187,7 +4187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4224,7 +4224,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4261,7 +4261,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4280,7 +4280,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4299,7 +4299,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4318,7 +4318,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4337,7 +4337,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4356,7 +4356,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4375,7 +4375,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4394,7 +4394,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4413,7 +4413,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4432,7 +4432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4451,7 +4451,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4470,7 +4470,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4489,7 +4489,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4508,7 +4508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4527,7 +4527,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4546,7 +4546,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4565,7 +4565,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4584,7 +4584,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4603,7 +4603,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4622,7 +4622,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4641,7 +4641,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4660,7 +4660,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4679,7 +4679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4698,7 +4698,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4717,7 +4717,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4736,7 +4736,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4755,7 +4755,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4774,7 +4774,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4793,7 +4793,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4812,7 +4812,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4831,7 +4831,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4850,7 +4850,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4869,7 +4869,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4888,7 +4888,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4907,7 +4907,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4926,7 +4926,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4945,7 +4945,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4964,7 +4964,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4983,7 +4983,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5002,7 +5002,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5021,7 +5021,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5040,7 +5040,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5059,7 +5059,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5078,7 +5078,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5097,7 +5097,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5116,7 +5116,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5135,7 +5135,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5154,7 +5154,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5173,7 +5173,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5192,7 +5192,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5211,7 +5211,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5230,7 +5230,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5249,7 +5249,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5268,7 +5268,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5287,7 +5287,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5306,7 +5306,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5325,7 +5325,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5344,7 +5344,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5363,7 +5363,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5382,7 +5382,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5401,7 +5401,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5420,7 +5420,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5439,7 +5439,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5458,7 +5458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5477,7 +5477,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5496,7 +5496,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5515,7 +5515,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5534,7 +5534,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5553,7 +5553,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5572,7 +5572,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5591,7 +5591,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5610,7 +5610,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5629,7 +5629,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5648,7 +5648,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5667,7 +5667,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5686,7 +5686,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5705,7 +5705,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5724,7 +5724,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5743,7 +5743,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5762,7 +5762,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5781,7 +5781,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5800,7 +5800,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5819,7 +5819,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5838,7 +5838,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5857,7 +5857,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -5868,7 +5868,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5878,7 +5878,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5888,7 +5888,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5898,7 +5898,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5908,7 +5908,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5918,7 +5918,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5928,7 +5928,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5938,7 +5938,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5948,7 +5948,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5958,7 +5958,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5968,7 +5968,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5978,7 +5978,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5988,7 +5988,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5998,7 +5998,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6008,7 +6008,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6018,7 +6018,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6028,7 +6028,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6038,7 +6038,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6048,7 +6048,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6058,7 +6058,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6068,7 +6068,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6078,7 +6078,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6088,7 +6088,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6098,7 +6098,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6108,7 +6108,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6118,7 +6118,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6128,7 +6128,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6138,7 +6138,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6148,7 +6148,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6158,7 +6158,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6168,7 +6168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6178,7 +6178,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6188,7 +6188,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6198,7 +6198,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6208,7 +6208,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6218,7 +6218,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/LeftWhiteHand/HandRig
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6228,7 +6228,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6238,7 +6238,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6248,7 +6248,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6258,7 +6258,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6268,7 +6268,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6278,7 +6278,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6288,7 +6288,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6298,7 +6298,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6308,7 +6308,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6318,7 +6318,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6328,7 +6328,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6338,7 +6338,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/IndexFinger/Index2/Index3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6348,7 +6348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6358,7 +6358,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6368,7 +6368,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6378,7 +6378,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6388,7 +6388,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6398,7 +6398,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6408,7 +6408,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6418,7 +6418,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6428,7 +6428,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/LittleFinger/Little2/Little3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6438,7 +6438,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6448,7 +6448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6458,7 +6458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6468,7 +6468,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6478,7 +6478,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6488,7 +6488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6498,7 +6498,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6508,7 +6508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6518,7 +6518,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/MiddleFinger/Middle2/Middle3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6528,7 +6528,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6538,7 +6538,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6548,7 +6548,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6558,7 +6558,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6568,7 +6568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6578,7 +6578,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6588,7 +6588,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6598,7 +6598,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6608,7 +6608,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/RingFinger/Ring2/Ring3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6618,7 +6618,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6628,7 +6628,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6638,7 +6638,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6648,7 +6648,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6658,7 +6658,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6668,7 +6668,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
+    path: HandsPointOfRotation/FirstPersonHands/PointOfTransform/RightWhiteHand/HandRig/Wrist/Hand/Thumb/Thumb2
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

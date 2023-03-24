@@ -30,6 +30,7 @@ public class AnimationStateController : MonoBehaviour
     // These states are used purely for digging, not animation related
     private bool makingHole = false;
     private bool droppingSnow = false;
+    private MouseLook mouseLook;
 
 
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class AnimationStateController : MonoBehaviour
     {
         camAnim = this.GetComponentInChildren<CameraAnimation>();
         animator = this.GetComponent<Animator>();
+        mouseLook = this.GetComponentInChildren<MouseLook>();
     }
 
     // Update is called once per frame
@@ -70,7 +72,7 @@ public class AnimationStateController : MonoBehaviour
                 currentWeapon--;
             }
 
-
+            mouseLook.equippedWeapon = currentWeapon;
 
             animator.SetInteger("currentWep", currentWeapon);
         }
