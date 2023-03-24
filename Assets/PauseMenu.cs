@@ -52,7 +52,6 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        //TODO make menu, also consider putting this in menu manager
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
