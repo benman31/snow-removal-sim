@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
 
     public Transform playerBody;
     public Transform playerHands;
+    [HideInInspector] public int equippedWeapon = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,12 @@ public class MouseLook : MonoBehaviour
             //rotate camera vertically
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-            //rotate Hands vertically together with camera
-            //playerHands.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            //rotate Hands vertically together with camera when flamethrower is equipped
+            if(equippedWeapon == 2)
+            {
+                playerHands.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            }
+            
 
             //rotate player horizontally
             playerBody.Rotate(Vector3.up * mouseX);

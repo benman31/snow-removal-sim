@@ -6,11 +6,14 @@ public class CameraAnimation : MonoBehaviour
 {
     public Camera cam;
     public float cameraTransitionTime = 4.0f;
-    public bool goDown;
+    public bool shovelling = false;
+    public bool switchingWeapons = false;
     [HideInInspector] public float timer = 0;
 
+    [SerializeField] private Transform playerHandsTrans;
     private Quaternion originalRot;
     private Quaternion destRot = Quaternion.Euler(53.0f, 0f, 0f);
+    
 
     void Start()
     {
@@ -19,10 +22,24 @@ public class CameraAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transition camera from current rotation to look downwards or vice versa
+        //transition camera from current rotation to new rotation
+        if(switchingWeapons)
+        {
+            if (timer <= 1)
+            {
+                cam.transform.localRotation = Quaternion.Lerp(originalRot, destRot, timer);
+                playerHandsTrans.localRotation = Quaternion.Lerp(originalRot, destRot, timer);
+            }
 
+            timer += Time.deltaTime*3;
 
-        if (goDown)
+            // if (timer >= 1.2f)
+            // {
+            //     shovelling = false;
+            //     timer = 1.0f;
+            // }
+        }
+        else if (shovelling)
         {
             if (timer <= 1)
             {
@@ -33,7 +50,7 @@ public class CameraAnimation : MonoBehaviour
 
             if (timer >= 2.2f)
             {
-                goDown = false;
+                shovelling = false;
                 timer = 1.0f;
             }
         }
@@ -46,15 +63,27 @@ public class CameraAnimation : MonoBehaviour
         //Debug.Log("timer is " + timer);
     }
 
+    public void SetDestRot(Quaternion rot)
+    {
+        destRot = rot;
+    }
+
     public void SetOriginalRot(Quaternion rot)
     {
         originalRot = rot;
     }
 
-    public void init()
+    public void InitShovelling()
     {
         originalRot = cam.transform.localRotation;
         timer = 0;
-        goDown = true;
+        shovelling = true;
+    }
+
+    public void InitWepSwitch()
+    {
+        originalRot = cam.transform.localRotation;
+        timer = 0;
+        switchingWeapons = true;
     }
 }
