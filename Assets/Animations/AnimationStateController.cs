@@ -132,6 +132,24 @@ public class AnimationStateController : MonoBehaviour
         GetComponentInChildren<MouseLook>().enabled = true;
     }
 
+    private void HandleShovelActive(bool isActive)
+    {
+        if(isActive)
+            this.currentWeapon = 1;
+    }
+
+    private void HandleSnowBlowerActive(bool isActive)
+    {
+        if (isActive)
+            this.currentWeapon = 2;
+    }
+
+    private void HandleFlamethrowerActive(bool isActive)
+    {
+        if (isActive)
+            this.currentWeapon = 3;
+    }
+
     private void SpawnSnowOnShovel()
     {
         if (poise <= 30)

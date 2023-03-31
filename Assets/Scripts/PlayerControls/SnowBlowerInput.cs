@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnowBlowerInput : MonoBehaviour
 {
-    #region Variables
+    /*#region Variables
     [Header("Input Properties")]
-    public Camera camera;
+    public Camera cam;
+    [SerializeField] private Transform playerHandTransform;
     #endregion
 
     #region Properties
@@ -34,12 +36,30 @@ public class SnowBlowerInput : MonoBehaviour
         get { return _rotationInput; }
     }
 
+    [Header("State Properties")]
+    
+    private bool _snowblowerActive;
+    public bool SnowblowerActive
+    {
+        get { return _snowblowerActive; }
+    }
+
     #endregion
 
     #region Builtin Methods
+    private void Start()
+    {
+        //PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
+       //gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        //PlayerTools.OnSnowblowerActive -= HandleSnowblowerActive;
+    }
     void Update()
     {
-        if (camera)
+        if (cam && SnowblowerActive)
         {
             HandleInputs();
         }
@@ -56,7 +76,7 @@ public class SnowBlowerInput : MonoBehaviour
     #region Custom Methods
     protected virtual void HandleInputs()
     {
-        Ray screenRay =  camera.ViewportPointToRay(Input.mousePosition);
+        Ray screenRay =  cam.ViewportPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(screenRay, out hit))
         {
@@ -67,5 +87,21 @@ public class SnowBlowerInput : MonoBehaviour
         _forwardInput = Input.GetAxis("Vertical");
         _rotationInput = Input.GetAxis("Horizontal");
     }
+
+    private void HandleSnowblowerActive(bool isActive)
+    {
+        _snowblowerActive = isActive;
+        if (isActive)
+        {
+            transform.parent = null;
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.parent = playerHandTransform;
+            gameObject.SetActive(false);
+        }
+    }
     #endregion
+    */
 }

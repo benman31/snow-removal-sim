@@ -1,44 +1,85 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(SnowBlowerInput))]
 public class SnowBlowerController : MonoBehaviour
 {
     #region Variables
-    [Header("Movement Properties")]
-    public float movementSpeed = 15f;
-    public float rotationSpeed = 20f;
-
     private Rigidbody rb;
-    private SnowBlowerInput input;
+    private Vector3 previousPosition;
+    private bool hasMoved;
+    #endregion
+    
+    #region Event Actions
+    public static event Action<Vector3> OnSnowCollision;
+    public static event Action<bool> OnClearingSnow;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
         rb = GetComponent<Rigidbody>();
-        input = GetComponent<SnowBlowerInput>();
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void OnDestroy()
     {
-        if(rb && input)
+        PlayerTools.OnSnowblowerActive -= HandleSnowblowerActive;
+    }
+
+    void Update()
+    {
+        hasMoved = Vector3.SqrMagnitude(transform.position - previousPosition) > 0.0001f;
+
+        previousPosition.x = transform.position.x;
+        previousPosition.y = transform.position.y;
+        previousPosition.z = transform.position.z;
+
+        if (!hasMoved)
         {
-            HandleMovement();
+            OnClearingSnow?.Invoke(false);
         }
     }
 
-    #region Custom Methods
-    protected virtual void HandleMovement()
+    private void OnCollisionEnter(Collision collision)
     {
-        Vector3 desiredPosition = transform.position + (transform.forward * input.ForwardInput * movementSpeed * Time.deltaTime);
-        rb.MovePosition(desiredPosition);
+        HandleSnowCollision(collision);
 
-        Quaternion desiredRotation = transform.rotation * Quaternion.Euler(Vector3.up * rotationSpeed * input.RotationInput * Time.deltaTime);
-        rb.MoveRotation(desiredRotation);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        HandleSnowCollision(collision);
+        
+    }
+
+    #region Custom Methods
+
+    private void HandleSnowCollision(Collision collision)
+    {
+        if (collision.collider.tag == "Snow")
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                OnSnowCollision?.Invoke(contact.point);
+
+            }
+            
+            if (hasMoved)
+            {
+                OnClearingSnow?.Invoke(true);
+            }
+        }
+    }
+
+    private void HandleSnowblowerActive(bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
     #endregion
 }
