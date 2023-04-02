@@ -1,10 +1,6 @@
 // Author: Benjamin Enman
-// Based on the following tutorial: https://youtu.be/8mGZBYsSXcQ
+// Line rendering code based on the following tutorial: https://youtu.be/8mGZBYsSXcQ
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Drawing;
 using UnityEngine;
 
 
@@ -12,13 +8,15 @@ public class SnowblowerTrajectory : MonoBehaviour
 {
     [SerializeField] private LineRenderer LineRenderer;
     [SerializeField] private Transform ReleasePosition;
+    [SerializeField] private Transform TargetPosition;
     [SerializeField] private float Strength;
     [SerializeField] private float Weight;
-    [SerializeField] private ParticleSystem ParticleSystem;
+    [SerializeField] private ParticleSystem SnowStreamPS;
 
     private LayerMask SnowCollisionMask;
     public static event Action<Vector3> OnGroundCollision;
 
+    private bool SpoutHasMoved = false;
 
     [Header("Display Controls")]
     [SerializeField]
@@ -32,11 +30,13 @@ public class SnowblowerTrajectory : MonoBehaviour
     private void Start()
     {
         SnowBlowerController.OnClearingSnow += HandleSnowBeingCleared;
+        SnowBlowerInput.OnSpoutRotation += HandleSpoutMoved;
     }
 
     private void OnDestroy()
     {
         SnowBlowerController.OnClearingSnow -= HandleSnowBeingCleared;
+        SnowBlowerInput.OnSpoutRotation -= HandleSpoutMoved;
     }
 
     void Awake()
@@ -52,10 +52,11 @@ public class SnowblowerTrajectory : MonoBehaviour
 
     private void DrawProjection()
     {
-        LineRenderer.enabled = true;
+        LineRenderer.enabled = SpoutHasMoved;
+        TargetPosition.gameObject.SetActive(SpoutHasMoved);
         LineRenderer.positionCount = Mathf.CeilToInt(LinePoints / TimeBetweenPoints) + 2;
         Vector3 startPos = ReleasePosition.position;
-        Vector3 startVelocity = ParticleSystem.transform.forward * Strength / Weight;
+        Vector3 startVelocity = SnowStreamPS.transform.forward * Strength / Weight;
         int i = 0;
         LineRenderer.SetPosition(i, startPos);
         for (float time = 0; time < LinePoints; time += TimeBetweenPoints)
@@ -73,6 +74,7 @@ public class SnowblowerTrajectory : MonoBehaviour
                 LineRenderer.SetPosition(i, hit.point);
                 LineRenderer.positionCount = i + 1;
 
+                TargetPosition.position = hit.point;
                 HandleGroundCollision(hit);
                 return;
             }
@@ -82,7 +84,7 @@ public class SnowblowerTrajectory : MonoBehaviour
     // Tell the player tools script that our snow trajectory has made contact
     private void HandleGroundCollision(RaycastHit hit)
     {
-        if (ParticleSystem.isPlaying)
+        if (SnowStreamPS.isPlaying)
         {
             OnGroundCollision?.Invoke(hit.point);
         }
@@ -91,13 +93,18 @@ public class SnowblowerTrajectory : MonoBehaviour
 
     private void HandleSnowBeingCleared(bool isClearingSnow)
     {
-        if (!isClearingSnow && ParticleSystem.isPlaying)
+        if (!isClearingSnow && SnowStreamPS.isPlaying)
         {
-            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            SnowStreamPS.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
-        else if (isClearingSnow && ParticleSystem.isStopped)
+        else if (isClearingSnow && SnowStreamPS.isStopped)
         {
-            ParticleSystem.Play();
+            SnowStreamPS.Play();
         }
+    }
+
+    private void HandleSpoutMoved(bool hasMoved)
+    {
+        SpoutHasMoved = hasMoved;
     }
 }
