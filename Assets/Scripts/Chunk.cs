@@ -63,7 +63,7 @@ public class Chunk
         meshRenderer.material = Resources.Load<Material>("Materials/Terrain");
         //meshRenderer.material = Resources.Load<Material>("Materials/TerrainSplat");
 
-        chunkObject.transform.tag = "Terrain";
+        chunkObject.transform.tag = "Snow";
 
         chunkObject.transform.SetParent(parent.transform);
 

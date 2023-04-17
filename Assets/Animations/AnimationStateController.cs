@@ -39,6 +39,17 @@ public class AnimationStateController : MonoBehaviour
         camAnim = this.GetComponentInChildren<CameraAnimation>();
         animator = this.GetComponent<Animator>();
         mouseLook = this.GetComponentInChildren<MouseLook>();
+
+        PlayerTools.OnShovelActive += HandleShovelActive;
+        PlayerTools.OnSnowblowerActive += HandleSnowBlowerActive;
+        PlayerTools.OnFlamethrowerActive += HandleFlamethrowerActive;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerTools.OnShovelActive -= HandleShovelActive;
+        PlayerTools.OnSnowblowerActive -= HandleSnowBlowerActive;
+        PlayerTools.OnFlamethrowerActive -= HandleFlamethrowerActive;
     }
 
     // Update is called once per frame
@@ -130,6 +141,34 @@ public class AnimationStateController : MonoBehaviour
     {
         GetComponent<PlayerMovement>().enabled = true;
         GetComponentInChildren<MouseLook>().enabled = true;
+    }
+
+    private void HandleShovelActive(bool isActive)
+    {
+        if(isActive)
+        {
+            this.currentWeapon = 1;
+            //animator.SetInteger("currentWep", 1);
+        }
+            
+    }
+
+    private void HandleSnowBlowerActive(bool isActive)
+    {
+        if (isActive)
+        {
+            this.currentWeapon = 2;
+            //animator.SetInteger("currentWep", 2);
+        }
+    }
+
+    private void HandleFlamethrowerActive(bool isActive)
+    {
+        if (isActive)
+        {
+            this.currentWeapon = 3;
+            //animator.SetInteger("currentWep", 2);
+        }
     }
 
     private void SpawnSnowOnShovel()

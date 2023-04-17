@@ -11,6 +11,9 @@ public class MouseLook : MonoBehaviour
     public float sensitivity = 100f;
 
     public float xRotation;
+    public float yRotation;
+
+    private bool snowblowerActive = false;
 
     public bool on = true;
 
@@ -22,6 +25,12 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerTools.OnSnowblowerActive -= HandleSnowblowerActive;
     }
 
     // Update is called once per frame
@@ -35,8 +44,19 @@ public class MouseLook : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            //rotate camera vertically
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            if (snowblowerActive)
+            {
+                yRotation += mouseX;
+                yRotation = Mathf.Clamp(yRotation, -75f, 75f);
+            }
+            else
+            {
+                yRotation = 0f;
+            }
+            
+
+            //rotate camera vertically (and horizontally if snowblower is active)
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
             //rotate Hands vertically together with camera when flamethrower is equipped
             if(equippedWeapon == 2)
@@ -45,9 +65,15 @@ public class MouseLook : MonoBehaviour
             }
             
 
-            //rotate player horizontally
-            playerBody.Rotate(Vector3.up * mouseX);
+            //rotate player horizontally is snow blower is not active
+            if (!snowblowerActive)
+                playerBody.Rotate(Vector3.up * mouseX);
         }
 
+    }
+
+    private void HandleSnowblowerActive(bool isActive)
+    {
+        snowblowerActive = isActive;
     }
 }

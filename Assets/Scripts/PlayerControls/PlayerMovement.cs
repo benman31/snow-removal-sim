@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 velocity;
     public Vector3 movement;
     public float speed = 10f;
+    public float snowBlowerMovementSpeed = 5f;
+    public float snowblowerRotationSpeed = 20f;
     public float jumpHeight = 1f;
     public float gravity = -9.81f * 2;
 
@@ -24,16 +26,36 @@ public class PlayerMovement : MonoBehaviour
     private const float YVELOCITYRESET = -2F;
     private float sphereRad = 0.4f;
 
+    private bool snowblowerActive;
+
     // Start is called before the first frame update
     void Start()
     {
+        PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerTools.OnSnowblowerActive -= HandleSnowblowerActive;
     }
 
     // Update is called once per frame
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRad, groundMask);
+        if (!snowblowerActive)
+        {
+            HandlePlayerInput();
+        }
+        else
+        {
+            HandleSnowBlowerInput();
+        }
+    }
 
+    // Input Code by Awad, Moved into HandleInput function by Ben
+    private void HandlePlayerInput()
+    {
         /**
         MOVEMENT
         */
@@ -47,9 +69,9 @@ public class PlayerMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+ 
         movement = transform.right * x + transform.forward * z;
-
+        
         controller.Move(movement * speed * Time.deltaTime);
 
         /**
@@ -65,6 +87,36 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    // Change the controls to typical tank controls
+    private void HandleSnowBlowerInput()
+    {
+
+        if (isGrounded && velocity.y < 0.001f)
+        {
+            velocity.y = YVELOCITYRESET;
+        }
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        movement = transform.forward * z;
+
+        controller.Move(movement * snowBlowerMovementSpeed * Time.deltaTime);
+
+        Quaternion desiredRotation = transform.rotation * Quaternion.Euler(Vector3.up * snowblowerRotationSpeed * x * Mathf.Sign(z) * Time.deltaTime);
+        transform.rotation = desiredRotation;
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+
+    }
+
+    private void HandleSnowblowerActive(bool isActive)
+    {
+        snowblowerActive = isActive;
     }
 }
 

@@ -1,3 +1,6 @@
+//Author: Benjamin Enman
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +14,9 @@ public enum ToolType
 
 public class PlayerTools : MonoBehaviour
 {
+    public static event Action<bool> OnShovelActive;
+    public static event Action<bool> OnSnowblowerActive;
+    public static event Action<bool> OnFlamethrowerActive;
 
     [SerializeField] private Camera cam;
     [SerializeField] private WorldGenerator worldGen;
@@ -21,6 +27,8 @@ public class PlayerTools : MonoBehaviour
     [SerializeField] private ToolType currentTool = ToolType.Shovel;
     [SerializeField] private float shovelRange = 2f;
     [SerializeField] private Transform shovelTip;
+    [SerializeField] private Transform handsPointOfTransform;
+
 
     private AnimationStateController animController;
     private const float POISE_SCALE = 0.5f;
@@ -32,6 +40,14 @@ public class PlayerTools : MonoBehaviour
     void Start()
     {
         this.animController = this.GetComponentInParent<AnimationStateController>();
+        SnowBlowerController.OnSnowCollision += this.HandleSnowBlower;
+        SnowblowerTrajectory.OnGroundCollision += this.HandleSnowBlowerTrajectory;
+    }
+
+    private void OnDestroy()
+    {
+        SnowBlowerController.OnSnowCollision -= this.HandleSnowBlower;
+        SnowblowerTrajectory.OnGroundCollision -= this.HandleSnowBlowerTrajectory;
     }
 
     // Update is called once per frame
@@ -41,14 +57,37 @@ public class PlayerTools : MonoBehaviour
             if (this.currentTool != ToolType.Shovel)
             {
                 this.currentTool = ToolType.Shovel;
+                OnShovelActive?.Invoke(true);
+                OnSnowblowerActive?.Invoke(false);
+                OnFlamethrowerActive?.Invoke(false);
+
+                handsPointOfTransform?.gameObject.SetActive(true);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            if (this.currentTool != ToolType.SnowBlower)
+            {
+                this.currentTool = ToolType.SnowBlower;
+                OnShovelActive?.Invoke(false);
+                OnSnowblowerActive?.Invoke(true);
+                OnFlamethrowerActive?.Invoke(false);
+
+                handsPointOfTransform?.gameObject.SetActive(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
             if (this.currentTool != ToolType.FlameThrower)
             {
                 this.currentTool = ToolType.FlameThrower;
+                OnShovelActive?.Invoke(false);
+                OnSnowblowerActive?.Invoke(false);
+                OnFlamethrowerActive?.Invoke(true);
+
+                handsPointOfTransform?.gameObject.SetActive(true);
             }
         }
 
@@ -61,7 +100,7 @@ public class PlayerTools : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.transform.tag == "Terrain")
+                    if (hit.transform.tag == "Terrain" || hit.transform.tag == "Snow")
                     {
                         Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
                         Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
@@ -85,7 +124,7 @@ public class PlayerTools : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.transform.tag == "Terrain")
+                    if (hit.transform.tag == "Terrain" || hit.transform.tag == "Snow")
                     {
                         Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
                         Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
@@ -112,7 +151,7 @@ public class PlayerTools : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit, shovelRange))
                 {
-                    if (hit.transform.tag == "Terrain")
+                    if (hit.transform.tag == "Terrain" || hit.transform.tag == "Snow")
                     {
                         Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
                         Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
@@ -135,7 +174,7 @@ public class PlayerTools : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(shovelTip.position, down, out hit))
                 {
-                    if (hit.transform.tag == "Terrain")
+                    if (hit.transform.tag == "Terrain" || hit.transform.tag == "Snow")
                     {
                         Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
                         Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
@@ -149,6 +188,35 @@ public class PlayerTools : MonoBehaviour
                     }
 
                 }
+            }
+        }
+    }
+
+    public void HandleSnowBlower(Vector3 point)
+    {
+        if (this.currentTool == ToolType.SnowBlower)
+        {   
+            Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
+            Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(point, scale));
+            if (chunk != null)
+            {
+                // TODO make these hard coded values into const, or editor props
+                chunk.RemoveTerrain(Vector3.Scale(point, scale), 2.5f, 50);
+            }
+        }
+    }
+
+    public void HandleSnowBlowerTrajectory(Vector3 point)
+    {
+        if (this.currentTool == ToolType.SnowBlower)
+        {
+            Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
+            Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(point, scale));
+            if (chunk != null)
+            {
+                // TODO make these hard coded values into const, or editor props
+                // TODO make specialized "snow pile" function for more realistic behavior
+                chunk.AddTerrain(Vector3.Scale(point, scale), 8f, 2f);
             }
         }
     }
