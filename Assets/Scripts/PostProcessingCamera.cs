@@ -31,10 +31,9 @@ public class PostProcessingCamera : MonoBehaviour
     private float currentRadius = 1.5f;
     private float currentIntensity = 0;
 
-    private void OnPreRender()
+    private void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
-        mainRenderTexture = Camera.main.activeTexture;
-
+        //adjust post effect parameters before passing them to shader
         if (currentSize != size)
         {
             postProcessMat.SetFloat("_Size", size);
@@ -70,9 +69,7 @@ public class PostProcessingCamera : MonoBehaviour
             postProcessMat2.SetFloat("_Intensity", Intensity);
             currentIntensity = Intensity;
         }
-    }
-    private void OnRenderImage(RenderTexture src, RenderTexture dest)
-    {
+
         RenderTexture renderTexture = RenderTexture.GetTemporary(src.width, src.height, 0, src.format);
         RenderTexture renderTexture2 = RenderTexture.GetTemporary(src.width, src.height, 0, src.format);
 

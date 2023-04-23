@@ -41,6 +41,9 @@ Shader "Unlit/RainDrop"
         return o;
     }
 
+    /**
+    * generates a random value
+    */
     float Rand(float2 p)
     {
         p = frac(p * float2(123.34, 345.45));
@@ -53,7 +56,6 @@ Shader "Unlit/RainDrop"
         float2 aspect = float2(2, 1);
         float2 uv = inUV * _Size * aspect;
         uv.y += t * .25;
-        // uv.y *= 2;
         float2 gv = frac(uv) - .5;
 
         float2 id = floor(uv);
@@ -68,7 +70,6 @@ Shader "Unlit/RainDrop"
         x += (.4 - abs(x)) * sin(3*w) * pow(sin(w), 6) * .45;
 
         float y = -sin(t+sin(t+sin(t)*.5))*.45;
-        // y *= 2;
         y -= (gv.x - x) * (gv.x - x);
 
         float2 dropPos = (gv - float2(x, y)) / aspect;
@@ -94,7 +95,8 @@ Shader "Unlit/RainDrop"
         Tags { "RenderType"="Opaque" }
         LOD 100
 
-        Pass // 1
+        //each pass creates more droplets than the previous one
+        Pass // 0
         {
             CGPROGRAM
             #pragma vertex vert
@@ -130,8 +132,7 @@ Shader "Unlit/RainDrop"
                 float2 drops = Layer(i.uv, t);
                 drops += Layer(i.uv * 1.2 + 7, t);
                 drops += Layer(i.uv * 1.5 - 7, t);
-                // drops += Layer(i.uv * 3 + 2.5, t);
-                col = tex2D(_MainTex, i.uv + drops * _Distortion);
+                col = tex2D(_MainTex, i.uv + drops * _Distortion); //distort UVs that are drops and render
                 
                 return col;
             }
