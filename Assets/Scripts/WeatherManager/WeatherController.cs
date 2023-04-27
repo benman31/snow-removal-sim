@@ -2,12 +2,15 @@
 Written by: Abdelrahman Awad
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WeatherController : MonoBehaviour
 {
+    public static event Action<float> OnSnowRateChange;
+
     //Weather
     public enum Weather { Blizzard, Snowy, Clear };
     public Weather currentWeather = Weather.Clear;
@@ -206,20 +209,20 @@ public class WeatherController : MonoBehaviour
 
         if (currentWeather == Weather.Blizzard)
         {
-            windIntesity = Random.Range(150, 201);
-            snowFallRate = Random.Range(8, 11);
+            windIntesity = UnityEngine.Random.Range(150, 201);
+            snowFallRate = UnityEngine.Random.Range(8, 11);
         }
         else if (currentWeather == Weather.Snowy)
         {
-            windIntesity = Random.Range(75, 151);
-            snowFallRate = Random.Range(3, 8);
+            windIntesity = UnityEngine.Random.Range(75, 151);
+            snowFallRate = UnityEngine.Random.Range(3, 8);
         }
         else
         {
-            windIntesity = Random.Range(1, 75);
+            windIntesity = UnityEngine.Random.Range(1, 75);
             snowFallRate = 0;
         }
-
+        OnSnowRateChange?.Invoke(snowFallRate);
         weatherUpdated = false;
     }
 

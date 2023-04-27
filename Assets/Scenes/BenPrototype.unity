@@ -507,9 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd18672e02628ad4ba38ddbcffe2702b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  snowBlowerController: {fileID: 0}
-  snowBlowerInput: {fileID: 0}
 --- !u!1001 &118410187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1424,14 +1421,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342285315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1813491071}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &342285317
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4166,8 +4163,8 @@ BoxCollider:
   m_Center: {x: -1.7973721, y: 0.5945045, z: -0.00000010058286}
 --- !u!20 &981587476 stripped
 Camera:
-  m_CorrespondingSourceObject: {fileID: 7608818134037032364, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-  m_PrefabInstance: {fileID: 7608818134397631416}
+  m_CorrespondingSourceObject: {fileID: 7496144845512797927, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+  m_PrefabInstance: {fileID: 7496144846209136883}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &998000030
 GameObject:
@@ -7283,7 +7280,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1482449744}
   - component: {fileID: 1482449743}
-  m_Layer: 7
+  - component: {fileID: 1482449745}
+  m_Layer: 8
   m_Name: WorldGenerator
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -7328,6 +7326,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1482449745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482449742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e64751ec0ea5a045b2f28f060a3e65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowFallShader: {fileID: 4800000, guid: 6280875032244c4419f13dc6168e30ce, type: 3}
+  flakeAmount: 0.075
+  flakeOpacity: 0.004
 --- !u!1 &1489997956
 GameObject:
   m_ObjectHideFlags: 0
@@ -10178,8 +10191,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102132944 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7608818134981426024, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-  m_PrefabInstance: {fileID: 7608818134397631416}
+  m_CorrespondingSourceObject: {fileID: 7496144844384352291, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+  m_PrefabInstance: {fileID: 7496144846209136883}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2105027238
 GameObject:
@@ -10501,80 +10514,84 @@ Transform:
   m_Father: {fileID: 206329957}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &7608818134397631416
+--- !u!1001 &7496144846209136883
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 540590994208968439, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 437072811272457660, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 1482449744}
-    - target: {fileID: 7608818134981426024, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-      propertyPath: m_Name
-      value: First Person Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426025, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-      propertyPath: staminaBar
-      value: 
-      objectReference: {fileID: 1744545275}
-    - target: {fileID: 7608818134981426025, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-      propertyPath: weatherController
-      value: 
-      objectReference: {fileID: 780500137}
-    - target: {fileID: 7608818134981426027, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352288, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: poiseBar
       value: 
       objectReference: {fileID: 208559233}
-    - target: {fileID: 7608818134981426028, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
-      propertyPath: worldGen
+    - target: {fileID: 7496144844384352290, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+      propertyPath: staminaBar
       value: 
-      objectReference: {fileID: 1482449743}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+      objectReference: {fileID: 1744545275}
+    - target: {fileID: 7496144844384352290, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+      propertyPath: weatherController
+      value: 
+      objectReference: {fileID: 780500137}
+    - target: {fileID: 7496144844384352291, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+      propertyPath: m_Name
+      value: First Person Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.96
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 8.16
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7608818134981426031, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+    - target: {fileID: 7496144844384352292, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7496144844384352295, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+      propertyPath: worldGen
+      value: 
+      objectReference: {fileID: 1482449743}
+    - target: {fileID: 7496144844384352299, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 1482449742}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a3757c190e37214d8a0a98c344dfed2, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 109d4f14aa0068b42889a3a9b52fe9d3, type: 3}
