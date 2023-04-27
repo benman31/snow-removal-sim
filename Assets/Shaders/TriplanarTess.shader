@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Custom/TriplanarTess"
 {
     Properties
@@ -9,7 +11,7 @@ Shader "Custom/TriplanarTess"
         _GroundTex ("Ground (RGB)", 2D) = "white" {}
         _Splat ("SplatMap", 2D) = "black" {}
         
-        _Displacement ("Displacement", Range(0, 1.0)) = 0.3
+        _Displacement ("Displacement", Range(0, 8.0)) = 0.3
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
@@ -40,45 +42,54 @@ Shader "Custom/TriplanarTess"
         float _Tess;
 
         float4 tessDistance (appdata v0, appdata v1, appdata v2) {
-            float minDist = 10.0;
+            float minDist = 5.0;
             float maxDist = 25.0;
             return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, minDist, maxDist, _Tess);
         }
 
         sampler2D _Splat;
         float _Displacement;
-        float _TexScale;
+        float _TexScale; // Must be set to chunksize * worldSizeInChunks
 		float _TriplanarBlendSharpness;
 
         void disp (inout appdata v)
-        {
-            half2 yUV = v.vertex.xz / _TexScale;
-			half2 xUV = v.vertex.zy / _TexScale;
-			half2 zUV = v.vertex.xy / _TexScale;
+        {   
+            // Compute UV coordinates based on vertex position
+            float3 worldPos = mul (unity_ObjectToWorld, v.vertex).xyz;
+            float3 worldNormal = UnityObjectToWorldNormal(v.normal);
+            
+            // Temp fix, just flatten all the normals. Fixes displacement but muddies up the texture
+            worldNormal.x= 1;
+            worldNormal.y= 1;
+            worldNormal.z= 1;
+
+            half2 yUV = worldPos.xz / _TexScale;
+			half2 xUV = worldPos.zy / _TexScale;
+			half2 zUV = worldPos.xy / _TexScale;
 
             // Now do texture samples from our diffuse map with each of the 3 UV set's we've just made.
 			half3 yDiff = tex2D (_Splat, yUV);
 			half3 xDiff = tex2D (_Splat, xUV);
 			half3 zDiff = tex2D (_Splat, zUV);
+           
             // Get the absolute value of the world normal.
 			// Put the blend weights to the power of BlendSharpness, the higher the value, 
             // the sharper the transition between the planar maps will be.
-			half3 blendWeights = pow (abs(v.normal), _TriplanarBlendSharpness);
-			// Divide our blend mask by the sum of it's components, this will make x+y+z=1
+			half3 blendWeights = pow (abs(worldNormal), _TriplanarBlendSharpness);
+			
+            // Divide our blend mask by the sum of it's components, this will make x+y+z=1
 			blendWeights = blendWeights / (blendWeights.x + blendWeights.y + blendWeights.z);
-			// Finally, blend together all three samples based on the blend mask.
-			//o.Albedo = xDiff * blendWeights.x + yDiff * blendWeights.y + zDiff * blendWeights.z;
-
+			
+            // Finally, blend together all three samples based on the blend mask.
             float d = tex2Dlod(_Splat, float4(xUV.xy,0,0)).r * blendWeights.x;
             d += tex2Dlod(_Splat, float4(yUV.xy,0,0)).r * blendWeights.y;
             d += tex2Dlod(_Splat, float4(zUV.xy,0,0)).r * blendWeights.z;
             d *= _Displacement;
-
-            //float d = tex2Dlod(_Splat, float4(v.texcoord.xy,0,0)).r * _Displacement;
+            
             // Depress vertices downward 
-            v.vertex.xyz -= v.normal * d;
+            v.vertex.y -=  d;
             // Offset the final result by 1x the max displacement so the surface collider sits at the bottom of the depression
-            v.vertex.xyz += v.normal * _Displacement;
+            //v.vertex.xyz += worldNormal * _Displacement;
         }
 
         sampler2D _GroundTex;
@@ -134,7 +145,7 @@ Shader "Custom/TriplanarTess"
 			//o.Albedo = xDiff * blendWeights.x + yDiff * blendWeights.y + zDiff * blendWeights.z;
 
             // Albedo comes from a texture tinted by color
-            fixed4 snow = tex2D (_SnowTex, xUV.xy) * blendWeights.x; //* _SnowColor;
+            fixed4 snow = tex2D (_SnowTex, xUV.xy) * blendWeights.x;
             snow += tex2D (_SnowTex, yUV.xy) * blendWeights.y;
             snow += tex2D (_SnowTex, zUV.xy) * blendWeights.z;
             snow *= _SnowColor;
@@ -144,13 +155,12 @@ Shader "Custom/TriplanarTess"
             ground += tex2D (_GroundTex, zUV.xy) * blendWeights.z;
             ground *= _GroundColor;
 
-            //fixed4 ground = tex2D (_GroundTex, IN.uv_GroundTex) * _GroundColor;
             half amount = tex2Dlod(_Splat, float4(xUV.xy,0,0)).r * blendWeights.x;
             amount += tex2Dlod(_Splat, float4(yUV.xy,0,0)).r * blendWeights.y;
             amount += tex2Dlod(_Splat, float4(zUV.xy,0,0)).r * blendWeights.z;
 
             fixed4 c = lerp(snow, ground, amount);
-            //fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

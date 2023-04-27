@@ -2,12 +2,15 @@
 Written by: Abdelrahman Awad
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static event Action<bool> OnPlayerGrounded;
+
     public CharacterController controller;
 
     public Transform groundCheck;
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRad, groundMask);
+        OnPlayerGrounded?.Invoke(isGrounded);
         if (!snowblowerActive)
         {
             HandlePlayerInput();
