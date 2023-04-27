@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,12 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5824635da21ccad49a5df5abe76952d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowPoofTransform: {fileID: 0}
-  SnowPoof: {fileID: 0}
-  animator: {fileID: 0}
-  poiseBar: {fileID: 0}
-  poise: 0
-  snowPrefabs: []
 --- !u!114 &230561696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,14 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52f4e16c465558498bb2a6266f98910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  worldGen: {fileID: 0}
-  brushSize: 3
-  brushStrength: 5
-  currentTool: 0
-  shovelRange: 2
-  shovelTip: {fileID: 0}
-  handsPointOfTransform: {fileID: 0}
 --- !u!114 &230561697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,12 +273,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   velocity: {x: 0, y: 0, z: 0}
-  movement: {x: 0, y: 0, z: 0}
   speed: 10
-  snowBlowerMovementSpeed: 5
-  snowblowerRotationSpeed: 20
   jumpHeight: 2
-  gravity: -19.62
 --- !u!143 &230561698
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1082,7 +1064,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 149c8fc8f2d931745a38eacbc63d3c34, type: 2}
+  - {fileID: 2100000, guid: 3469a4110f2bb634bbc950fd86c7348b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1157,7 +1139,7 @@ MonoBehaviour:
   mainCamera: {fileID: 1045797650}
   drawShader: {fileID: 4800000, guid: cd1a72c6e4dc10743ab990464e110ea7, type: 3}
   fillShader: {fileID: 4800000, guid: ee1f68eaf66ac554a8174e80d86f90d0, type: 3}
-  brushSize: 1
+  brushSize: 10
   brushStrength: 0.115
 --- !u!4 &502345563 stripped
 Transform:
@@ -1444,12 +1426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 1000
-  xRotation: 0
-  yRotation: 0
-  on: 1
   playerBody: {fileID: 230561699}
   playerHands: {fileID: 674496903}
-  equippedWeapon: 1
 --- !u!81 &1045797649
 AudioListener:
   m_ObjectHideFlags: 0

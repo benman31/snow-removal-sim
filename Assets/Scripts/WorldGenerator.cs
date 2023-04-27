@@ -1,5 +1,3 @@
-// Author: Benjamin Enman
-
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -33,9 +31,6 @@ public class WorldGenerator : MonoBehaviour
     // Keeping a separate linked list of chunks to make updating easier for snow accumulation over time
     private LinkedList<Chunk> chunkList = new LinkedList<Chunk>();
     private LinkedListNode<Chunk> currentUpdateChunk;
-
-    // Need a quick solution to share this with other objects so making it static for now
-    public static Material snowMat;
     
     // Start is called before the first frame update
     void Start()
@@ -45,7 +40,6 @@ public class WorldGenerator : MonoBehaviour
 
     private void Awake()
     {
-        snowMat = Resources.Load<Material>("Materials/TerrainSplat");
         Generate();
         currentUpdateChunk = chunkList.First;
     }
