@@ -95,7 +95,7 @@ public class PlayerTracks : MonoBehaviour
 
         if (hasMoved && playerIsGrounded && !footUp)
         { 
-            if (leftFootDown && Physics.Raycast(leftFoot.position, Vector3.down, out groundHit, 10f, layerMask))
+            if (leftFootDown && Physics.Raycast(leftFoot.position, Vector3.down, out groundHit, 5f, layerMask))
             {
                 brushMaterial.SetVector("_Coordinate", new Vector4(groundHit.textureCoord.x, groundHit.textureCoord.y, 0, 0));
                 brushMaterial.SetFloat("_Strength", brushStrength);
@@ -105,7 +105,7 @@ public class PlayerTracks : MonoBehaviour
                 Graphics.Blit(temp, splatMap, brushMaterial);
                 RenderTexture.ReleaseTemporary(temp);
             }
-            if (rightFootDown && Physics.Raycast(rightFoot.position, Vector3.down, out groundHit, 10f, layerMask))
+            if (rightFootDown && Physics.Raycast(rightFoot.position, Vector3.down, out groundHit, 5f, layerMask))
             {
                 brushMaterial.SetVector("_Coordinate", new Vector4(groundHit.textureCoord.x, groundHit.textureCoord.y, 0, 0));
                 brushMaterial.SetFloat("_Strength", brushStrength);

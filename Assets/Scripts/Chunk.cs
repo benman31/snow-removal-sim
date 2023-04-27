@@ -158,7 +158,7 @@ public class Chunk
                 for (int z = 0; z < width; z++)
                 {
 
-                    MarchCube2(new Vector3Int(x, y, z));
+                    MarchCube(new Vector3Int(x, y, z));
                 }
             }
         }
@@ -360,7 +360,7 @@ public class Chunk
 
                     float sqrDist = Mathf.Min(Vector3.SqrMagnitude(new Vector3(x, y, z) - pos), sqrRad);
                     float weight = (1f - sqrDist / sqrRad) * Time.deltaTime;
-                    pointToUpdate.Set(Mathf.RoundToInt(chunkOffset.x), Mathf.RoundToInt(y), Mathf.RoundToInt(chunkOffset.z));
+                    pointToUpdate.Set(Mathf.FloorToInt(chunkOffset.x), Mathf.FloorToInt(y), Mathf.FloorToInt(chunkOffset.z));
                     chunk.UpdateTerrainAtPosition(pointToUpdate, weight * value);
                     chunk.UpdateSharedPoints(pointToUpdate, weight * value);
                 }
@@ -403,7 +403,7 @@ public class Chunk
         return congigurationIndex;
     }
 
-    void MarchCube2(Vector3Int coord)
+    void MarchCube(Vector3Int coord)
     {
         // Sample terrain values at each corner of the cube
 
