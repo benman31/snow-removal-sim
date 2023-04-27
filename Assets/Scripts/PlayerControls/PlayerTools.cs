@@ -135,10 +135,6 @@ public class PlayerTools : MonoBehaviour
                     }
 
                 }
-                else
-                {
-                    Debug.Log("nothing clicked");
-                }
             }
         }
 
@@ -162,10 +158,6 @@ public class PlayerTools : MonoBehaviour
                         }
                     }
 
-                }
-                else
-                {
-                    Debug.Log("nothing clicked");
                 }
             }
             if (animController.IsDroppingSnow() && playerSnowVolume > 0f)
