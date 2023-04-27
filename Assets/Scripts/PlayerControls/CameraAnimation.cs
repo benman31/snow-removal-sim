@@ -33,11 +33,11 @@ public class CameraAnimation : MonoBehaviour
 
             timer += Time.deltaTime*3;
 
-            // if (timer >= 1.2f)
-            // {
-            //     shovelling = false;
-            //     timer = 1.0f;
-            // }
+            if (timer >= 100f)
+            {
+                switchingWeapons = false;
+                timer = 1.0f;
+            }
         }
         else if (shovelling)
         {
@@ -60,7 +60,7 @@ public class CameraAnimation : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        //Debug.Log("timer is " + timer);
+        Debug.Log("dest rot is  " + destRot + "original ");
     }
 
     public void SetDestRot(Quaternion rot)

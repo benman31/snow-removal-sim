@@ -12,20 +12,22 @@ public class AnimationStateController : MonoBehaviour
     public Transform SnowPoofTransform;
     public GameObject SnowPoof;
     public Animator animator;
+    public PlayDissolveEffect[] playDissolve;
     [SerializeField] private Image poiseBar;
     [Range(0, 100.0f)] public float poise;
 
     [SerializeField] private GameObject[] snowPrefabs;
     private int activatedPrefab = -1;
     private int currentWeapon = 1; //1 for shovel
+    private int prevWeapon = 1;
 
     private CameraAnimation camAnim;
 
     private const float MAXPOISE = 100.0f;
     private const float POISEACCUMULATIONRATE = 90.0f;
 
-    private bool isDigging;
-    private bool carryingSnow;
+    private bool isDigging = false;
+    private bool carryingSnow = false;
 
     // These states are used purely for digging, not animation related
     private bool makingHole = false;
@@ -69,22 +71,13 @@ public class AnimationStateController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !isDigging && !carryingSnow)
-        {
-            if (currentWeapon == 1)
-            {
+        // if (Input.GetKeyDown(KeyCode.Alpha3) && !isDigging && !carryingSnow)
+        // {
+        //     currentWeapon = 3;
+        //     // mouseLook.equippedWeapon = currentWeapon;
 
-                animator.SetInteger("currentWep", 2);
-            }
-            else
-            {
-                animator.SetInteger("currentWep", 1);
-            }
-
-            // mouseLook.equippedWeapon = currentWeapon;
-
-            // animator.SetInteger("currentWep", currentWeapon);
-        }
+        //     // animator.SetInteger("currentWep", currentWeapon);
+        // }
 
         //Debug.Log(currentWeapon);
 
@@ -147,8 +140,10 @@ public class AnimationStateController : MonoBehaviour
     {
         if(isActive)
         {
+            this.prevWeapon = currentWeapon;
             this.currentWeapon = 1;
-            //animator.SetInteger("currentWep", 1);
+            mouseLook.equippedWeapon = currentWeapon;
+            animator.SetInteger("currentWep", 1);
         }
             
     }
@@ -157,8 +152,12 @@ public class AnimationStateController : MonoBehaviour
     {
         if (isActive)
         {
+            
+            this.prevWeapon = currentWeapon;
             this.currentWeapon = 2;
-            //animator.SetInteger("currentWep", 2);
+            mouseLook.equippedWeapon = currentWeapon;
+            animator.SetInteger("currentWep", 2);
+            Debug.Log("setting current wep as snow blower " + currentWeapon);
         }
     }
 
@@ -166,8 +165,10 @@ public class AnimationStateController : MonoBehaviour
     {
         if (isActive)
         {
+            this.prevWeapon = currentWeapon;
             this.currentWeapon = 3;
-            //animator.SetInteger("currentWep", 2);
+            mouseLook.equippedWeapon = currentWeapon;
+            animator.SetInteger("currentWep", 3);
         }
     }
 
@@ -208,17 +209,17 @@ public class AnimationStateController : MonoBehaviour
         isDigging = false;
     }
 
-    private void EquipFlameThrower()
-    {
-        currentWeapon = 2;
-        mouseLook.equippedWeapon = currentWeapon;
-    }
+    // private void EquipFlameThrower()
+    // {
+    //     currentWeapon = 3;
+    //     mouseLook.equippedWeapon = currentWeapon;
+    // }
 
-    private void EquipShovel()
-    {
-        currentWeapon = 1;
-        mouseLook.equippedWeapon = currentWeapon;
-    }
+    // private void EquipShovel()
+    // {
+    //     currentWeapon = 1;
+    //     mouseLook.equippedWeapon = currentWeapon;
+    // }
 
     private void SpawnSnowParticles()
     {
@@ -281,4 +282,16 @@ public class AnimationStateController : MonoBehaviour
         return droppingSnow;
     }
     // End Ben Code
+
+    private void playdissolveEffect()
+    {
+        Debug.Log("I am playing dissolve on weapon " + prevWeapon);
+        playDissolve[prevWeapon-1].Play(); //dissolve the old weapon
+    }
+
+    private void playdissolveEffectReverse()
+    {
+        Debug.Log("I am playing reverse dissolve on weapon " + currentWeapon);
+        playDissolve[currentWeapon-1].PlayReverse(); //spawn the weapon the new weapon
+    }
 }

@@ -53,23 +53,22 @@ public class MouseLook : MonoBehaviour
             {
                 yRotation = 0f;
             }
-            
 
             //rotate camera vertically (and horizontally if snowblower is active)
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
             //rotate Hands vertically together with camera when flamethrower is equipped
-            if(equippedWeapon == 2)
+            if (equippedWeapon == 3)
             {
                 playerHands.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             }
-            
 
             //rotate player horizontally is snow blower is not active
             if (!snowblowerActive)
+            {
                 playerBody.Rotate(Vector3.up * mouseX);
+            }
         }
-
     }
 
     private void HandleSnowblowerActive(bool isActive)
