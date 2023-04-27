@@ -52,8 +52,8 @@ Shader "Unlit/HeatDistortion"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                float4 distortion = tex2D(_DistortionTexture, i.uv);
-                fixed4 col = tex2D(_MainTex, i.uv + distortion.rg * _DistortionStr); //renders scene normally but distorts pixels that are behind distortion particles
+                float4 distortion = tex2D(_DistortionTexture, i.uv); 
+                fixed4 col = tex2D(_MainTex, i.uv + distortion.rg * _DistortionStr);
                 clip(col.a - _Cutoff); //cutoff texture edges 
                 return col;
             }

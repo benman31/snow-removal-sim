@@ -67,18 +67,18 @@ public class PlayerTools : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (this.currentTool != ToolType.SnowBlower && !animController.IsPlayerDigging() && !animController.IsCarryingSnow())
+            if (this.currentTool != ToolType.SnowBlower)
             {
                 this.currentTool = ToolType.SnowBlower;
                 OnShovelActive?.Invoke(false);
                 OnSnowblowerActive?.Invoke(true);
                 OnFlamethrowerActive?.Invoke(false);
 
-                // handsPointOfTransform?.gameObject.SetActive(false);
+                handsPointOfTransform?.gameObject.SetActive(false);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !animController.IsPlayerDigging() && !animController.IsCarryingSnow())
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             if (this.currentTool != ToolType.FlameThrower)
             {
