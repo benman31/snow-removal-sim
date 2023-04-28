@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         //SceneManager.UnloadSceneAsync("MainMenu");
-        SceneManager.LoadScene("MVPScene");
+        SceneManager.LoadScene("FINALFINALSCENE");
     }
 
     public void QuitGame()

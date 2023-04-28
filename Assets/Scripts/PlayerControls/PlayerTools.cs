@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public enum ToolType
@@ -25,14 +26,14 @@ public class PlayerTools : MonoBehaviour
     [Range(0f, 50f)] public float brushStrength = 5f;
 
     [SerializeField] private ToolType currentTool = ToolType.Shovel;
-    [SerializeField] private float shovelRange = 2f;
+    [SerializeField] private float shovelRange = 10f;
     [SerializeField] private Transform shovelTip;
     [SerializeField] private Transform handsPointOfTransform;
 
 
     private AnimationStateController animController;
-    private const float POISE_SCALE = 2f;
-    private const float SNOW_LOSS_SCALE = 1f;
+    private const float POISE_SCALE = 1.5f;
+    private const float SNOW_LOSS_SCALE = 0.25f;
 
     private float playerSnowVolume = 0f;
 
@@ -42,12 +43,14 @@ public class PlayerTools : MonoBehaviour
         this.animController = this.GetComponentInParent<AnimationStateController>();
         SnowBlowerController.OnSnowCollision += this.HandleSnowBlower;
         SnowblowerTrajectory.OnGroundCollision += this.HandleSnowBlowerTrajectory;
+        Dig.OnSnowCollision += this.HandleDig;
     }
 
     private void OnDestroy()
     {
         SnowBlowerController.OnSnowCollision -= this.HandleSnowBlower;
         SnowblowerTrajectory.OnGroundCollision -= this.HandleSnowBlowerTrajectory;
+        Dig.OnSnowCollision -= this.HandleDig;
     }
 
     // Update is called once per frame
@@ -118,9 +121,9 @@ public class PlayerTools : MonoBehaviour
 
         if (this.currentTool == ToolType.Shovel)
         {
-            if (animController.IsMakingHole())
+            /*if (animController.IsPlayerDigging() || animController.IsMakingHole() || animController.IsCarryingSnow())
             {
-                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.35f, 1f));
+                Ray ray = cam.ViewportPointToRay(new Vector3(0.0f, 0f, 0f));
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit, shovelRange))
@@ -137,7 +140,7 @@ public class PlayerTools : MonoBehaviour
                     }
 
                 }
-            }
+            }*/
             if (animController.IsDroppingSnow() && playerSnowVolume > 0f)
             {
                 Vector3 down = shovelTip.TransformDirection(Vector3.down);
@@ -158,6 +161,23 @@ public class PlayerTools : MonoBehaviour
                     }
 
                 }
+            }
+        }
+    }
+
+    // Temp experiment
+    public void HandleDig(Vector3 point)
+    {
+        if (this.currentTool == ToolType.Shovel)
+        {
+            Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
+            Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(point, scale));
+            if (chunk != null)
+            {
+                // TODO make these hard coded values into const, or editor props
+                //chunk.RemoveTerrain(Vector3.Scale(point, scale), 2.5f, 50);
+                chunk.RemoveTerrain(Vector3.Scale(point, scale), brushSize, animController.poise * POISE_SCALE);
+                playerSnowVolume += 1f;
             }
         }
     }
