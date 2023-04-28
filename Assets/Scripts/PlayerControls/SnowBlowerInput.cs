@@ -1,3 +1,5 @@
+// Author: Benjamin Enman 97377
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,8 +25,8 @@ public class SnowBlowerInput : MonoBehaviour
     }
 
     [Header("State Properties")]
-    
-    private bool _snowblowerActive;
+
+    private bool _snowblowerActive = false;
     public bool SnowblowerActive
     {
         get { return _snowblowerActive; }
@@ -37,6 +39,7 @@ public class SnowBlowerInput : MonoBehaviour
     #region Builtin Methods
     private void Start()
     {
+        this._snowblowerActive = true;
         PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
     }
 
@@ -46,6 +49,7 @@ public class SnowBlowerInput : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log($"I AM ACTIVE {this._snowblowerActive}");
         if (SnowblowerActive)
         {
             HandleInputs();
@@ -61,11 +65,13 @@ public class SnowBlowerInput : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Q))
         {
+            Debug.Log("Pressed Q");
             _rotationInput = -1f;
         }
 
         if (Input.GetKey(KeyCode.E))
         {
+            Debug.Log("Pressed E");
             _rotationInput = 1f;
         }
 
@@ -86,6 +92,7 @@ public class SnowBlowerInput : MonoBehaviour
 
     private void HandleSnowblowerActive(bool isActive)
     {
+        Debug.Log("ACTIVE!!!!!!!!!");
         _snowblowerActive = isActive;
     }
     #endregion

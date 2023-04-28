@@ -1,3 +1,5 @@
+// Author: Benjamin Enman 97377
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +23,7 @@ public class Objective : MonoBehaviour
     public int zEnd { get { return _zEnd; } }
 
     [SerializeField] float percentageToComplete = 1f;
+    [SerializeField] float volumeClearThreshold = 1f;
 
     private bool isDirty = false;
 

@@ -1,3 +1,5 @@
+// Author: Benjamin Enman 97377
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ public class SnowBlowerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         input = GetComponent<SnowBlowerInput>();
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
         PlayerTools.OnSnowblowerActive += HandleSnowblowerActive;
     }

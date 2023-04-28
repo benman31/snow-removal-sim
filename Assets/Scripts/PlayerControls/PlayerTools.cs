@@ -31,8 +31,8 @@ public class PlayerTools : MonoBehaviour
 
 
     private AnimationStateController animController;
-    private const float POISE_SCALE = 0.5f;
-    private const float SNOW_LOSS_SCALE = 2.5f;
+    private const float POISE_SCALE = 2f;
+    private const float SNOW_LOSS_SCALE = 1f;
 
     private float playerSnowVolume = 0f;
 
@@ -53,6 +53,7 @@ public class PlayerTools : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($"Current tool: {this.currentTool}");
         if (Input.GetKeyDown(KeyCode.Alpha1)){
             if (this.currentTool != ToolType.Shovel)
             {
@@ -69,6 +70,7 @@ public class PlayerTools : MonoBehaviour
         {
             if (this.currentTool != ToolType.SnowBlower && !animController.IsPlayerDigging() && !animController.IsCarryingSnow())
             {
+                Debug.Log($"Switching tools to SNOWBLOWER: {OnSnowblowerActive.GetInvocationList().Length}");
                 this.currentTool = ToolType.SnowBlower;
                 OnShovelActive?.Invoke(false);
                 OnSnowblowerActive?.Invoke(true);
@@ -93,33 +95,9 @@ public class PlayerTools : MonoBehaviour
 
         if (this.currentTool == ToolType.FlameThrower)
         {
-            if (Input.GetMouseButton(1))
-            {
-                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.transform.tag == "Terrain" || hit.transform.tag == "Snow")
-                    {
-                        Vector3 scale = new Vector3(1f / worldGen.transform.localScale.x, 1f / worldGen.transform.localScale.y, 1f / worldGen.transform.localScale.z);
-                        Chunk chunk = worldGen.GetChunkFromVector3(Vector3.Scale(hit.point, scale));
-                        if (chunk != null)
-                        {
-                            chunk.AddTerrain(Vector3.Scale(hit.point, scale), brushSize, brushStrength);
-                        }
-                    }
-
-                }
-                else
-                {
-                    Debug.Log("nothing clicked");
-                }
-            }
-
             if (Input.GetMouseButton(0))
             {
-                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 1f));
+                Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 2f));
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit))

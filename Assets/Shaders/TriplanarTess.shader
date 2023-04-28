@@ -20,8 +20,14 @@ Shader "Custom/TriplanarTess"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue" = "Geometry"}
         LOD 200
+
+		Stencil{
+			Ref 100
+			Comp Always
+			Pass Replace
+		}
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
