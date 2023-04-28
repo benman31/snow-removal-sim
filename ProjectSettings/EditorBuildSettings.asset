@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MarchingCubes.unity
     guid: fb202942e7e9df1468eb5469f8cfb2e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MVPScene.unity
     guid: 73b706c38cbc27c42b0d620497c5c205
   - enabled: 0
@@ -29,4 +29,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 59f94b54a8a9c844fbdb29db795a3605
+  - enabled: 0
+    path: Assets/Scenes/MVPScene Awad.unity
+    guid: 9f5aa752a7508f14e88d6fad9a7aadc1
+  - enabled: 0
+    path: Assets/Low_Poly_Environment_World/DemeScenes/DemoScene_SnowVillage.unity
+    guid: eaf205317072bf040ab46fb204162b8d
+  - enabled: 0
+    path: Assets/Scenes/FinalScene.unity
+    guid: caf77d7e08bd6894eb2917375b5aa199
+  - enabled: 1
+    path: Assets/Scenes/FINALFINALSCENE.unity
+    guid: 01cf83576f679c244bd4c8718b61b53b
+  - enabled: 0
+    path: Assets/Low_Poly_Environment_World/DemeScenes/DemoScene_RockyHills.unity
+    guid: 9a323c9ef5aecf54497b4db6b3eb615f
+  - enabled: 0
+    path: Assets/Low_Poly_Environment_World/DemeScenes/DemoScene_SnowRoads.unity
+    guid: a8ff3e5a5a9b37448babcbade2ece24c
+  - enabled: 0
+    path: Assets/Low_Poly_Environment_World/DemeScenes/DemoScene_SnowAssets.unity
+    guid: 75b93441f56ffd04cab5dcf718401007
   m_configObjects: {}
