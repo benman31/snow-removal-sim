@@ -1,3 +1,5 @@
+// Author: Benjamin Enman 97377
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +45,7 @@ public class ObjectiveManager : MonoBehaviour
             AddObjective(obj.name, obj);
 
         }
-        this.transform.localScale = new Vector3(gameGrid.transform.localScale.x, 10, gameGrid.transform.localScale.y);
+        this.transform.localScale = new Vector3(gameGrid.transform.localScale.x, 30, gameGrid.transform.localScale.y);
         Debug.Log($"Objective Count: {_objectives.Count}");
 
         this.objectiveDisplay.SetActive(false);

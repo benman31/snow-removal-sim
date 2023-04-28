@@ -90,7 +90,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tess: 8
-    - _TexScale: 20
+    - _TexScale: 40
     - _TriplanarBlendSharpness: 1
     - _UVSec: 0
     - _ZWrite: 1

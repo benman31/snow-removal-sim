@@ -79,7 +79,7 @@ public class AnimationStateController : MonoBehaviour
         //     // animator.SetInteger("currentWep", currentWeapon);
         // }
 
-        //Debug.Log(currentWeapon);
+        Debug.Log(currentWeapon);
 
         if (isDigging)
         {
