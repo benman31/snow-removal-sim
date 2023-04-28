@@ -39,11 +39,8 @@ public class Wind : MonoBehaviour
             windDirectionTimeSlot = Random.Range(windDirectionTimeSlotMin, windDirectionTimeSlotMax + 0.1f);
             windDirectionCountDown = windDirectionTimeSlot;
 
-            // newWindDir = new Vector2(Random.Range(-1.0f, 1.1f), Random.Range(-1.0f, 1.1f));
-            // oldWindDir = currentWindDir;
-
-            newWindDir = new Vector2(-0.3f,-.1f);
-            oldWindDir = newWindDir;
+            newWindDir = new Vector2(Random.Range(-1.0f, 1.1f), Random.Range(-1.0f, 1.1f));
+            oldWindDir = currentWindDir;
         }
 
         currentWindDir = Vector2.Lerp(oldWindDir, newWindDir, windDirectionCountDown/windDirectionTimeSlot);
