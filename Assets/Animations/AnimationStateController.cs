@@ -152,7 +152,6 @@ public class AnimationStateController : MonoBehaviour
     {
         if (isActive)
         {
-            
             this.prevWeapon = currentWeapon;
             this.currentWeapon = 2;
             mouseLook.equippedWeapon = currentWeapon;
