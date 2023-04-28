@@ -9,7 +9,7 @@ using System;
 
 public class TimeController : MonoBehaviour
 {
-
+    [SerializeField] private Material skybox;
     [SerializeField] private Light sunLight;
     [SerializeField] private float maxSunLightIntesity;
 
@@ -20,6 +20,7 @@ public class TimeController : MonoBehaviour
     [SerializeField] private Color nightTimeAmbient;
 
     [SerializeField] private AnimationCurve shadowStrengthCurve;
+    [SerializeField] private AnimationCurve sunSizeCurve;
 
     private float timeMultiplier;
     private float startHour;
@@ -82,11 +83,16 @@ public class TimeController : MonoBehaviour
         dotProduct += 1;
         dotProduct /= 2;
 
-        sunLight.intensity = Mathf.Lerp(0, maxSunLightIntesity, dotProduct);
+        float sunSize = Mathf.Lerp(3, 2, sunSizeCurve.Evaluate(dotProduct));
+        float blend = Mathf.Lerp(1, 0, dotProduct);
+        skybox.SetFloat("_Blend", blend);
+        skybox.SetFloat("_Sun", sunSize);
+
+        sunLight.intensity = Mathf.SmoothStep(0, maxSunLightIntesity, dotProduct);
         moonLight.intensity = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
 
-        moonLight.shadowStrength = Mathf.SmoothStep(maxMoonLightIntesity, 0, dotProduct);
-        sunLight.shadowStrength = Mathf.Lerp(0, maxSunLightIntesity, shadowStrengthCurve.Evaluate(dotProduct));
+        moonLight.shadowStrength = Mathf.SmoothStep(1, 0, shadowStrengthCurve.Evaluate(dotProduct));
+        sunLight.shadowStrength = Mathf.Lerp(0, 1, shadowStrengthCurve.Evaluate(dotProduct));
 
         RenderSettings.ambientLight = Color.Lerp(nightTimeAmbient, dayTimeAmbient, dotProduct);
     }

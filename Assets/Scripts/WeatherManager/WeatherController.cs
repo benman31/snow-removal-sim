@@ -95,7 +95,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else if (particleSystems[i].gameObject.name.Equals("Particle System left"))
                 {
-                    particleSystems[i].transform.position = player.transform.position + new Vector3(-25.0f, 7.5f, 0);
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(-50.0f, 7.5f, 0);
 
                     //only emit particles when wind direction is towards positive X axis
                     if (wind.currentWindDir.x > 0)
@@ -117,7 +117,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else if (particleSystems[i].gameObject.name.Equals("Particle System right"))
                 {
-                    particleSystems[i].transform.position = player.transform.position + new Vector3(25.0f, 7.5f, 0);
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(50.0f, 7.5f, 0);
 
                     if (wind.currentWindDir.x < 0)
                     {
@@ -137,7 +137,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else if (particleSystems[i].gameObject.name.Equals("Particle System forward"))
                 {
-                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, 25.0f);
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, 50.0f);
 
                     if (wind.currentWindDir.y < 0)
                     {
@@ -157,7 +157,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else if (particleSystems[i].gameObject.name.Equals("Particle System backward"))
                 {
-                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, -25.0f);
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 7.5f, -50.0f);
 
                     if (wind.currentWindDir.y > 0)
                     {
@@ -177,7 +177,7 @@ public class WeatherController : MonoBehaviour
                 }
                 else if (particleSystems[i].gameObject.name.Equals("Particle System global"))
                 {
-                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 30.0f, 0);
+                    particleSystems[i].transform.position = player.transform.position + new Vector3(0, 40.0f, 0);
                     emissionRates[5].rateOverTime = Mathf.SmoothStep(0, MAXEMISSIONRATE/2, snowFallRate / 10);
                 }
 
@@ -185,20 +185,12 @@ public class WeatherController : MonoBehaviour
             }
         }
 
-        //wind zone
+        //wind zone for tree sway
         ctiWind.WindDirection = new Vector3(wind.currentWindDir.x, 0, wind.currentWindDir.y);
         windZone.windMain = Mathf.Lerp(0, 3.0f, windIntesity / MAXWINDINTENSITY);
 
-        //wind script
+        //wind script for snow particles
         wind.windIntesity = windIntesity;
-
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     emissionRates[i].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
-        // }
-
-        // //global particle system in the sky
-        // emissionRates[5].rateOverTime = Mathf.SmoothStep(0, 195, snowFallRate / 10);
 
         StartCoroutine(PPEffects());
     }
