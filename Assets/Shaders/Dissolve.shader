@@ -1,3 +1,7 @@
+/*
+Written by: Abdelrahman Awad
+*/
+
 Shader "Custom/Dissolve"
 {
 	Properties
